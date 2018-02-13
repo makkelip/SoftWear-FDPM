@@ -5,3 +5,4 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+/FDPM/nbproject/private/
