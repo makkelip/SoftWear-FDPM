@@ -7,8 +7,8 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="FDPM" default="default" basedir=".">
-    <description>Builds, tests, and runs the project FDPM.</description>
+<project name="FDPM-SERVER" default="default" basedir=".">
+    <description>Builds, tests, and runs the project FDPM-SERVER.</description>
     <import file="nbproject/build-impl.xml"/>
     <!--
 

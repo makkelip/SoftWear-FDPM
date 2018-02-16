@@ -6,3 +6,4 @@ dist/
 nbdist/
 .nb-gradle/
 /FDPM/nbproject/private/
+/FDPM-SERVER/nbproject/private/
