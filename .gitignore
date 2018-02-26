@@ -7,3 +7,5 @@ nbdist/
 .nb-gradle/
 /FDPM/nbproject/private/
 /FDPM-SERVER/nbproject/private/
+/FDPM-SERVER/web/WEB-INF/glassfish-resources.xml
+/FDPM-SERVER/src/conf/persistence.xml
