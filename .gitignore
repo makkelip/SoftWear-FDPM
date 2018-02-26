@@ -5,6 +5,13 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
+#Intellij
+.idea/
+*.iml
+*.iws
+
+#Other
 /FDPM/nbproject/private/
 /FDPM-SERVER/nbproject/private/
 /FDPM-SERVER/web/WEB-INF/glassfish-resources.xml
