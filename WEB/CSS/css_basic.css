@@ -80,6 +80,10 @@ body {
 
 /* FONTS AND FONT COLORS */
 
+a:link {
+  text-decoration: none;
+}
+
 #main-header {
   color: var(--header-logo:);
 }

@@ -1,13 +1,17 @@
 /* PAGE COLORS */
 
 :root {
-  --header-color: #EFEFEF;
+  --header-color: #FF3B3F;
   --section-color: #FFF;
-  --footer-color: #A9A9A9;
+  --aside-color: #CAEBF2;
+  --footer-color: #EFEFEF;
 
-  --header-logo: #000;
-  --header-link: #000;
-  --header-link-hover: #3a3a3a;
+  --header-logo: #FFF;
+  --header-link: #FFF;
+  --header-link-hover: #d6d6d6;
+  --tab-link: #000;
+  --tab-link-hover: #3a3a3a;
+  --footer-text: #A9A9A9;
 
   #FF3B3F /*watermelon*/
   #CAEBF2 /*sky*/
@@ -46,7 +50,7 @@ body {
 
 .grid-aside {
   grid-area: aside;
-  background-color: #caccaa;
+  background-color: var(--aside-color);
 }
 
 .grid-footer {
@@ -59,7 +63,6 @@ body {
 
 #flex-header {
   display: flex;
-  flex-direction: row;
   align-items: center;
 }
 
@@ -75,6 +78,25 @@ body {
 }
 
 
+/* ASIDE LAYOUT */
+
+#flex-aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tab-header {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#tab-content {
+  display: flex;
+  flex-direction: column;
+}
+
+
 /* FOOTER LAYOUT */
 
 #flex-footer {
@@ -86,8 +108,12 @@ body {
 
 /* FONTS AND FONT COLORS */
 
+a:link {
+  text-decoration: none;
+}
+
 #main-header {
-  color: var(--header-logo:);
+  color: var(--header-logo);
 }
 
 #main-nav a:link {
@@ -96,4 +122,16 @@ body {
 
 #main-nav a:hover {
   color: var(--header-link-hover);
+}
+
+#tab-content a:link {
+  color: var(--tab-link);
+}
+
+#tab-content a:hover {
+  color: var(--tab-link-hover);
+}
+
+footer p {
+  color: var(--footer-text);
 }
