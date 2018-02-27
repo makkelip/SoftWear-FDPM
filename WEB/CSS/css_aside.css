@@ -27,10 +27,11 @@ body {
   height: inherit;
   font-family: Arial, sans-serif;
   display: grid;
-  grid-template-areas: "head"
-                       "section"
-                       "foot";
+  grid-template-areas: "head head"
+                       "section aside"
+                       "foot foot";
   grid-template-rows: 15% 75% 10%;
+  grid-template-columns: 3fr 1fr;
 }
 
 .grid-header {
@@ -41,6 +42,11 @@ body {
 .grid-section {
   grid-area: section;
   background-color: var(--section-color);
+}
+
+.grid-aside {
+  grid-area: aside;
+  background-color: #caccaa;
 }
 
 .grid-footer {
