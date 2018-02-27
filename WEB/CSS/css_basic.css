@@ -1,0 +1,74 @@
+/* PAGE COLORS */
+
+:root {
+  --header-color: #FF3B3F;
+  section-color:
+  footer-color:
+
+  #FF3B3F /*watermelon*/
+  #CAEBF2 /*sky*/
+  #A9A9A9 /*carbon*/
+  #EFEFEF /*neutral*/
+}
+
+
+/* PAGE LAYOUT */
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: inherit;
+  font-family: Arial, sans-serif;
+  display: grid;
+  grid-template-areas: "head"
+                       "section"
+                       "foot";
+  grid-template-rows: 15% 75% 10%;
+}
+
+.grid-header {
+  grid-area: head;
+  background-color: var(--header-color);
+}
+
+.grid-section {
+  grid-area: section;
+  background-color: #faffaa;
+}
+
+.grid-footer {
+  grid-area: foot;
+  background-color: #eaeeaa;
+}
+
+
+/* HEADER LAYOUT */
+
+#flex-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#main-header {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#main-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+/* FOOTER LAYOUT */
+
+#flex-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
