@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Tiedoston tallenus ja lataus</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>Lataa tiedosto koneeltasi</h2>
+        <form action="FileUpload" enctype="multipart/form-data" method="post">
+            <input type="file" name="photo" size="50"> 
+            <p>Nimeä tiedosto</p><input type="text" name="name" size="50">
+            <input type="submit" value="Lataa">
+        </form>
+        <form action="FileUpload" method="get">
+        <input type="submit" value="Hae kaikki">
+        </form>
+         <form action="ShowFile" method="get">
+         <p>Numppero</p><input type="number" name="id">
+        <input type="submit" value="lataa">
+        </form>
+    </body>
+</html>
