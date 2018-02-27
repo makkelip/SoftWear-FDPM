@@ -19,62 +19,36 @@ package model;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  *
  * @author Markus
  */
 @Entity
-public class Product implements Serializable {
+public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String name;
-    @ManyToOne
-    private ProductGroup productGroup;
-    @ManyToOne
-    private PriceGroup priceGroup;
-    @ManyToOne
-    private Customer customer;
-    @ManyToOne
-    private Outfit outfit;
-    @ManyToOne
-    private Project project;
-    @OneToMany(mappedBy = "product")
-    private List<Color> colors;
-    @OneToMany(mappedBy = "product")
-    private List<Material> materials;
+    private String userName;
+    private String email;
+    private List<Customer> customers;
     
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (userName != null ? userName.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Product)) {
+        if (!(object instanceof Account)) {
             return false;
         }
-        Product other = (Product) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        Account other = (Account) object;
+        if ((this.userName == null && other.userName != null) || (this.userName != null && !this.userName.equals(other.userName))) {
             return false;
         }
         return true;
@@ -82,7 +56,10 @@ public class Product implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Product[ id=" + id + " ]";
+        return "model.User[ username=" + userName + " ]";
     }
     
+    public String getUserName() {
+        return userName;
+    }
 }

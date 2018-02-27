@@ -22,35 +22,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  *
  * @author Markus
  */
 @Entity
-public class Product implements Serializable {
+public class ProductGroup implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    @ManyToOne
-    private ProductGroup productGroup;
-    @ManyToOne
-    private PriceGroup priceGroup;
-    @ManyToOne
-    private Customer customer;
-    @ManyToOne
-    private Outfit outfit;
-    @ManyToOne
-    private Project project;
-    @OneToMany(mappedBy = "product")
-    private List<Color> colors;
-    @OneToMany(mappedBy = "product")
-    private List<Material> materials;
+    private List<Product> products;
     
     public Long getId() {
         return id;
@@ -70,10 +55,10 @@ public class Product implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Product)) {
+        if (!(object instanceof ProductGroup)) {
             return false;
         }
-        Product other = (Product) object;
+        ProductGroup other = (ProductGroup) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -82,7 +67,7 @@ public class Product implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Product[ id=" + id + " ]";
+        return "model.productGroup[ id=" + id + " ]";
     }
     
 }
