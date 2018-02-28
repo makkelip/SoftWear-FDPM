@@ -57,15 +57,27 @@ body {
   align-items: center;
 }
 
-#main-header {
-  display: flex;
-  justify-content: flex-start;
-}
-
-#main-nav {
+#header-nav {
   width: 100%;
   display: flex;
   justify-content: space-around;
+}
+
+
+/* SECTION LAYOUT */
+
+section {
+  margin-left: 5%;
+}
+
+.typing-area {
+  border: 1px solid black;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+textarea {
+  border: 1px solid black;
 }
 
 
@@ -84,18 +96,14 @@ a:link {
   text-decoration: none;
 }
 
-#main-header {
-  color: var(--header-logo:);
-}
-
-#main-nav a:link {
+#header-nav a:link {
   color: var(--header-link);
 }
 
-#main-nav a:visited {
+#header-nav a:visited {
   color: var(--header-link);
 }
 
-#main-nav a:hover {
+#header-nav a:hover {
   color: var(--header-link-hover);
 }

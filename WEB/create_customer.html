@@ -3,37 +3,36 @@
   <head>
     <title>Create customer</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="CSS/css_basic_modified.css">
   </head>
 
-  <body class="grid-container">
-    <header class="grid-header">
-      <div class="flex-nav">
-        <h1 id="main-header">FDPM</h1>
-        <nav id="main-nav">
-          <a href="#">Customer</a>
-          <a href="#">Project</a>
-          <a href="#">Product</a>
-          <a href="#">Color</a>
-        </nav>
-      </div>
+  <body>
+    <header class="grid-header" id="flex-header">
+      <h1>FDPM</h1>
+      <nav id="header-nav">
+        <a href="#">Customer</a>
+        <a href="#">Project</a>
+        <a href="#">Product</a>
+        <a href="#">Color</a>
+      </nav>
     </header>
 
     <section class="grid-section">
-      <h1 class="section-header">Create new customer</h1>
+      <h1>Create new customer</h1>
       <form class="form-area">
         Company name:<br>
-        <input type="text" name="companyName"><br>
+        <input class="typing-area" type="text" name="companyName"><br>
         Email:<br>
-        <input type="email" name="emailAddress"><br>
-        <label id="area-label" for="description">Description: </label>
-        <textarea id="description" name="desc" rows="10" cols="50"></textarea>
-        <input type="submit" value="Submit">
-        <input type="submit" value="Cancel">
+        <input class="typing-area" type="email" name="emailAddress"><br>
+        <label for="description">Description: </label><br>
+        <textarea id="description" name="desc" rows="10" cols="70"></textarea><br>
+        <input class="button" type="submit" value="Submit">
+        <input class="button" type="submit" value="Cancel">
       </form>
     </section>
 
-    <footer class="grid-footer">
-      <p class="flex-footer">&copy; 2018 SoftWear</p>
+    <footer class="grid-footer" id="flex-footer">
+      <p>&copy; 2018 SoftWear</p>
     </footer>
   </body>
 </html>
