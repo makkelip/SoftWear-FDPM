@@ -50,9 +50,11 @@ public class Project implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date endingDate;
     private Double coverPercent;
-    //INCOMPLETE
-    //@OneToMany(mappedBy = "project")
-    //private List<Product> products;
+    
+    @OneToMany(mappedBy = "project")
+    @JsonManagedReference
+    private List<Product> products;
+    
     @ManyToMany
     @JsonManagedReference
     private List<Color> colors;

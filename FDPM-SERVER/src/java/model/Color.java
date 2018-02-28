@@ -43,8 +43,10 @@ public class Color implements Serializable {
     private String name;
     private String pantone;
     private String hexColorValue;
-    //@ManyToMany(mappedBy = "color")
-    //private List<Product> products;
+    
+    @ManyToMany(mappedBy = "color")
+    private List<Product> products;
+    
     @ManyToMany(mappedBy = "colors")
     @JsonManagedReference
     private List<Project> projects;

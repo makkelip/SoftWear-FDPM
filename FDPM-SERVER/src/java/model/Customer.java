@@ -16,12 +16,15 @@
  */
 package model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -37,7 +40,13 @@ public class Customer implements Serializable {
     private String name;
     private String email;
     private String description;
+    
+    @OneToMany(mappedBy="customer")
+    @JsonManagedReference
     private List<Product> products;
+    
+    @ManyToMany(mappedBy="customers")
+    @JsonManagedReference
     private List<Account> accounts;
 
     public Long getId() {
