@@ -87,11 +87,7 @@ public class ColorFacadeREST extends AbstractFacade<Color> {
     @Override
     @Produces({MediaType.APPLICATION_JSON})
     public List<Color> findAll() {
-        List<Color> cl = super.findAll();
-        for(Color c : cl) {
-            em.refresh(c);
-        }
-        return cl;
+        return super.findAll();
     }
     
     @GET

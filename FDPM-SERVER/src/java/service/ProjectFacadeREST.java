@@ -78,11 +78,7 @@ public class ProjectFacadeREST extends AbstractFacade<Project> {
     @Override
     @Produces({MediaType.APPLICATION_JSON})
     public List<Project> findAll() {
-        List<Project> pl = super.findAll();
-        for(Project p : pl) {
-            em.refresh(p);
-        }
-        return pl;
+        return super.findAll();
     }
 
     @GET

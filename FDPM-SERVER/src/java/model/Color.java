@@ -16,6 +16,8 @@
  */
 package model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.List;
 import javax.json.bind.annotation.JsonbTransient;
@@ -44,6 +46,7 @@ public class Color implements Serializable {
     //@ManyToMany(mappedBy = "color")
     //private List<Product> products;
     @ManyToMany(mappedBy = "colors")
+    @JsonManagedReference
     private List<Project> projects;
     
     //GETTERS
