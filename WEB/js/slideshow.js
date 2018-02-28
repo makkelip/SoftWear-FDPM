@@ -1,6 +1,6 @@
 let firstItem = 0;
 let lastItem = 2;
-const items = document.getElementsByClassName("slide-boxarea");
+const items = document.getElementsByClassName("boxitem");
 let activeItems = [];
 for (let i = firstItem; i <= lastItem; i++) {
     activeItems.push(items[i]);
@@ -23,6 +23,9 @@ const prev = () => {
         showItems();
     }
 };
+
+document.getElementById('left-button').onclick = prev;
+document.getElementById('right-button').onclick = next;
 
 const hide = item => item.style.display = "none";
 const show = item => item.style.display = "block";
