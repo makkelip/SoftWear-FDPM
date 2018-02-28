@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Create customer</title>
+    <title>Create product</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="CSS/css_basic_modified.css">
   </head>
@@ -18,12 +18,18 @@
     </header>
 
     <section class="grid-section">
-      <h1>Create new customer</h1>
+      <h1>Create new product</h1>
       <form class="form-area">
-        Company name:<br>
-        <input class="typing-area" type="text" name="companyName"><br>
-        Email:<br>
-        <input class="typing-area" type="email" name="emailAddress"><br>
+        Product name:<br>
+        <input class="typing-area" type="text" name="productName"><br>
+        Product type:<br>
+        <input class="typing-area" type="text" name="productType"><br>
+        Price group:<br>
+        <input class="typing-area" type="text" name="priceGroup"><br>
+        Estimated price:<br>
+        <input class="typing-area" type="number" min="0.00" max="1000.00" step="0.01"><br>
+        Outfit:<br>
+        <input class="typing-area" type="text" name="outfit"><br>
         <label for="description">Description: </label><br>
         <textarea id="description" name="desc" rows="10" cols="70"></textarea><br>
         <input class="button" type="submit" value="Create">
