@@ -10,7 +10,7 @@
    /*Header colors*/
     --header-logo: #F5F5F5;
     --header-link: #F5F5F5;
-    --header-link-hover: #d6d6d6;
+    --header-link-hover: #4B5366;
    /*Section colors*/
     --button-color: #FF533D;
     --font-color: #FFF;
@@ -99,6 +99,11 @@ body {
 
 /*SECTION LAYOUT*/
 
+section{
+    margin-left:5%;
+    
+}
+
 /*CAROUSEL FLEX*/
 
 .slide-boxcontent {
@@ -155,14 +160,9 @@ body {
     margin-top: 10em;
 }
 
-.section-header {
-    padding-left: 20px;
 
-}
 
-.section-create {
-    padding-left: 20px;
-}
+
 
 
 
