@@ -29,34 +29,34 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import model.Project;
+import model.Material;
 
 /**
  *
  * @author Markus
  */
 @Stateless
-@Path("model.project")
-public class ProjectFacadeREST extends AbstractFacade<Project> {
+@Path("model.material")
+public class MaterialFacadeREST extends AbstractFacade<Material> {
 
     @PersistenceContext(unitName = "FDPM-SERVERPU")
     private EntityManager em;
 
-    public ProjectFacadeREST() {
-        super(Project.class);
+    public MaterialFacadeREST() {
+        super(Material.class);
     }
 
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void create(Project entity) {
+    public void create(Material entity) {
         super.create(entity);
     }
 
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Long id, Project entity) {
+    public void edit(@PathParam("id") Long id, Material entity) {
         super.edit(entity);
     }
 
@@ -69,21 +69,21 @@ public class ProjectFacadeREST extends AbstractFacade<Project> {
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Project find(@PathParam("id") Long id) {
+    public Material find(@PathParam("id") Long id) {
         return super.find(id);
     }
 
     @GET
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Project> findAll() {
+    public List<Material> findAll() {
         return super.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Project> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<Material> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 

@@ -10,23 +10,23 @@
             <minimum-ant-version>1.6.5</minimum-ant-version>
             <web-module-libraries>
                 <library dirs="200">
-                    <file>${file.reference.jackson-annotations.jar}</file>
+                    <file>${file.reference.jackson-annotations.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.jackson-core.jar}</file>
+                    <file>${file.reference.jackson-core.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.jackson-databind.jar}</file>
+                    <file>${file.reference.jackson-databind.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.jackson-module-jaxb-annotations.jar}</file>
+                    <file>${file.reference.jackson-module-jaxb-annotations.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.jersey-media-json-jackson.jar}</file>
+                    <file>${file.reference.jersey-media-json-jackson.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>

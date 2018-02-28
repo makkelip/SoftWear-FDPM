@@ -81,6 +81,7 @@ public class Project implements Serializable {
     }
 
     //@JsonbTransient
+    @XmlTransient
     public List<Color> getColors() {
         return colors;
     }

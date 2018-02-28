@@ -22,12 +22,14 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Markus
  */
 @Entity
+@XmlRootElement
 public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
