@@ -16,12 +16,14 @@
  */
 package model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -38,18 +40,25 @@ public class Product implements Serializable {
     private Long id;
     private String name;
     @ManyToOne
+    @JsonManagedReference
     private ProductGroup productGroup;
     @ManyToOne
+    @JsonManagedReference
     private PriceGroup priceGroup;
     @ManyToOne
+    @JsonManagedReference
     private Customer customer;
     @ManyToOne
+    @JsonManagedReference
     private Outfit outfit;
     @ManyToOne
+    @JsonManagedReference
     private Project project;
-    @OneToMany(mappedBy = "product")
+    @ManyToMany
+    @JsonManagedReference
     private List<Color> colors;
-    @OneToMany(mappedBy = "product")
+    @ManyToMany
+    @JsonManagedReference
     private List<Material> materials;
     
     public Long getId() {

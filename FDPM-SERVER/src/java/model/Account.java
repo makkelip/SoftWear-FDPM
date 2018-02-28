@@ -16,10 +16,12 @@
  */
 package model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 /**
  *
@@ -32,6 +34,8 @@ public class Account implements Serializable {
     @Id
     private String userName;
     private String email;
+    @ManyToMany
+    @JsonManagedReference
     private List<Customer> customers;
     
     @Override
