@@ -4,6 +4,7 @@
     <title>Create customer</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="CSS/basic_modified.css">
+    <script src="JS/submit.js"></script>
   </head>
 
   <body>
@@ -19,15 +20,15 @@
 
     <section class="grid-section">
       <h1>Create new customer</h1>
-      <form class="form-area" action="" method="post"> <!--action points to JS function-->
+      <form class="form-area" id="formId">
         Company name:<br>
-        <input class="typing-area" type="text" name="name" required><br>
+        <input class="typing-area" type="text" name="name" required /><br>
         Email:<br>
-        <input class="typing-area" type="email" name="email"><br>
+        <input class="typing-area" type="email" name="email" /><br>
         <label for="description">Description: </label><br>
         <textarea id="description" name="description" rows="10" cols="70"></textarea><br>
-        <input class="button" type="submit" value="Create">
-        <input class="button" type="submit" value="Cancel">
+        <input class="button" id="createButton" type="button" value="Create" />
+        <input class="button" type="submit" value="Cancel" />
       </form>
     </section>
 
