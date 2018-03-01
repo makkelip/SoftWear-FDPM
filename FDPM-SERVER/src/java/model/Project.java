@@ -16,12 +16,10 @@
  */
 package model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,7 +27,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
@@ -37,7 +34,6 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Markus
  */
 @Entity
-@XmlRootElement
 public class Project implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -85,6 +81,11 @@ public class Project implements Serializable {
     public List<Color> getColors() {
         return colors;
     }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+    
     
     //SETTERS
     public void setId(Long id) {
@@ -110,7 +111,10 @@ public class Project implements Serializable {
     public void setColors(List<Color> colors) {
         this.colors = colors;
     }
-    
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
     
     @Override
     public int hashCode() {

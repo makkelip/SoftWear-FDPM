@@ -16,5 +16,5 @@ nbdist/
 /FDPM-SERVER/nbproject/private/
 /FDPM-SERVER/web/WEB-INF/glassfish-resources.xml
 /FDPM-SERVER/src/conf/persistence.xml
-FDPM-SERVER/nbproject/project.properties
-FDPM-SERVER/nbproject/project.xml
+/FDPM-SERVER/nbproject/project.properties
+/FDPM-SERVER/nbproject/project.xml

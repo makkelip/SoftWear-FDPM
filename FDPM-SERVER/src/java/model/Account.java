@@ -22,14 +22,12 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Markus
  */
 @Entity
-@XmlRootElement
 public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -39,7 +37,25 @@ public class Account implements Serializable {
     @ManyToMany
     @JsonManagedReference
     private List<Customer> customers;
+
     
+     //GETTERS
+    public String getEmail() {
+        return email;
+    }
+    public List<Customer> getCustomers() {
+        return customers;
+    }
+    
+    //SETTERS
+    public void setCustomers(List<Customer> customers) {
+        this.customers = customers;
+    }
+    
+       public void setEmail(String email) {
+        this.email = email;
+    }
+       
     @Override
     public int hashCode() {
         int hash = 0;

@@ -16,24 +16,20 @@
  */
 package model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.List;
-import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Markus
  */
 @Entity
-@XmlRootElement
 public class Color implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -72,6 +68,10 @@ public class Color implements Serializable {
     public List<Project> getProjects() {
         return projects;
     }
+
+    public List<Product> getProducts() {
+        return products;
+    }
     
     //SETTERS
     public void setId(Long id) {
@@ -92,6 +92,10 @@ public class Color implements Serializable {
 
     public void setProjects(List<Project> projects) {
         this.projects = projects;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
     

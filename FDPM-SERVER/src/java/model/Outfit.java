@@ -24,14 +24,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Markus
  */
 @Entity
-@XmlRootElement
 public class Outfit implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,12 +42,30 @@ public class Outfit implements Serializable {
     @JsonManagedReference
     private List<Product> products;
     
+    //GETTERS
     public Long getId() {
         return id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    //SETTERS
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
     @Override

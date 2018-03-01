@@ -25,15 +25,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Markus
  */
 @Entity
-@XmlRootElement
 public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -63,8 +60,74 @@ public class Product implements Serializable {
     @JsonManagedReference
     private List<Material> materials;
     
+    //GETTERS
     public Long getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ProductGroup getProductGroup() {
+        return productGroup;
+    }
+
+    public PriceGroup getPriceGroup() {
+        return priceGroup;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public Outfit getOutfit() {
+        return outfit;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public List<Color> getColors() {
+        return colors;
+    }
+
+    public List<Material> getMaterials() {
+        return materials;
+    }
+    
+     //SETTERS
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setProductGroup(ProductGroup productGroup) {
+        this.productGroup = productGroup;
+    }
+
+    public void setPriceGroup(PriceGroup priceGroup) {
+        this.priceGroup = priceGroup;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public void setOutfit(Outfit outfit) {
+        this.outfit = outfit;
+    }
+
+    public void setColors(List<Color> colors) {
+        this.colors = colors;
+    }
+
+    public void setMaterials(List<Material> materials) {    
+        this.materials = materials;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 
     public void setId(Long id) {
