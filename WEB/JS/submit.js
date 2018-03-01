@@ -1,11 +1,12 @@
+const address = "http://localhost:8080/";
+
 document.addEventListener("DOMContentLoaded", function(event) {
   const button = document.getElementById("createButton");
 
   button.addEventListener("click", function() {
 
     let form = document.getElementById("formId");
-    console.log(form);
-
+    //console.log(form);
     let name = form.childNodes[3].value;
     let email = form.childNodes[8].value;
     let description = form.childNodes[14].value;
@@ -14,6 +15,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
     /*check for child nodes in form:
     let x = form.childNodes;
     console.log(x);*/
+
   });
 
 });
+
+//function postCustomer

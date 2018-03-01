@@ -1,8 +1,8 @@
 /* PAGE COLORS */
 
 :root {
-    
-    /*layout colors*/ 
+
+    /*layout colors*/
     --header-color: #0F1626;
     --section-color: #FFF;
     --aside-color: #F5F5F5;
@@ -14,11 +14,11 @@
    /*Section colors*/
     --button-color: #FF533D;
     --font-color: #FFF;
-        
-    /*Aside colors*/    
+
+    /*Aside colors*/
     --tab-link: #000;
     --tab-link-hover: #3a3a3a;
-    
+
 }
 
 
@@ -35,9 +35,9 @@ body {
     font-family: "Lucida Console", Monaco, monospace;
     display: grid;
     grid-template-areas: "head head"
-                         "section aside" 
+                         "section aside"
                          "foot foot";
-    grid-template-rows: 15% 75% 10%;
+    grid-template-rows: 70px auto 40px;
     grid-template-columns: 80% 20%;
 }
 
@@ -102,7 +102,7 @@ body {
 
 section{
     margin-left:5%;
-    
+
 }
 
 /*CAROUSEL FLEX*/
@@ -148,7 +148,7 @@ section{
     font-weight: bold;
     font-size: 2em;
     text-align: center;
-    align-self: center; 
+    align-self: center;
 
 }
 
@@ -169,7 +169,7 @@ section{
     display: grid;
     grid-template-rows: 50% 50%;
     grid-template-columns: 50% 50%;
-    
+
 }
 
 
