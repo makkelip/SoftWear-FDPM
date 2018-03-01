@@ -19,6 +19,7 @@ package model;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -39,6 +40,7 @@ public class Customer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(nullable = false)
     private String name;
     private String email;
     private String description;
@@ -51,14 +53,57 @@ public class Customer implements Serializable {
     @JsonManagedReference
     private List<Account> accounts;
 
+    //GETTERS
     public Long getId() {
         return id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    //SETTERS
     public void setId(Long id) {
         this.id = id;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -83,5 +128,6 @@ public class Customer implements Serializable {
     public String toString() {
         return "model.Customer[ id=" + id + " ]";
     }
+    
     
 }
