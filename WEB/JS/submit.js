@@ -1,23 +1,27 @@
-const address = "http://localhost:8080/";
+const url = "http://localhost/";
+const path = "FDPM-SERVER/sources/model.customer/ret";
 
 document.addEventListener("DOMContentLoaded", function(event) {
-  const button = document.getElementById("createButton");
-
-  button.addEventListener("click", function() {
-
+  document.getElementById("createButton").addEventListener("click", function() {
     let form = document.getElementById("formId");
-    //console.log(form);
     let name = form.childNodes[3].value;
     let email = form.childNodes[8].value;
     let description = form.childNodes[14].value;
-    alert("Name: " + name + "\nEmail: " + email + "\nDescription: " + description);
-
-    /*check for child nodes in form:
-    let x = form.childNodes;
-    console.log(x);*/
-
-  });
-
+    postCustomer(name,email,description);
+    });
 });
 
-//function postCustomer
+function postCustomer(name, email, description) {
+  let data = {
+    "name": name,
+    "email": email,
+    "description": description
+  }
+  fetch(url + path, {
+    'method': 'POST',
+    'body': JSON.stringify(data),
+    'headers': new Headers({'Content-Type': 'application/json'})
+  }).then(result => result.json())
+  .then(response => console.log('Success', response))
+  .catch(error => console.error(error))
+}
