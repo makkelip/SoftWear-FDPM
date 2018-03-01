@@ -3,7 +3,7 @@
   <head>
     <title>Create customer</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="CSS/css_basic_modified.css">
+    <link rel="stylesheet" type="text/css" href="CSS/basic_modified.css">
   </head>
 
   <body>
@@ -19,13 +19,13 @@
 
     <section class="grid-section">
       <h1>Create new customer</h1>
-      <form class="form-area">
+      <form class="form-area" action="" method="post">
         Company name:<br>
-        <input class="typing-area" type="text" name="companyName" required><br>
+        <input class="typing-area" type="text" name="company_name" required><br>
         Email:<br>
-        <input class="typing-area" type="email" name="emailAddress"><br>
+        <input class="typing-area" type="email" name="email_address"><br>
         <label for="description">Description: </label><br>
-        <textarea id="description" name="desc" rows="10" cols="70"></textarea><br>
+        <textarea id="description" name="customer_description" rows="10" cols="70"></textarea><br>
         <input class="button" type="submit" value="Create">
         <input class="button" type="submit" value="Cancel">
       </form>
