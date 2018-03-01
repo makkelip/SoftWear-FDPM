@@ -29,61 +29,61 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import model.Project;
+import model.Account;
 
 /**
  *
  * @author Markus
  */
 @Stateless
-@Path("model.project")
-public class ProjectFacadeREST extends AbstractFacade<Project> {
+@Path("model.account")
+public class AccountFacadeREST extends AbstractFacade<Account> {
 
     @PersistenceContext(unitName = "FDPM-SERVERPU")
     private EntityManager em;
 
-    public ProjectFacadeREST() {
-        super(Project.class);
+    public AccountFacadeREST() {
+        super(Account.class);
     }
 
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_JSON})
-    public void create(Project entity) {
+    public void create(Account entity) {
         super.create(entity);
     }
 
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Long id, Project entity) {
+    public void edit(@PathParam("id") String id, Account entity) {
         super.edit(entity);
     }
 
     @DELETE
     @Path("{id}")
-    public void remove(@PathParam("id") Long id) {
+    public void remove(@PathParam("id") String id) {
         super.remove(super.find(id));
     }
 
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
-    public Project find(@PathParam("id") Long id) {
+    public Account find(@PathParam("id") String id) {
         return super.find(id);
     }
 
     @GET
     @Override
     @Produces({MediaType.APPLICATION_JSON})
-    public List<Project> findAll() {
+    public List<Account> findAll() {
         return super.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_JSON})
-    public List<Project> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<Account> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 

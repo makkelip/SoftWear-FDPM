@@ -1,3 +1,8 @@
+/* ADDED MIN-HEIGHT TO BODY 100%. -> footer follows
+CHANGE GRID TEMPLATE ROWS!!!
+*/
+
+
 /* PAGE COLORS */
 
 :root {
@@ -8,7 +13,7 @@
   /*Header colors*/
   --header-logo: #F5F5F5;
   --header-link: #F5F5F5;
-  --header-link-hover: #3a3a3a;
+  --header-link-hover: #4B5366;
   /*Section colors*/
   --button-color: #FF533D;
   --font-color: #FFF;
@@ -23,13 +28,13 @@ html {
 
 body {
   margin: 0;
-  height: inherit;
+  min-height: 100%;
   font-family: "Lucida Console", Monaco, monospace;
   display: grid;
   grid-template-areas: "head"
                        "section"
                        "foot";
-  grid-template-rows: 15% 75% 10%;
+  grid-template-rows: 70px auto 40px;
 }
 
 .grid-header {
@@ -70,6 +75,10 @@ section {
   margin-left: 5%;
 }
 
+.form-area {
+  padding-bottom: 20px;
+}
+
 .typing-area {
   border: 1px solid black;
   margin-top: 10px;
@@ -79,6 +88,17 @@ section {
 textarea {
   border: 1px solid black;
   margin-bottom: 15px;
+}
+
+input[type='number'] {
+    -moz-appearance:textfield; /*mozilla spinbox*/
+}
+
+/*other spinboxes*/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* buttons */
@@ -94,6 +114,10 @@ textarea {
 
 
 /* FOOTER LAYOUT */
+
+footer {
+
+}
 
 #flex-footer {
   display: flex;
