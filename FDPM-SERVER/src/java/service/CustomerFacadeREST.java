@@ -53,13 +53,28 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         super.create(entity);
     }
 
-    @PUT
-    @Path("{id}")
+     @POST
+     @Path("ret")
     @Consumes({MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Long id, Customer entity) {
+     @Produces({MediaType.APPLICATION_JSON})
+    public Customer createReturn(Customer entity) {
+        super.create(entity);
+        return entity;
+    }
+    @PUT
+    @Consumes({MediaType.APPLICATION_JSON})
+    public void edit(Customer entity) {
         super.edit(entity);
     }
-
+    
+    @PUT
+    @Path("ret")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public Customer editReturn(Customer entity) {
+        super.edit(entity);
+        return entity;
+    }
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {
