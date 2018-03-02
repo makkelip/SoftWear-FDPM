@@ -3,7 +3,8 @@
 
 document.addEventListener("DOMContentLoaded", function (event) {
     
-    const url = "https://adm-rest.herokuapp.com/products";
+    const url = "http://10.114.32.58:8080/";
+    const path = "FDPM-SERVER/sources/model.customer";
     const jsonOutput = document.querySelector("#output-area");
     
     let listCustomers = function (customers) {
@@ -59,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         activeItems.forEach(show);
     };
     
-    fetch(url)
+    fetch(url+path)
         .then(response => response.json())
         .then(json => {listCustomers(json); showItems()})
         .catch(error => (jsonOutput.textContent = "Fetch crashed duee to " + error));
