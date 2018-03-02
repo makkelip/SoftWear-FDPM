@@ -1,4 +1,4 @@
-const url = "http://localhost/";
+const url = "http://10.114.32.58:8080/";
 const path = "FDPM-SERVER/sources/model.customer/ret";
 
 document.addEventListener("DOMContentLoaded", function(event) {
