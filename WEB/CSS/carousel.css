@@ -1,0 +1,15 @@
+.slide-boxcontent {
+    display: grid;
+    grid-gap: 0px;
+    grid-template-columns: 8% 84% 8%;
+}
+
+#customers-list {
+    display: grid;
+    grid-gap: 0px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.boxitem {
+    margin: 10px auto;
+}
