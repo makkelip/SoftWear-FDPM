@@ -143,10 +143,10 @@ section{
     border-radius: 0.5em;
 
 
-    line-height: 160px;
+    line-height: 2;
     color: white;
     font-weight: bold;
-    font-size: 2em;
+    font-size: 1em;
     text-align: center;
     align-self: center;
 
