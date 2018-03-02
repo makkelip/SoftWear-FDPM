@@ -209,6 +209,7 @@ section{
     margin: 0.05em;
     overflow: hidden;
     min-width: 0;
+    word-wrap: break-word;
     
     
 }
