@@ -52,6 +52,15 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
     public void create(Product entity) {
         super.create(entity);
     }
+  
+    @POST
+    @Path("ret")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public Product createReturn(Product entity) {
+        super.create(entity);
+        return entity;
+    }
 
     @PUT
     @Path("{id}")
@@ -59,7 +68,16 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
     public void edit(@PathParam("id") Long id, Product entity) {
         super.edit(entity);
     }
-
+    
+    @PUT
+    @Path("ret")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public Product editReturn(Product entity) {
+        super.edit(entity);
+        return entity;
+    }
+    
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {
