@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create customer</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="CSS/basic.css">
+    <script src="JS/submit.js"></script>
+  </head>
+
+  <body>
+    <header class="grid-header" id="flex-header">
+      <h1 id="header-logo">FDPM</h1>
+      <nav id="header-nav">
+        <a href="#">Customer</a>
+        <a href="#">Project</a>
+        <a href="#">Product</a>
+        <a href="#">Color</a>
+      </nav>
+    </header>
+
+    <section class="grid-section">
+      <div id="create">
+        <h1>Create new customer</h1>
+        <form class="form-area" id="formId">
+          Company name:<br>
+          <input class="typing-area" type="text" name="name" required /><br>
+          Email:<br>
+          <input class="typing-area" type="email" name="email" /><br>
+          <label for="description">Description: </label><br>
+          <textarea id="description" name="description" rows="10" cols="70"></textarea><br>
+          <input class="button" id="createButton" type="button" value="Create" />
+          <input class="button" type="submit" value="Cancel" />
+        </form>
+      </div>
+    </section>
+
+    <footer class="grid-footer" id="flex-footer">
+      <p>&copy; 2018 SoftWear</p>
+    </footer>
+  </body>
+</html>
