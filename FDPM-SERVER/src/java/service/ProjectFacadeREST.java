@@ -52,12 +52,30 @@ public class ProjectFacadeREST extends AbstractFacade<Project> {
     public void create(Project entity) {
         super.create(entity);
     }
+    
+    @POST
+    @Path("ret")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public Project createReturn(Project entity) {
+        super.create(entity);
+        return entity;
+    }
 
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_JSON})
     public void edit(@PathParam("id") Long id, Project entity) {
         super.edit(entity);
+    }
+    
+    @PUT
+    @Path("ret")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public Project editReturn(Project entity) {
+        super.edit(entity);
+        return entity;
     }
 
     @DELETE

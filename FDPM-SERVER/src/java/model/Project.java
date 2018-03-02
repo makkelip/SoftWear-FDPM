@@ -138,7 +138,7 @@ public class Project implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Project[ id=" + id + " ]";
+          return "model.Project[ id=" + id + " name=" + name + " starting date=" + startingDate + " ending date=" + endingDate + " cover percent= " + coverPercent + " ]";
     }
     
 }
