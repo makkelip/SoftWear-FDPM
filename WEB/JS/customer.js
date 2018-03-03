@@ -25,3 +25,5 @@ function postCustomer(name, email, description) {
   .then(response => console.log('Success', response))
   .catch(error => console.error(error))
 }
+
+
