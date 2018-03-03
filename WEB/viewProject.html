@@ -2,9 +2,11 @@
 <html>
 
 <head>
-    <title>Project view</title>
+    <title>Project name</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="CSS/aside.css">
+    <script src="JS/loadProject.js"></script>
+    <script src="libraries/jquery-3.3.1.min.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -19,27 +21,30 @@
     </header>
 
     <section class="grid-section">
-        <h1>Project view</h1>
+        <h1>Project name</h1>
         <a href="#" class="section-create">Create new</a>
 
-
-        <!-- boxes -->
-
-        <div class="box-menu">
-
-            <a href="" class="boxitem">box1</a>
-            <a href="#" class="boxitem">box2</a>
-            <a href="#" class="boxitem"> box3</a>
-            <a href="#" class="boxitem"> box4</a>
-
+        <!-- p tags have ids -> use for form data -->
+        <div class="infobox">
+            <div class="info-container" id="nameinfo">Name:
+                <p id="form-name">soifuaidfo</p>
+            </div>
+            <div class="info-container" id="deliveryinfo">Delivery date:
+                <p id="form-mail">soifoifiajfo</p>
+            </div>
+            <div class="info-container" id="desc-info">Description:
+                <p id="form-desc">iodfspdogspgfafasdfjasdfdsfhsudfhikdfhkaefhauihfoiawefjaeoijrföaoeirfseirfesruhgejrfrefierugisergiuerfgiuergurguhrfijeffiierfjreoijorefsieorfjoi</p>
+            </div>
         </div>
+
+
 
     </section>
 
     <aside class="grid-aside" id="flex-aside">
         <h4 class="tab-header">Settings</h4>
         <div id="tab-content">
-            <a href="#">Edit customer information</a><br>
+            <a href="#">Edit project information</a><br>
             <a href="#">Budget</a><br>
             <a href="#">Color palette</a>
         </div>
