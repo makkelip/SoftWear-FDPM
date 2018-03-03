@@ -5,6 +5,10 @@
     <title>Select project</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="CSS/aside.css">
+    <link rel="stylesheet" type="text/css" href="CSS/carousel.css">
+    <script src="libraries/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="JS/pageLoad.js"></script>
+    <script src="JS/viewProjects.js"></script>
 </head>
 
 <body>
@@ -19,30 +23,32 @@
     </header>
 
     <section class="grid-section">
+      <div id="select">
         <h1>Select project</h1>
-        <a href="#" class="section-create">Create new</a>
+        
+        <a href="#" class="section-create buttonCreateCustomer">Create new</a>
+        <!-- <button id="click">Create new</button> -->
 
-        <!--carousel starts here  -->
+        <p id="output-area"></p>
+
+        <!-- carousel boxes -->
 
         <div class="slide-boxcontent">
             <button id="left-button">Previous</button>
-            <a href="" class="boxitem">box1</a>
-            <a href="#" class="boxitem">box2</a>
-            <a href="#" class="boxitem"> box3</a>
+            <div id="projects-list"></div>
             <button id="right-button">Next</button>
         </div>
-
+      </div>
     </section>
 
     <aside class="grid-aside" id="flex-aside">
         <h4 class="tab-header">Settings</h4>
         <div id="tab-content">
-            <a href="#">Edit customer information</a>
-            <a href="#">Budget</a>
+            <a href="#">Edit customer information</a><br>
+            <a href="#">Budget</a><br>
             <a href="#">Color palette</a>
         </div>
     </aside>
-
     <footer class="grid-footer" id="flex-footer">
         <p>&copy; 2018 SoftWear</p>
     </footer>
