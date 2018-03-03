@@ -2,6 +2,8 @@
 If you want button to open a specific view to section.
 Add class to the button formed like: "button" + <verb> + <target>.
 Example: class="buttonViewProject" opens project view form viewProject.html.
+And the divs inside sections have to have class="theNameOfTheHTML"
+Example: in viewCustomer.html <div class="viewCustomer"> ... </div>
 */
 
 $(document).ready(function(){
