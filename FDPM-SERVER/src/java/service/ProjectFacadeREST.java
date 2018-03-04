@@ -16,6 +16,7 @@
  */
 package service;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -29,6 +30,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import model.Color;
 import model.Project;
 
 /**
@@ -78,6 +80,13 @@ public class ProjectFacadeREST extends AbstractFacade<Project> {
         return entity;
     }
 
+    @PUT
+    @Path("{pId}/color/{cId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public void addColor(@PathParam("pId") int projectId, @PathParam("cId") int colorId) {
+        
+    }
+    
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {
@@ -111,7 +120,7 @@ public class ProjectFacadeREST extends AbstractFacade<Project> {
     public String countREST() {
         return String.valueOf(super.count());
     }
-
+    
     @Override
     protected EntityManager getEntityManager() {
         return em;
