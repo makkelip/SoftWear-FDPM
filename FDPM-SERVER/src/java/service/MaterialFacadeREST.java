@@ -60,7 +60,7 @@ public class MaterialFacadeREST extends AbstractFacade<Material> {
         super.edit(entity);
     }
     
-      @PUT
+    @PUT
     @Path("{mId}/addproduct/{pId}")
     @Produces({MediaType.APPLICATION_JSON})
     public void addProduct(@PathParam("mId") Long materialId,@PathParam("pId") Long productId) {

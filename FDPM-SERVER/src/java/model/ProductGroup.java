@@ -37,13 +37,16 @@ public class ProductGroup implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    
+
     @OneToMany(mappedBy = "productGroup")
     @JsonManagedReference
     private List<Product> products;
-    
-     //GETTERS
-    
+
+    public void addProduct(Product p) {
+        products.add(p);
+    }
+    //GETTERS
+
     public Long getId() {
         return id;
     }
@@ -55,8 +58,8 @@ public class ProductGroup implements Serializable {
     public List<Product> getProducts() {
         return products;
     }
-    
-     //SETTERS
+
+    //SETTERS
     public void setId(Long id) {
         this.id = id;
     }
@@ -93,5 +96,5 @@ public class ProductGroup implements Serializable {
     public String toString() {
         return "model.productGroup[ id=" + id + " ]";
     }
-    
+
 }
