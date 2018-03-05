@@ -30,6 +30,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import model.Color;
+import model.Project;
 
 /**
  *
@@ -104,6 +105,15 @@ public class ColorFacadeREST extends AbstractFacade<Color> {
         return String.valueOf(super.count());
     }
 
+    @GET
+    @Path("{id}/projects")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Project> getProjects(@PathParam("id") Long id) {
+        Color color = this.find(id);
+        List<Project> projects = color.getProjects();
+        return projects;
+    }
+    
     @Override
     protected EntityManager getEntityManager() {
         return em;

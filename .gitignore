@@ -12,7 +12,9 @@ nbdist/
 *.iws
 
 #iOS
-*.DS_Store
+.DS_Store
+.DS_Store?
+._*
 
 #Other
 /FDPM-SERVER/nbproject/private/
