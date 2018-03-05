@@ -4,10 +4,14 @@
 
 .section {
   height: 100%;
-  width: 100%;
+  margin-left: 5%;
   display: grid;
   grid-template-areas: "content aside";
   grid-template-columns: 75% 25%;
+}
+
+.section-text-margin {
+  margin-left: 5%;
 }
 
 /* CONTENT */
