@@ -64,6 +64,10 @@ public class Product implements Serializable {
     public Long getId() {
         return id;
     }
+    
+    public void addColor(Color e) {
+       colors.add(e);
+    }
 
     public String getName() {
         return name;
@@ -158,5 +162,5 @@ public class Product implements Serializable {
     public String toString() {
         return "model.Product[ id=" + id + " ]";
     }
-    
+ 
 }

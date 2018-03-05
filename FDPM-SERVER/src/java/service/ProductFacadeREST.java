@@ -29,6 +29,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import model.Color;
 import model.Product;
 
 /**
@@ -41,7 +42,6 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
 
     @PersistenceContext(unitName = "FDPM-SERVERPU")
     private EntityManager em;
-
     public ProductFacadeREST() {
         super(Product.class);
     }
@@ -74,10 +74,20 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     public Product editReturn(Product entity) {
-        super.edit(entity);
+        em.merge(entity);
         return entity;
     }
     
+    @PUT
+    @Path("{pId}/insert/{cId}")
+    @Produces({MediaType.APPLICATION_JSON})
+       public void addColor(@PathParam("pId") Long productId, @PathParam("cId") Long colorId) {
+        Product product = this.find(productId);
+        Color color = getEntityManager().find(Color.class, colorId);
+        product.addColor(color);
+        em.persist(product);
+    }
+       
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {
