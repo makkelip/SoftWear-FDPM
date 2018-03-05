@@ -9,7 +9,7 @@ Example: in viewCustomer.html <div class="viewCustomer"> ... </div>
 $(document).ready(function(){
   //Home
   $("body").on("click", ".js--button-home", function(){
-    $("section").load("home.html #js--home");
+    $("section").load("index.html #js--home");
   });
   //Select customer
   $("body").on("click", ".js--button-select-customer", function(){
@@ -28,33 +28,3 @@ $(document).ready(function(){
     $("section").load("createProject.html #js--create-project");
   });
 });
-
-/* MARKUS STUFF */
-/*
-$(document).ready(function(){
-  //READY
-  //Create customer
-  $("body").on("click", ".buttonCreateCustomer", function(){
-    $("section").load("createCustomer.html #createCustomer");
-  });
-  //Select customer
-  $("body").on("click", ".buttonSelectCustomer", function() {
-    $("section").load("selectCustomer.html #selectCustomer");
-  });
-
-  //INCOMPLETE
-
-  //View customer
-  $("body").on("click", ".buttonViewCustomer", function() {
-    $("section").load("viewCustomer.html #viewCustomer");
-  });
-  //Create project
-  $("body").on("click", ".buttonCreateCustomer", function() {
-    $("section").load("createProject.html #createProject");
-  });
-  //View Project
-  $("body").on("click", ".buttonViewProject", function() {
-    $("section").load("viewProject.html #viewProject");
-  });
-});
-*/

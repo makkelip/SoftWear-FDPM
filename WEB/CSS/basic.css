@@ -88,6 +88,7 @@ footer {
 
 footer > p {
   color: var(--footer-text);
+  font-size: 12px;
 }
 
 /* OTHER */

@@ -3,30 +3,30 @@
 var customerId = "";
 
 document.addEventListener("DOMContentLoaded", function (event) {
-    
+
     const url = "http://10.114.32.58:8080/";
     const path = "FDPM-SERVER/sources/model.project";
     const id = customerId;
-    
+
     let listProjects = function (projects) {
-        const projectsELement = document.getElementById("projects-list");
-        projectsELement.innerHTML = "";
-    
+        const projectsElement = document.getElementById("projects-list");
+        projectsElement.innerHTML = "";
+
         for (let project of projects) {
-            projectsELement.innerHTML +=
+            projectsElement.innerHTML +=
                 `<a href="#" class="boxitem" id="${project.id}">
                 <div>Project name: ${project.name}</div>
                 <div>Delivery date: ${project.date}</div>
                 <div>Description: ${project.description}</div></a>`;
         }
-        console.log(projectsELement);
+        console.log(projectsElement);
     };
-    
+
     let firstItem = 0;
     let lastItem = 2;
-        
+
     const showItems = () => {
-        
+
         const items = document.getElementsByClassName("boxitem");
         const hide = item => item.style.display = "none";
         const show = item => item.style.display = "block";
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     };
     showItems();
-    
+
     fetch(url+path+id)
         .then(response => response.json())
         .then(json => {listProjects(json); showItems()})
