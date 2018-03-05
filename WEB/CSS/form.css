@@ -1,0 +1,22 @@
+:root {
+  --button-create: #056571;
+  --button-cancel: #FF6A5C;
+}
+
+input[type], textarea {
+  border: 1px solid black;
+  margin-bottom: 10px;
+}
+
+.button {
+  color: white;
+  font-size: 1em;
+}
+
+.button-create {
+  background-color: var(--button-create);
+}
+
+.button-cancel {
+  background-color: var(--button-cancel);
+}
