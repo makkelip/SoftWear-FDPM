@@ -1,7 +1,48 @@
-#color {
-    height: 50px;
-    width: 160px;
-    border: 1px solid grey;
-    border-radius: 5px;
-    margin-top: 10px;
+* {
+    margin: 0;
+    padding: 0;
 }
+
+
+.color-container {
+    text-align: justify;
+    width: 600px;
+    margin:10px 100px;
+}
+
+.colorpicker {
+    background-color: #222222;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 2px 2px 2px #444444;
+    color: #FFFFFF;
+    font-size: 12px;
+    width:620px;
+    right:100px;
+    top:100px;
+    position:absolute;
+}
+#picker {
+    cursor: crosshair;
+    float: left;
+    margin: 10px;
+    border: 0;
+}
+.controls {
+    float: right;
+    margin: 10px;
+}
+#color-code,#color-name {
+      border: 2px solid #2F2F2F;
+}
+.controls label {
+    float: left;
+}
+.preview {
+    border-radius: 3px;
+    border: solid 1px;
+    box-shadow: 2px 2px 2px #444444;
+    cursor: pointer;
+    height: 50px;
+    width: 140px;
+}
+
