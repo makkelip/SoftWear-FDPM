@@ -116,6 +116,11 @@ public class Project implements Serializable {
         this.products = products;
     }
     
+    //Else
+    public void addColor(Color color) {
+        colors.add(color);
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;

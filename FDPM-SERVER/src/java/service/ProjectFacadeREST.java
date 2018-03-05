@@ -83,8 +83,11 @@ public class ProjectFacadeREST extends AbstractFacade<Project> {
     @PUT
     @Path("{pId}/color/{cId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public void addColor(@PathParam("pId") int projectId, @PathParam("cId") int colorId) {
-        
+    public void addColor(@PathParam("pId") Long projectId, @PathParam("cId") Long colorId) {
+        Project project = this.find(projectId);
+        Color color = getEntityManager().find(Color.class, colorId);
+        project.addColor(color);
+        em.persist(project);
     }
     
     @DELETE
