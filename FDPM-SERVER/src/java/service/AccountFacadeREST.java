@@ -62,7 +62,7 @@ public class AccountFacadeREST extends AbstractFacade<Account> {
     }
 
     @PUT
-    @Path("{aId}/addaccount/{cId}")
+    @Path("{aId}/addcustomer/{cId}")
     @Produces({MediaType.APPLICATION_JSON})
     public void addCustomer(@PathParam("aId") String accountName,@PathParam("cId") Long customerId) {
         Account account = this.find(accountName);
