@@ -30,6 +30,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import model.Material;
+import model.Product;
 
 /**
  *
@@ -54,11 +55,21 @@ public class MaterialFacadeREST extends AbstractFacade<Material> {
     }
 
     @PUT
-    @Path("{id}")
     @Consumes({MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Long id, Material entity) {
+    public void edit(Material entity) {
         super.edit(entity);
     }
+    
+      @PUT
+    @Path("{mId}/addproduct/{pId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void addProduct(@PathParam("mId") Long materialId,@PathParam("pId") Long productId) {
+        Material material = this.find(materialId);
+        Product product = getEntityManager().find(Product.class, productId);
+        material.addProducts(product);
+        em.persist(material);
+    }
+    
 
     @DELETE
     @Path("{id}")
