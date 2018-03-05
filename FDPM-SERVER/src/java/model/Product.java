@@ -68,6 +68,10 @@ public class Product implements Serializable {
     public void addColor(Color e) {
        colors.add(e);
     }
+    
+     public void addMaterial(Material e) {
+       materials.add(e);
+    }
 
     public String getName() {
         return name;

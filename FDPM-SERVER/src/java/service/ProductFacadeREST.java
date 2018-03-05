@@ -30,6 +30,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import model.Color;
+import model.Material;
 import model.Product;
 
 /**
@@ -79,7 +80,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
     }
     
     @PUT
-    @Path("{pId}/insert/{cId}")
+    @Path("{pId}/addcolor/{cId}")
     @Produces({MediaType.APPLICATION_JSON})
        public void addColor(@PathParam("pId") Long productId, @PathParam("cId") Long colorId) {
         Product product = this.find(productId);
@@ -87,6 +88,17 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         product.addColor(color);
         em.persist(product);
     }
+       
+        @PUT
+    @Path("{pId}/addmat/{mId}")
+    @Produces({MediaType.APPLICATION_JSON})
+       public void addMaterial(@PathParam("pId") Long productId, @PathParam("mId") Long materialId) {
+        Product product = this.find(productId);
+        Material material = getEntityManager().find(Material.class, materialId);
+        product.addMaterial(material);
+        em.persist(product);
+    } 
+       
        
     @DELETE
     @Path("{id}")
