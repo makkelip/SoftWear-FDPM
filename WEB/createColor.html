@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create color</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="CSS/basic.css">
+    <link rel="stylesheet" type="text/css" href="CSS/createColor.css">
+    <script src="JS/createColor.js"></script>
+  </head>
+
+  <body>
+    <header class="grid-header" id="flex-header">
+      <h1 id="header-logo">FDPM</h1>
+      <nav id="header-nav">
+        <a href="#">Customer</a>
+        <a href="#">Project</a>
+        <a href="#">Product</a>
+        <a href="#">Color</a>
+      </nav>
+    </header>
+
+    <section class="grid-section">
+      <h1>Create new color</h1>
+      <form class="form-area" id="formId">
+        Color name:<br>
+        <input class="typing-area" type="text" name="colorName" id="colorName" required /><br>
+        Color code:<br>
+        <input class="typing-area" type="text" name="colorCode" id="colorCode" /><br>
+        <label for="description">Color: </label><br>
+        <input type='color' id="color">
+        <br/><br/>
+        <input class="button" id="createButton" type="button" value="Create" />
+        <input class="button" type="submit" value="Cancel" />  
+      </form>
+    </section>
+
+    <footer class="grid-footer" id="flex-footer">
+      <p>&copy; 2018 SoftWear</p>
+    </footer>
+  </body>
+</html>
