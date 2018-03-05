@@ -1,10 +1,11 @@
-.slide-boxcontent {
+.section-carousel {
     display: grid;
     grid-gap: 0px;
     grid-template-columns: 8% 84% 8%;
+    padding: 10%;
 }
 
-#customers-list {
+.customers {
     display: grid;
     grid-gap: 0px;
     grid-template-columns: 1fr 1fr 1fr;

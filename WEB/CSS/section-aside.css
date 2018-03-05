@@ -1,0 +1,35 @@
+:root {
+  --aside: #CCDFCB;
+}
+
+.section {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-areas: "content aside";
+  grid-template-columns: 75% 25%;
+}
+
+/* CONTENT */
+.section-content {
+  grid-area: content;
+}
+
+/* ASIDE */
+.section-aside {
+  grid-area: aside;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--aside);
+ }
+
+.aside-tab {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.aside-content {
+  display: flex;
+  flex-direction: column;
+}
