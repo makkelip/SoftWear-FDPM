@@ -11,6 +11,9 @@ nbdist/
 *.iml
 *.iws
 
+#iOS
+*.DS_Store
+
 #Other
 /FDPM-SERVER/nbproject/private/
 /FDPM-SERVER/web/WEB-INF/glassfish-resources.xml
