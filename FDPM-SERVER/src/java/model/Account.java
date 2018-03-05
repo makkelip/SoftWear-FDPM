@@ -39,6 +39,10 @@ public class Account implements Serializable {
     private List<Customer> customers;
 
     
+    public void addCustomer(Customer customer) {
+        customers.add(customer);
+    }
+    
      //GETTERS
     public String getEmail() {
         return email;
@@ -46,14 +50,21 @@ public class Account implements Serializable {
     public List<Customer> getCustomers() {
         return customers;
     }
+      public String getUserName() {
+        return userName;
+    }
     
     //SETTERS
     public void setCustomers(List<Customer> customers) {
         this.customers = customers;
     }
     
-       public void setEmail(String email) {
+    public void setEmail(String email) {
         this.email = email;
+    }
+       
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
        
     @Override
@@ -79,9 +90,5 @@ public class Account implements Serializable {
     @Override
     public String toString() {
         return "model.User[ username=" + userName + " ]";
-    }
-    
-    public String getUserName() {
-        return userName;
-    }
+    } 
 }

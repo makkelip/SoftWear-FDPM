@@ -29,7 +29,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import model.Account;
 import model.Customer;
+import model.Product;
 
 /**
  *
@@ -66,6 +68,26 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     @Consumes({MediaType.APPLICATION_JSON})
     public void edit(Customer entity) {
         super.edit(entity);
+    }
+    
+    @PUT
+    @Path("{cId}/addproduct/{pId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void addProduct(@PathParam("cId") Long customerId, @PathParam("pId") Long productId) {
+        Customer customer = this.find(customerId);
+        Product product = getEntityManager().find(Product.class, productId);
+        customer.addProduct(product);
+        em.persist(product);
+    }
+    
+    @PUT
+    @Path("{cId}/addaccount/{aId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void addAccount(@PathParam("cId") Long customerId, @PathParam("aId") String accountName) {
+        Customer customer = this.find(customerId);
+        Account account = getEntityManager().find(Account.class, accountName);
+        customer.addCustomer(account);
+        em.persist(account);
     }
     
     @PUT

@@ -43,6 +43,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
 
     @PersistenceContext(unitName = "FDPM-SERVERPU")
     private EntityManager em;
+
     public ProductFacadeREST() {
         super(Product.class);
     }
@@ -53,7 +54,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
     public void create(Product entity) {
         super.create(entity);
     }
-  
+
     @POST
     @Path("ret")
     @Consumes({MediaType.APPLICATION_JSON})
@@ -69,7 +70,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
     public void edit(@PathParam("id") Long id, Product entity) {
         super.edit(entity);
     }
-    
+
     @PUT
     @Path("ret")
     @Consumes({MediaType.APPLICATION_JSON})
@@ -78,28 +79,27 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         em.merge(entity);
         return entity;
     }
-    
+
     @PUT
     @Path("{pId}/addcolor/{cId}")
     @Produces({MediaType.APPLICATION_JSON})
-       public void addColor(@PathParam("pId") Long productId, @PathParam("cId") Long colorId) {
+    public void addColor(@PathParam("pId") Long productId, @PathParam("cId") Long colorId) {
         Product product = this.find(productId);
         Color color = getEntityManager().find(Color.class, colorId);
         product.addColor(color);
         em.persist(product);
     }
-       
-        @PUT
+
+    @PUT
     @Path("{pId}/addmat/{mId}")
     @Produces({MediaType.APPLICATION_JSON})
-       public void addMaterial(@PathParam("pId") Long productId, @PathParam("mId") Long materialId) {
+    public void addMaterial(@PathParam("pId") Long productId, @PathParam("mId") Long materialId) {
         Product product = this.find(productId);
         Material material = getEntityManager().find(Material.class, materialId);
         product.addMaterial(material);
         em.persist(product);
-    } 
-       
-       
+    }
+
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {
@@ -138,5 +138,5 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
     protected EntityManager getEntityManager() {
         return em;
     }
-    
+
 }

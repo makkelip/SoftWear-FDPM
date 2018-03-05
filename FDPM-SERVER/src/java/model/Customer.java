@@ -59,6 +59,14 @@ public class Customer implements Serializable {
     public String getName() {
         return name;
     }
+    
+     public void addProduct(Product p) {
+        products.add(p);
+    }
+     
+     public void addCustomer(Account a) {
+        accounts.add(a);
+    }
 
     public String getEmail() {
         return email;
