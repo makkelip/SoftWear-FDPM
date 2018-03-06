@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const path = "FDPM-SERVER/sources/model.color";
 
     let listColors = function (colors) {
-        const colorsElement = document.querySelector("#js--colors-list");
+        const colorsElement = document.querySelector("#js--all-colors");
         colorsElement.innerHTML = "";
 
         for (let color of colors) {
