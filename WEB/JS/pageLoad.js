@@ -27,4 +27,10 @@ $(document).ready(function(){
   $("body").on("click", ".js--button-create-project", function(){
     $("section").load("createProject.html #js--create-project");
   });
+  //View Colors
+  $("body").on("click", ".js--button-view-colors", 
+  function(){
+  $("section").load("viewColors.html #js--all-colors");
+  });
+    
 });
