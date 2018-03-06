@@ -1,40 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" >
-<head>
-    <meta charset="utf-8" />
-    <meta name="author" content="Script Tutorials" />
+  <head>
+    <title>Create color</title>
+    <meta charset="utf-8">
+    <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="CSS/basic.css">
-    <link href="CSS/createColor.css" rel="stylesheet" type="text/css" />
-    <script src="libraries/jquery-3.3.1.min.js"></script>
-    <script src="JS/createColor.js"></script>
-</head>
-<body>
-<header class="grid-header" id="flex-header">
-    <h1 id="header-logo">FDPM</h1>
-    <nav id="header-nav">
-        <a href="#">Customer</a>
-        <a href="#">Project</a>
+    <link rel="stylesheet" type="text/css" href="CSS/content.css"/>
+    <link rel="stylesheet" type="text/css" href="CSS/carousel.css"/>
+    <link rel="stylesheet" type="text/css" href="CSS/form.css"/>
+    <!-- JavaScript -->
+    <script src="libraries/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="JS/pageLoad.js" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-logo">
+        <a href="#" class="js--button-home">FDPM</a>
+      </div>
+      <nav class="header-navigation">
+        <a href="#" class="js--button-select-customer">Customer</a>
+        <a href="#" class="js--button-select-project">Project</a>
         <a href="#">Product</a>
         <a href="#">Color</a>
-    </nav>
-</header>
-<div class="color-container">
-    <h3>Create new color</h3>
-    <form>
-    Color name: <br><input type="text" id="color-name"><br>
-    Color code: <br><input type="text" id="color-code"><br>
-    </form>
-    <p>Color:</p>
-    <div class="preview"></div>
-    <div class="colorpicker" style="display:none">
-        <canvas id="picker" width="650" height="390"></canvas>
-    </div>
-    <br>
-    <button id="add-color">Add</button>
-    <button id="cancel">Cancel</button>
-</div>
-<footer class="grid-footer" id="flex-footer">
-    <p>&copy; 2018 SoftWear</p>
-</footer>
-</body>
+      </nav>
+    </header>
+
+    <section>
+      <div class="color-container section-text-margin" id="js--create-color">
+          <h3>Create new color</h3>
+          <form>
+          Color name: <br><input type="text" id="color-name"><br>
+          Color code: <br><input type="text" id="color-code"><br>
+          </form>
+          <p>Color:</p>
+          <div class="preview"></div>
+          <div class="colorpicker" style="display:none">
+              <canvas id="picker" width="650" height="390"></canvas>
+          </div>
+          <br>
+          <button id="add-color">Add</button>
+          <button id="cancel">Cancel</button>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2018 SoftWear</p>
+    </footer>
+  </body>
 </html>
