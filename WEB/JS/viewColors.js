@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let listColors = function (colors) {
         const colorsElement = document.querySelector("#js--all-colors");
         colorsElement.innerHTML = "";
+        console.log(colors);
 
         for (let color of colors) {
             colorsElement.innerHTML +=
@@ -17,9 +18,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     <div class="color-info"> <!--väri-info-->
                         <p class="color-info-name">${color.name}</p>
                         <p class="color-info-pantone">${color.pantone}</p>
-                        <p class="color-info-hex">${color.code}</p>
+                        <p class="color-info-hex">${color.hexColorValue}</p>
                     </div>
                 </div>`;
+            document.getElementsByClassName('color')[color.id-1].style.backgroundColor = color.hexColorValue;
         }
         console.log(colorsElement);
     };

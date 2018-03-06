@@ -1,5 +1,7 @@
 $(function(){
     var colorPicker = true;
+    const url = "http://10.114.32.58:8080/";
+    const path = "FDPM-SERVER/sources/model.color";
 
     // create canvas and context objects
     var canvas = document.getElementById('picker');
@@ -58,22 +60,23 @@ $(function(){
     {
         var colorCode = document.getElementById('color-code').value;
         var colorName = document.getElementById('color-name').value;
-        colorset.code = colorCode;
+        var colorPantone = document.getElementById('color-pantone').value;
+        colorset.hexColorValue = colorCode;
         colorset.name = colorName;
-        fetch('http://adm-rest.herokuapp.com/products',{
+        colorset.pantone = colorPantone;
+        fetch(url + path,{
             'method': 'POST',
             'body': JSON.stringify(colorset),
             'headers': new Headers({'Content-Type': 'application/json'})
          }).then(result => result.json())
         .then(response => console.log('Success', response))
-        .catch(error => console.error(error))
-        console.log(colorset);
-        console.log(colorName);
-        console.log(colorCode);
+        .catch(error => console.log('error', error));
+
     });
     document.getElementById('cancel').addEventListener('click', function() {
         document.getElementById('color-name').value = "";
         document.getElementById('color-code').value = "";
+        document.getElementById('color-pantone').value = "";
         $('.preview').css('backgroundColor', '#ffffff');
     }, false);
 });
