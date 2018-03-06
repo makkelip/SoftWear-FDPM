@@ -1,0 +1,42 @@
+#material-upload {
+    background-color: #ffffff;
+    border-radius: 5px 5px 5px 5px;
+    border-style: dotted;
+    font-size: 12px;
+    width:400px;
+    height:300px;
+}
+
+input[type=file]{
+    border:none !important;
+}
+
+.upload-btn-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.btn {
+    border: 1px solid black;
+    color: white;
+    background-color: #4f3fff;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file]:hover {
+    cursor: pointer;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 8px;
+    position: absolute;
+    width:165px;
+    height:33px;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
