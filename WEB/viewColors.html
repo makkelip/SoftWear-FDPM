@@ -1,47 +1,58 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>Colors</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="CSS/basic.css">
-    <link rel="stylesheet" type="text/css" href="CSS/viewColors.css">
-    <script src="libraries/jquery-3.3.1.min.js" type="text/javascript"></script>
-    <script src="JS/viewColors.js" type="text/javascript"></script>
-    
-</head>
+  <head>
+      <title>Colors</title>
+      <meta charset="utf-8">
+      <!-- CSS -->
+      <link rel="stylesheet" type="text/css" href="CSS/basic.css">
+      <link rel="stylesheet" type="text/css" href="CSS/content.css">
+      <link rel="stylesheet" type="text/css" href="CSS/viewColors.css">
+      <!-- JavaScript -->
+      <script src="libraries/jquery-3.3.1.min.js" type="text/javascript"></script>
+      <script src="JS/viewColors.js" type="text/javascript"></script>
+      <script src="JS/pageLoad.js" type="text/javascript"></script>
+  </head>
 
-<body>
-    <header class="grid-header" id="flex-header">
-        <h1 id="header-logo">FDPM</h1>
-        <nav id="header-nav">
-            <a href="#">Customer</a>
-            <a href="#">Project</a>
-            <a href="#">Product</a>
-            <a href="#">Color</a>
-        </nav>
+  <body>
+    <header>
+      <div class="header-logo">
+        <a href="#" class="js--button-home">FDPM</a>
+      </div>
+      <nav class="header-navigation">
+        <a href="#" class="js--button-select-customer">Customer</a>
+        <a href="#" class="js--button-select-project">Project</a>
+        <a href="#">Product</a>
+        <a href="#" class="js--button-view-colors">Color</a>
+      </nav>
     </header>
 
-    <section>
-        <div class="all-colors">
-            <div class="color-container-flex" id="js--all-colors"> <!--flexbox-->
-                <div class="color-card"> <!-- värikortti-->
+      <section>
+          <div class="section all-colors" id="js--all-colors">
 
-                    <div class="color"></div> <!-- väri-->
-                    <div class="color-info"> <!--väri-info-->
-                        <p class="color-info-name">Salmon</p>
-                        <p class="color-info-pantone">1635 C</p>
-                        <p class="color-info-hex">#FF8C69</p>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
+              <div class="section-content color-container-flex"> <!--flexbox-->
+                  <div class="color-card"> <!-- värikortti-->
+                      <div class="color"></div> <!-- väri-->
+                      <div class="color-info"> <!--väri-info-->
+                          <p class="color-info-name">Salmon</p>
+                          <p class="color-info-pantone">1635 C</p>
+                          <p class="color-info-hex">#FF8C69</p>
+                      </div>
+                  </div>
+              </div>
 
-    <footer>
-        <p>&copy; 2018 SoftWear</p>
-    </footer>
-</body>
+              <div class="section-aside">
+                  <h4 class="aside-tab">Settings</h4>
+                  <div class="aside-content">
+                      <a href="#" class="js--button-create-color">Create color</a>
+                  </div>
+              </div>
 
+          </div>
+      </section>
+
+      <footer>
+          <p>&copy; 2018 SoftWear</p>
+      </footer>
+  </body>
 </html>

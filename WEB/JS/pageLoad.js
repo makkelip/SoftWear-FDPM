@@ -11,6 +11,7 @@ $(document).ready(function(){
   $("body").on("click", ".js--button-home", function(){
     $("section").load("index.html #js--home");
   });
+
   //Select customer
   $("body").on("click", ".js--button-select-customer", function(){
     $("section").load("selectCustomer.html #js--select-customer");
@@ -19,6 +20,7 @@ $(document).ready(function(){
   $("body").on("click", ".js--button-create-customer", function(){
     $("section").load("createCustomer.html #js--create-customer");
   });
+
   //Select project
   $("body").on("click", ".js--button-select-project", function(){
     $("section").load("selectProject.html #js--select-project");
@@ -27,10 +29,16 @@ $(document).ready(function(){
   $("body").on("click", ".js--button-create-project", function(){
     $("section").load("createProject.html #js--create-project");
   });
+
   //View Colors
-  $("body").on("click", ".js--button-view-colors", 
+  $("body").on("click", ".js--button-view-colors",
   function(){
   $("section").load("viewColors.html #js--all-colors");
   });
-    
+  //Create color
+  $("body").on("click", ".js--button-create-color",
+  function(){
+  $("section").load("createColor.html #js--create-color");
+  });
+
 });

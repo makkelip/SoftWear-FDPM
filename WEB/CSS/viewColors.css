@@ -1,17 +1,9 @@
-
-
 /* VIEW ALL COLORS SECTION*/
 
 .all-colors {
     min-width: 100%;
     background-color: #F5F5F5;
-    min-height: 100%;
-    
-
-   
-    
 }
-
 
 
 /* Flexbox for palette*/
@@ -20,7 +12,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-
 
 }
 
@@ -32,7 +23,6 @@
 
     border: solid 0.05em #D3D3D3;
     overflow: hidden;
-
 }
 
 /*color area in cord*/
@@ -50,7 +40,6 @@
     font-size: 0.65em;
     word-wrap: break-word;
     overflow: inherit;
-
 }
 
 /*name part of color info*/
@@ -58,17 +47,18 @@
     font-weight: bold;
     font-size: 1.08em;
     word-wrap: inherit;
+
 }
+
 /*pantone code part of color info*/
 .color-info-pantone {
-
     font-size: inherit;
     word-wrap: inherit;
+
 }
+
 /*hex code part of color info*/
 .color-info-hex {
-
     font-size: inherit;
     word-wrap: inherit;
 }
-
