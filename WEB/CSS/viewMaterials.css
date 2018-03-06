@@ -1,0 +1,47 @@
+/* VIEW ALL COLORS SECTION*/
+
+.all-materials {
+    min-width: 100%;
+    background-color: #F5F5F5;
+    min-height: 100%;
+    
+}
+
+
+.flex-materials {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+
+}
+
+.material-card {
+    background-color: #fff;
+    height: 14em;
+    width: 14em;
+    margin: 0.5em;
+    border: solid 0.05em #D3D3D3;
+    overflow: hidden;
+
+}
+
+.material-image {
+    
+    height: 10em;
+    width: inherit;
+}
+
+
+.material-card-name{
+    line-height: 2em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    font-size: 0.8em;
+    word-wrap: break-word;
+    overflow: inherit;
+    border-top: solid 0.05em #D3D3D3;
+    font-weight: bold;
+
+}
