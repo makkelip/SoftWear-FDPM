@@ -62,7 +62,7 @@ public class OutfitFacadeREST extends AbstractFacade<Outfit> {
     }
     
     @PUT
-    @Path("{oId}/addproduct/{pId}")
+    @Path("{oId}/product/{pId}")
     @Produces({MediaType.APPLICATION_JSON})
     public void addProduct(@PathParam("oId") Long outfitId, @PathParam("pId") Long productId) {
         Outfit o = this.find(outfitId);

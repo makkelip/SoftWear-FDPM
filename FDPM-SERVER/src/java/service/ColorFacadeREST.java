@@ -94,6 +94,15 @@ public class ColorFacadeREST extends AbstractFacade<Color> {
         return super.find(id);
     }
     
+      @GET
+    @Path("{cId}/projects")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List showProjects(@PathParam("cId") Long colorId) {
+       Color color  = this.find(colorId);
+       return color.getProjects();
+       
+    }
+    
     @GET
     @Override
     @Produces({MediaType.APPLICATION_JSON})
@@ -113,15 +122,6 @@ public class ColorFacadeREST extends AbstractFacade<Color> {
     @Produces(MediaType.TEXT_PLAIN)
     public String countREST() {
         return String.valueOf(super.count());
-    }
-
-    @GET
-    @Path("{id}/projects")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Project> getProjects(@PathParam("id") Long id) {
-        Color color = this.find(id);
-        List<Project> projects = color.getProjects();
-        return projects;
     }
     
     @Override

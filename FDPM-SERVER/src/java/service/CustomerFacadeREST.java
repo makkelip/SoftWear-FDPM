@@ -71,7 +71,7 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     }
     
     @PUT
-    @Path("{cId}/addproduct/{pId}")
+    @Path("{cId}/product/{pId}")
     @Produces({MediaType.APPLICATION_JSON})
     public void addProduct(@PathParam("cId") Long customerId, @PathParam("pId") Long productId) {
         Customer customer = this.find(customerId);
@@ -81,7 +81,7 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     }
     
     @PUT
-    @Path("{cId}/addaccount/{aId}")
+    @Path("{cId}/account/{aId}")
     @Produces({MediaType.APPLICATION_JSON})
     public void addAccount(@PathParam("cId") Long customerId, @PathParam("aId") String accountName) {
         Customer customer = this.find(customerId);

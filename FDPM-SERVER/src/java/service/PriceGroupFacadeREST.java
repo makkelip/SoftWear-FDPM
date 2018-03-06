@@ -62,7 +62,7 @@ public class PriceGroupFacadeREST extends AbstractFacade<PriceGroup> {
     }
     
     @PUT
-    @Path("{pgId}/addproduct/{pId}")
+    @Path("{pgId}/product/{pId}")
     @Produces({MediaType.APPLICATION_JSON})
     public void addProduct(@PathParam("pgId") Long priceGroupId, @PathParam("pId") Long productId) {
         PriceGroup pg = this.find(priceGroupId);

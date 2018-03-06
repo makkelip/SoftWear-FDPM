@@ -61,7 +61,7 @@ public class MaterialFacadeREST extends AbstractFacade<Material> {
     }
     
     @PUT
-    @Path("{mId}/addproduct/{pId}")
+    @Path("{mId}/product/{pId}")
     @Produces({MediaType.APPLICATION_JSON})
     public void addProduct(@PathParam("mId") Long materialId,@PathParam("pId") Long productId) {
         Material material = this.find(materialId);
