@@ -1,6 +1,6 @@
-.section-carousel {
+.section-slideshow {
     display: grid;
-    grid-gap: 0px;
+    grid-gap: 20px;
     grid-template-columns: 8% 84% 8%;
     padding: 10%;
 }

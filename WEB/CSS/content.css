@@ -1,5 +1,9 @@
 :root {
   --aside: #CCDFCB;
+  --aside-content-link: #414141;
+  --aside-content-link-hover: #000;
+  --section-content-link: #414141;
+  --section-content-link-hover: #000;
 }
 
 .section {
@@ -19,6 +23,18 @@
   grid-area: content;
 }
 
+.section-content a:link {
+  color: var(--section-content-link)
+}
+
+.section-content a:visited {
+  color: var(--section-content-link)
+}
+
+.section-content a:hover {
+  color: var(--section-content-link-hover)
+}
+
 /* ASIDE */
 .section-aside {
   grid-area: aside;
@@ -36,4 +52,16 @@
 .aside-content {
   display: flex;
   flex-direction: column;
+}
+
+.aside-content a:link {
+  color: var(--aside-content-link)
+}
+
+.aside-content a:visited {
+  color: var(--aside-content-link)
+}
+
+.aside-content a:hover {
+  color: var(--aside-content-link-hover)
 }
