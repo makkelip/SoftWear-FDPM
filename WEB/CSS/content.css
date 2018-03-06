@@ -2,37 +2,39 @@
   --aside: #CCDFCB;
   --aside-content-link: #414141;
   --aside-content-link-hover: #000;
-  --section-content-link: #414141;
-  --section-content-link-hover: #000;
+  --create-new: #414141;
+  --create-new-hover: #000;
 }
 
+/* Whole section layout */
 .section {
   height: 100%;
-  margin-left: 5%;
   display: grid;
   grid-template-areas: "content aside";
-  grid-template-columns: 75% 25%;
+  grid-template-columns: 80% 20%;
 }
 
+/* Page header and create new link */
 .section-text-margin {
   margin-left: 5%;
+}
+
+/* Create new link colors */
+.create-new a:link {
+  color: var(--create-new);
+}
+
+.create-new a:visited {
+  color: var(--create-new);
+}
+
+.create-new a:hover {
+  color: var(--create-new-hover);
 }
 
 /* CONTENT */
 .section-content {
   grid-area: content;
-}
-
-.section-content a:link {
-  color: var(--section-content-link)
-}
-
-.section-content a:visited {
-  color: var(--section-content-link)
-}
-
-.section-content a:hover {
-  color: var(--section-content-link-hover)
 }
 
 /* ASIDE */
@@ -52,16 +54,18 @@
 .aside-content {
   display: flex;
   flex-direction: column;
+  font-size: 0.9em;
 }
 
+/* Aside link colors */
 .aside-content a:link {
-  color: var(--aside-content-link)
+  color: var(--aside-content-link);
 }
 
 .aside-content a:visited {
-  color: var(--aside-content-link)
+  color: var(--aside-content-link);
 }
 
 .aside-content a:hover {
-  color: var(--aside-content-link-hover)
+  color: var(--aside-content-link-hover);
 }

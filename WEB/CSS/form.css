@@ -10,6 +10,7 @@ input[type], textarea {
 
 .button {
   color: white;
+  /*text color is white*/
   font-size: 1em;
 }
 

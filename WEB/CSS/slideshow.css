@@ -1,16 +1,50 @@
+:root {
+  --customer-box: #FF6A5C;
+  --section-slideshow-link: #FFF;
+  --section-slideshow-link-hover: #FFF;
+}
+
+/* Slideshow layout */
 .section-slideshow {
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: 8% 84% 8%;
-    padding: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 5%;
 }
 
+/* Area for all customers */
 .customers {
-    display: grid;
-    grid-gap: 0px;
-    grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
-.boxitem {
-    margin: 10px auto;
+/* Area for one customer only */
+.customers > a {
+  /*background-color: var(--customer-box);*/
+  background-image: linear-gradient(-144deg, #FF6A5C 0%, #b52b2b 100%);
+  margin: 10px;
+}
+
+.customers > a > div {
+  padding: 30px;
+}
+
+/* Slideshow buttons */
+.section-slideshow > button {
+  border: 1px solid black;
+}
+
+/* Customer information link colors */
+.section-slideshow a:link {
+  color: var(--section-slideshow-link);
+}
+
+.section-slideshow a:visited {
+  color: var(--section-slideshow-link);
+}
+
+.section-slideshow a:hover {
+  color: var(--section-slideshow-link-hover);
 }
