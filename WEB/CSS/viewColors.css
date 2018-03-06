@@ -2,14 +2,17 @@
 
 /* VIEW ALL COLORS SECTION*/
 
-#all-colors {
+.all-colors {
     min-width: 100%;
     background-color: #F5F5F5;
     min-height: 100%;
+    
 
    
     
 }
+
+
 
 /* Flexbox for palette*/
 .color-container-flex {
