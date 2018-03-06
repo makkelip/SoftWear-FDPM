@@ -1,0 +1,41 @@
+:root{
+ --info-box-background: #F5F5F5;
+    
+}
+.infobox{
+    display: grid;
+    height: 30em;
+    width: 70em;
+    background-color: var(--info-box-background);
+    padding: 1em;
+    grid-template-rows: 15% 15% 65%;
+    grid-template-columns: 100%;
+    grid-template-areas:"name "
+                        "email"
+                        "desc";
+    grid-gap: 0.5em;
+}
+
+.info-container{
+    background-color:white;
+    padding:0.5em;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+
+
+#name-info{
+    grid-area: name;
+    
+}
+
+#mail-info{
+    grid-area: email;
+    
+}
+
+#desc-info{
+    grid-area: desc;
+   
+}
