@@ -16,7 +16,10 @@
  */
 package model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
@@ -32,6 +35,7 @@ import javax.persistence.OneToMany;
  * @author Markus
  */
 @Entity
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="id", scope = Customer.class)
 public class Customer implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,11 +48,11 @@ public class Customer implements Serializable {
     private String description;
     
     @OneToMany(mappedBy="customer")
-    @JsonManagedReference
+    @JsonBackReference(value = "customer-product-ref")
     private List<Product> products;
     
-    @ManyToMany(mappedBy="customers")
-    @JsonManagedReference
+    @ManyToMany
+    //@JsonManagedReference(value = "account-customer-ref")
     private List<Account> accounts;
 
     //GETTERS

@@ -39,25 +39,25 @@ public class Product implements Serializable {
     private Long id;
     private String name;
     @ManyToOne
-    @JsonManagedReference
+    //@JsonManagedReference(value = "wtf")
     private ProductGroup productGroup;
     @ManyToOne
-    @JsonManagedReference
+   //@JsonManagedReference(value = "all")
     private PriceGroup priceGroup;
     @ManyToOne
-    @JsonManagedReference
+    //@JsonManagedReference(value = "customer-product-ref")
     private Customer customer;
     @ManyToOne
-    @JsonManagedReference
+    //@JsonManagedReference(value = "out-ref")
     private Outfit outfit;
     @ManyToOne
-    @JsonManagedReference
+    //@JsonManagedReference(value = "project-reference")
     private Project project;
     @ManyToMany
-    @JsonManagedReference
+    //@JsonManagedReference(value = "color-product-ref")
     private List<Color> colors;
     @ManyToMany
-    @JsonManagedReference
+    //@JsonManagedReference(value = "mat-ref")
     private List<Material> materials;
     
     //GETTERS

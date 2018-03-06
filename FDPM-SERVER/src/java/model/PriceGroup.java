@@ -16,6 +16,7 @@
  */
 package model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.List;
@@ -41,7 +42,7 @@ public class PriceGroup implements Serializable {
     private int lowerBound;
     
     @OneToMany(mappedBy="priceGroup")
-    @JsonManagedReference
+    @JsonBackReference(value = "all")
     private List<Product> products;
     
     

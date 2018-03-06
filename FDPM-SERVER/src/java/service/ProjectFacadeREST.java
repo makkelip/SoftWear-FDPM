@@ -85,8 +85,10 @@ public class ProjectFacadeREST extends AbstractFacade<Project> {
     public void addColor(@PathParam("pId") Long projectId, @PathParam("cId") Long colorId) {
         Project project = this.find(projectId);
         Color color = getEntityManager().find(Color.class, colorId);
-        project.addColor(color);
+       
+        
         em.persist(project);
+         project.addColor(color);
     }
     
     @DELETE

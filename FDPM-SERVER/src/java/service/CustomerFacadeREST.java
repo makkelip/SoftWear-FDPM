@@ -104,7 +104,15 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     public void remove(@PathParam("id") Long id) {
         super.remove(super.find(id));
     }
-
+    
+    @GET
+    @Path("{cId}/products")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List showProducts(@PathParam("cId") Long customerId) {
+       Customer customer  = this.find(customerId);
+       return customer.getProducts();
+    }
+    
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})

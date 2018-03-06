@@ -72,13 +72,14 @@ public class ColorFacadeREST extends AbstractFacade<Color> {
     }
     
     @PUT
-    @Path("{cId}/addproject/{pId}")
+    @Path("{cId}/project/{pId}")
     @Produces(MediaType.APPLICATION_JSON)
     public void addProject(@PathParam("pId") Long projectId, @PathParam("cId") Long colorId) {
         Color color  = this.find(colorId);
         Project project = getEntityManager().find(Project.class, projectId);
-        color.addProject(project);
+        color.addProject(project); 
         em.persist(color);
+       
     }
 
     @DELETE
@@ -94,13 +95,20 @@ public class ColorFacadeREST extends AbstractFacade<Color> {
         return super.find(id);
     }
     
-      @GET
+    @GET
     @Path("{cId}/projects")
     @Produces({MediaType.APPLICATION_JSON})
     public List showProjects(@PathParam("cId") Long colorId) {
        Color color  = this.find(colorId);
        return color.getProjects();
-       
+    }
+    
+    @GET
+    @Path("{cId}/products")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List showProducts(@PathParam("cId") Long colorId) {
+       Color color  = this.find(colorId);
+       return color.getProducts();
     }
     
     @GET

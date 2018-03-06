@@ -16,23 +16,28 @@
  */
 package model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Transient;
 
 /**
  *
  * @author Markus
  */
+
 @Entity
+//@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@id")
 public class Color implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -41,19 +46,26 @@ public class Color implements Serializable {
     private String hexColorValue;
     
     @ManyToMany(mappedBy = "colors")
-    @JsonManagedReference
+    @JsonBackReference(value = "color-product-ref")
     private List<Product> products;
     
+     
     @ManyToMany(mappedBy = "colors")
-    @JsonManagedReference
+    @JsonBackReference(value = "color-project-ref")
     private List<Project> projects;
     
+    //@Transient
+    //private List<Long> projectsID;
     
      public void addProject(Project p) {
-        projects.add(p);
+        this.projects.add(p);
+      if (!p.getColors().contains(this)) {
+       p.addColor(this);
+   }
     }
     
     //GETTERS
+    //@Id
     public Long getId() {
         return id;
     }
@@ -69,13 +81,21 @@ public class Color implements Serializable {
     public String getHexColorValue() {
         return hexColorValue;
     }
-
+   
     public List<Project> getProjects() {
         return projects;
     }
 
     public List<Product> getProducts() {
         return products;
+    }
+    
+    @Transient
+    public List<Long> getProjectsID(){
+        List<Long> ls = new ArrayList<>();
+        for(Project p : projects)
+            ls.add(p.getId());
+        return ls;
     }
     
     //SETTERS
@@ -94,7 +114,7 @@ public class Color implements Serializable {
     public void setHexColorValue(String hexColorValue) {
         this.hexColorValue = hexColorValue;
     }
-
+   
     public void setProjects(List<Project> projects) {
         this.projects = projects;
     }

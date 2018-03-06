@@ -18,6 +18,7 @@ package service;
 
 import java.util.Set;
 import javax.ws.rs.core.Application;
+import org.glassfish.jersey.jackson.JacksonFeature;
 
 /**
  *
@@ -30,6 +31,7 @@ public class ApplicationConfig extends Application {
     public Set<Class<?>> getClasses() {
         Set<Class<?>> resources = new java.util.HashSet<>();
         addRestResourceClasses(resources);
+        resources.add(JacksonFeature.class);
         return resources;
     }
 

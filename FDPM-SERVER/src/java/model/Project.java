@@ -16,7 +16,11 @@
  */
 package model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -29,11 +33,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.xml.bind.annotation.XmlTransient;
 
-/**
- *
- * @author Markus
- */
 @Entity
+//@JsonIdentityInfo(
+//generator = ObjectIdGenerators.PropertyGenerator.class, 
+//property = "id")
 public class Project implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -48,12 +51,13 @@ public class Project implements Serializable {
     private Double coverPercent;
     
     @OneToMany(mappedBy = "project")
-    @JsonManagedReference
+    @JsonBackReference(value = "project-reference")
     private List<Product> products;
     
     @ManyToMany
-    @JsonManagedReference
-    private List<Color> colors;
+    //@JsonManagedReference(value = "color-project-ref")
+    //@JsonIgnore
+    private List<Color> colors; 
     
     //GETTERS
     public Long getId() {
@@ -76,8 +80,7 @@ public class Project implements Serializable {
         return coverPercent;
     }
 
-    //@JsonbTransient
-    @XmlTransient
+    //@XmlTransient
     public List<Color> getColors() {
         return colors;
     }
@@ -103,7 +106,7 @@ public class Project implements Serializable {
     public void setEndingDate(Date endingDate) {
         this.endingDate = endingDate;
     }
-
+    
     public void setCoverPercent(Double coverPercent) {
         this.coverPercent = coverPercent;
     }
@@ -117,8 +120,12 @@ public class Project implements Serializable {
     }
     
     //Else
+    @XmlTransient
     public void addColor(Color color) {
-        colors.add(color);
+        this.colors.add(color);
+         if (!color.getProjects().contains(this)) {
+       color.addProject(this);
+    }
     }
     
     @Override

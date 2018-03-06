@@ -16,6 +16,7 @@
  */
 package model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.sql.Blob;
@@ -41,7 +42,7 @@ public class Material implements Serializable {
     private Blob pictureBlob;
     
     @ManyToMany(mappedBy="materials")
-    @JsonManagedReference
+    @JsonBackReference(value = "mat-ref")
     private List<Product> products;
     
     
