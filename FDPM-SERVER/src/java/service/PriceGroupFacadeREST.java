@@ -30,6 +30,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import model.PriceGroup;
+import model.Product;
 
 /**
  *
@@ -58,6 +59,16 @@ public class PriceGroupFacadeREST extends AbstractFacade<PriceGroup> {
     @Consumes({MediaType.APPLICATION_JSON})
     public void edit(@PathParam("id") Long id, PriceGroup entity) {
         super.edit(entity);
+    }
+    
+    @PUT
+    @Path("{pgId}/addproduct/{pId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void addProduct(@PathParam("pgId") Long priceGroupId, @PathParam("pId") Long productId) {
+        PriceGroup pg = this.find(priceGroupId);
+        Product product = getEntityManager().find(Product.class, productId);
+        pg.addProduct(product);
+        em.persist(pg);
     }
 
     @DELETE

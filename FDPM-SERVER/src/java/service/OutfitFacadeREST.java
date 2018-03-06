@@ -30,6 +30,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import model.Outfit;
+import model.Product;
 
 /**
  *
@@ -58,6 +59,16 @@ public class OutfitFacadeREST extends AbstractFacade<Outfit> {
     @Consumes({MediaType.APPLICATION_JSON})
     public void edit(@PathParam("id") Long id, Outfit entity) {
         super.edit(entity);
+    }
+    
+    @PUT
+    @Path("{oId}/addproduct/{pId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void addProduct(@PathParam("oId") Long outfitId, @PathParam("pId") Long productId) {
+        Outfit o = this.find(outfitId);
+        Product product = getEntityManager().find(Product.class, productId);
+        o.addProduct(product);
+        em.persist(o);
     }
 
     @DELETE

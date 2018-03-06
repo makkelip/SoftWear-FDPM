@@ -44,6 +44,11 @@ public class PriceGroup implements Serializable {
     @JsonManagedReference
     private List<Product> products;
     
+    
+     public void addProduct(Product p) {
+        products.add(p);
+    }
+    
     //GETTERS
     public Long getId() {
         return id;
