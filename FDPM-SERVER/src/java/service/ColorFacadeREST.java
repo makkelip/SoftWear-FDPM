@@ -70,6 +70,16 @@ public class ColorFacadeREST extends AbstractFacade<Color> {
     public void edit(@PathParam("id") Long id, Color entity) {
         super.edit(entity);
     }
+    
+    @PUT
+    @Path("{cId}/addproject/{pId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public void addProject(@PathParam("pId") Long projectId, @PathParam("cId") Long colorId) {
+        Color color  = this.find(colorId);
+        Project project = getEntityManager().find(Project.class, projectId);
+        color.addProject(project);
+        em.persist(color);
+    }
 
     @DELETE
     @Path("{id}")

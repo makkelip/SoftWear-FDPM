@@ -48,6 +48,11 @@ public class Color implements Serializable {
     @JsonManagedReference
     private List<Project> projects;
     
+    
+     public void addProject(Project p) {
+        projects.add(p);
+    }
+    
     //GETTERS
     public Long getId() {
         return id;
