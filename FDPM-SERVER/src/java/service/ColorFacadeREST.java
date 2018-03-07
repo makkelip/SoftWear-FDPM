@@ -30,6 +30,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import model.Color;
+import model.Product;
 import model.Project;
 
 /**
@@ -82,6 +83,16 @@ public class ColorFacadeREST extends AbstractFacade<Color> {
        
     }
 
+    @PUT
+    @Path("{cId}/product/{pId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public void addProduct(@PathParam("pId") Long productId, @PathParam("cId") Long colorId) {
+        Color color  = this.find(colorId);
+        Product product = getEntityManager().find(Product.class, productId);
+        color.addProduct(product); 
+        em.persist(color);
+       
+    }
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {

@@ -59,6 +59,12 @@ public class Color implements Serializable {
             p.addColor(this);
         }
     }
+      public void addProduct(Product p) {
+        this.products.add(p);
+        if (!p.getColors().contains(this)) {
+            p.addColor(this);
+        }
+    }
 
     //GETTERS
     public Long getId() {
@@ -89,6 +95,14 @@ public class Color implements Serializable {
     public List<Long> getProjectsID() {
         List<Long> ls = new ArrayList<>();
         for (Project p : projects) {
+            ls.add(p.getId());
+        }
+        return ls;
+    }
+    
+    public List<Long> getProductsID() {
+        List<Long> ls = new ArrayList<>();
+        for (Product p : products) {
             ls.add(p.getId());
         }
         return ls;

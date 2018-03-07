@@ -1,0 +1,50 @@
+.view-material{
+    background-color: #FFF;
+    
+}
+
+.material-window{
+    
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: "img products"
+                         "name products";    
+    min-width: 100%;
+    min-height: 100%;
+    grid-gap: 1em;
+    font-size: 0.8em;
+    word-wrap: break-word;
+    
+    
+}
+
+.content-cell{
+   
+    padding: 1em;
+    font-weight: bold;
+    background-color:#F5F5F5;
+    border: solid #DCDCDC 1px;
+}
+
+#material-name{
+    grid-area: name;
+}
+
+#used-in-products{
+    grid-area:products;
+}
+
+#material-image{
+    grid-area: img;
+    display: block;
+}
+
+img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.text-field{
+    font-weight: normal;
+}

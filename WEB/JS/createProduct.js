@@ -2,12 +2,13 @@ const url = "http://10.114.32.58:8080/";
 const path = "FDPM-SERVER/sources/model.product";
 
 $(document).ready(function() {
-  $("body").on("click", ".js--button-create", function() {
+  $("body").on("click", ".js--button-submit-product", function() {
     let form = document.getElementById("js--form-id");
     let name = $("#name").val();
     let description = $("#description").val();
     postProduct(name,description);
-    });
+    console.log('clicked');
+  });
 });
 
 function postProduct(name, description) {

@@ -36,6 +36,7 @@ import model.Outfit;
 import model.PriceGroup;
 import model.Product;
 import model.ProductGroup;
+import model.Project;
 
 /**
  *
@@ -141,6 +142,16 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         Product product = this.find(productId);
         Customer c = getEntityManager().find(Customer.class, customerId);
         product.setCustomer(c);
+        em.persist(product);
+    }
+    
+    @PUT
+    @Path("{pId}/project/{projectId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void addProject(@PathParam("pId") Long productId, @PathParam("projectId") Long projectId) {
+        Product product = this.find(productId);
+        Project p = getEntityManager().find(Project.class, projectId);
+        product.setProject(p);
         em.persist(product);
     }
 

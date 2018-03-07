@@ -18,6 +18,7 @@ package model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,8 +45,9 @@ public class PriceGroup implements Serializable {
     @JsonBackReference(value = "all")
     private List<Product> products;
 
-    public void addProduct(Product p) {
-        products.add(p);
+     public void addProduct(Product p) {
+        this.products.add(p);
+        p.setPriceGroup(this);
     }
 
     //GETTERS
@@ -67,6 +69,14 @@ public class PriceGroup implements Serializable {
 
     public List<Product> getProducts() {
         return products;
+    }
+
+    public List<Long> getProductsID() {
+        List<Long> ls = new ArrayList<>();
+        for (Product p : products) {
+            ls.add(p.getId());
+        }
+        return ls;
     }
 
     //SETTERS

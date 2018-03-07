@@ -1,10 +1,11 @@
 $(function(){
     var colorPicker = true;
-    const url = "http://10.114.32.58:8080/";
-    const path = "FDPM-SERVER/sources/model.color";
-
     // create canvas and context objects
     var canvas = document.getElementById('picker');
+    if (canvas === null){
+        throw new Error("Something went badly wrong!");
+    }
+    else{
     var ctx = canvas.getContext('2d');
 
     // drawing active image
@@ -64,7 +65,7 @@ $(function(){
         colorset.hexColorValue = colorCode;
         colorset.name = colorName;
         colorset.pantone = colorPantone;
-        fetch(url + path,{
+        fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.color",{
             'method': 'POST',
             'body': JSON.stringify(colorset),
             'headers': new Headers({'Content-Type': 'application/json'})
@@ -79,4 +80,5 @@ $(function(){
         document.getElementById('color-pantone').value = "";
         $('.preview').css('backgroundColor', '#ffffff');
     }, false);
+    }
 });

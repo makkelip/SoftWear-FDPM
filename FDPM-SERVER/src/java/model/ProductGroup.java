@@ -18,6 +18,7 @@ package model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,6 +45,7 @@ public class ProductGroup implements Serializable {
 
     public void addProduct(Product p) {
         products.add(p);
+        p.setProductGroup(this);
     }
 
     //GETTERS
@@ -57,6 +59,14 @@ public class ProductGroup implements Serializable {
 
     public List<Product> getProducts() {
         return products;
+    }
+
+    public List<Long> getProductsID() {
+        List<Long> ls = new ArrayList<>();
+        for (Product p : products) {
+            ls.add(p.getId());
+        }
+        return ls;
     }
 
     //SETTERS

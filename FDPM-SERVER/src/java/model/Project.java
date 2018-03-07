@@ -18,6 +18,7 @@ package model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
@@ -27,7 +28,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
-import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 public class Project implements Serializable {
@@ -44,11 +44,11 @@ public class Project implements Serializable {
     private Double coverPercent;
 
     @OneToMany(mappedBy = "project")
-    @JsonBackReference(value = "project-reference")
+   @JsonBackReference(value = "project-reference")
     private List<Product> products;
 
     @ManyToMany
-    //@JsonManagedReference(value = "color-project-ref")
+   //@JsonManagedReference(value = "color-project-ref")
     private List<Color> colors;
 
     //GETTERS
@@ -110,13 +110,27 @@ public class Project implements Serializable {
     }
 
     //Else
-    @XmlTransient
+    //@XmlTransient
     public void addColor(Color color) {
         this.colors.add(color);
         if (!color.getProjects().contains(this)) {
             color.addProject(this);
         }
     }
+     public void addProduct(Product p) {
+        this.products.add(p);
+        p.setProject(this);
+        }
+    
+     
+      public List<Long> getProductsID() {
+        List<Long> ls = new ArrayList<>();
+        for (Product p : products) {
+            ls.add(p.getId());
+        }
+        return ls;
+    }
+    
 
     @Override
     public int hashCode() {
