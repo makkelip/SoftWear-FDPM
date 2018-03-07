@@ -46,7 +46,11 @@ $(document).ready(function(){
   function(){
   $("section").load("viewMaterials.html #js--all-materials");
   });
-  //Create material
+  //Create materials
+  $("body").on("click", ".js--button-create-materials",
+  function(){
+  $("section").load("createMaterials.html #js--create-materials");
+  });
 
 
 });
