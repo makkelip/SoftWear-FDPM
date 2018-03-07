@@ -1,6 +1,5 @@
 .view-material{
     background-color: #FFF;
-    
 }
 
 .material-window{
@@ -11,20 +10,19 @@
     grid-template-areas: "img products"
                          "name products";    
     min-width: 100%;
-    min-height: 100%;
+    margin: 2em;
     grid-gap: 1em;
     font-size: 0.8em;
     word-wrap: break-word;
-    
-    
+    overflow: hidden;
 }
 
 .content-cell{
-   
-    padding: 1em;
+    
     font-weight: bold;
     background-color:#F5F5F5;
-    border: solid #DCDCDC 1px;
+    
+    padding: 1em;
 }
 
 #material-name{
@@ -34,7 +32,6 @@
 #used-in-products{
     grid-area:products;
 }
-
 #material-image{
     grid-area: img;
     display: block;
