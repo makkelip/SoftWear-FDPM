@@ -1,8 +1,5 @@
 $(function(){
     var colorPicker = true;
-    const url = "http://10.114.32.58:8080/";
-    const path = "FDPM-SERVER/sources/model.color";
-
     // create canvas and context objects
     var canvas = document.getElementById('picker');
     if (canvas === null){
