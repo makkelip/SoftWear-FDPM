@@ -25,7 +25,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.Transient;
+//import javax.persistence.Transient;
 
 /**
  *
@@ -85,7 +85,7 @@ public class Color implements Serializable {
         return products;
     }
 
-    @Transient
+    //@Transient
     public List<Long> getProjectsID() {
         List<Long> ls = new ArrayList<>();
         for (Project p : projects) {

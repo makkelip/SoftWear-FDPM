@@ -19,12 +19,14 @@ package model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 import java.sql.Blob;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+//import javax.persistence.Transient;
 
 /**
  *
@@ -46,6 +48,18 @@ public class Material implements Serializable {
 
     public void addProducts(Product p) {
         products.add(p);
+        if (!p.getMaterials().contains(this)) {
+            p.addMaterial(this);
+        }
+    }
+
+    //@Transient
+    public List<Long> getProductsID() {
+        List<Long> ls = new ArrayList<>();
+        for (Product p : products) {
+            ls.add(p.getId());
+        }
+        return ls;
     }
 
     //GETTERS
