@@ -17,7 +17,6 @@
 package model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
@@ -46,8 +45,8 @@ public class ProductGroup implements Serializable {
     public void addProduct(Product p) {
         products.add(p);
     }
-    //GETTERS
 
+    //GETTERS
     public Long getId() {
         return id;
     }
@@ -97,5 +96,4 @@ public class ProductGroup implements Serializable {
     public String toString() {
         return "model.productGroup[ id=" + id + " ]";
     }
-
 }

@@ -16,7 +16,6 @@
  */
 package model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
@@ -42,7 +41,7 @@ public class Product implements Serializable {
     //@JsonManagedReference(value = "wtf")
     private ProductGroup productGroup;
     @ManyToOne
-   //@JsonManagedReference(value = "all")
+    //@JsonManagedReference(value = "all")
     private PriceGroup priceGroup;
     @ManyToOne
     //@JsonManagedReference(value = "customer-product-ref")
@@ -59,22 +58,22 @@ public class Product implements Serializable {
     @ManyToMany
     //@JsonManagedReference(value = "mat-ref")
     private List<Material> materials;
-    
-    //GETTERS
-    public Long getId() {
-        return id;
-    }
-    
+
     public void addColor(Color e) {
-       colors.add(e);
-    }
-    
-     public void addMaterial(Material e) {
-       materials.add(e);
+        colors.add(e);
     }
 
+    public void addMaterial(Material e) {
+        materials.add(e);
+    }
+
+    //GETTERS
     public String getName() {
         return name;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public ProductGroup getProductGroup() {
@@ -104,8 +103,8 @@ public class Product implements Serializable {
     public List<Material> getMaterials() {
         return materials;
     }
-    
-     //SETTERS
+
+    //SETTERS
     public void setName(String name) {
         this.name = name;
     }
@@ -130,7 +129,7 @@ public class Product implements Serializable {
         this.colors = colors;
     }
 
-    public void setMaterials(List<Material> materials) {    
+    public void setMaterials(List<Material> materials) {
         this.materials = materials;
     }
 
@@ -166,5 +165,4 @@ public class Product implements Serializable {
     public String toString() {
         return "model.Product[ id=" + id + " ]";
     }
- 
 }

@@ -17,7 +17,6 @@
 package model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.sql.Blob;
 import java.util.List;
@@ -40,15 +39,15 @@ public class Material implements Serializable {
     private Long id;
     private String name;
     private Blob pictureBlob;
-    
-    @ManyToMany(mappedBy="materials")
+
+    @ManyToMany(mappedBy = "materials")
     @JsonBackReference(value = "mat-ref")
     private List<Product> products;
-    
-    
-     public void addProducts(Product p) {
+
+    public void addProducts(Product p) {
         products.add(p);
     }
+
     //GETTERS
     public Long getId() {
         return id;
@@ -65,7 +64,7 @@ public class Material implements Serializable {
     public List<Product> getProducts() {
         return products;
     }
-    
+
     //SETTERS
     public void setId(Long id) {
         this.id = id;
@@ -82,7 +81,7 @@ public class Material implements Serializable {
     public void setProducts(List<Product> products) {
         this.products = products;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -107,5 +106,4 @@ public class Material implements Serializable {
     public String toString() {
         return "model.Material[ id=" + id + " ]";
     }
-    
 }
