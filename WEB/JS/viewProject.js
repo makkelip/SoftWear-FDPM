@@ -1,15 +1,9 @@
 /* eslint-env browser, console */
 /* eslint-disable no-alert, no-console, no-unused-vars*/
-var customerId = "";
 
-document.addEventListener("DOMContentLoaded", function (event) {
-
-    const url = "http://10.114.32.58:8080/";
-    const path = "FDPM-SERVER/sources/model.project";
-    const id = customerId;
-
+$(document).ready(function(){
     let listProjects = function (projects) {
-        const projectsElement = document.getElementById("projects-list");
+        const projectsElement = document.getElementById("js--projects-list");
         projectsElement.innerHTML = "";
 
         for (let project of projects) {
@@ -30,13 +24,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
         const items = document.getElementsByClassName("boxitem");
         const hide = item => item.style.display = "none";
         const show = item => item.style.display = "block";
+        
+        hide(document.getElementById('left-button'));
+        hide(document.getElementById('right-button'));
+        
         if (items.length > 3) {
+            show(document.getElementById('left-button'));
+            show(document.getElementById('right-button'));
+            
             let activeItems = [];
             for (let i = firstItem; i <= lastItem; i++) {
                 activeItems.push(items[i]);
             }
 
             const next = () => {
+                console.log("clicked");
                 if (lastItem < items.length - 1) {
                     activeItems.push(items[lastItem += 1]);
                     activeItems.shift();
@@ -46,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             };
 
             const prev = () => {
+                console.log("clicked");
                 if (firstItem > 0) {
                     activeItems.pop();
                     activeItems.unshift(items[firstItem -= 1]);
@@ -59,14 +62,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             [].forEach.call(items, hide);
             activeItems.forEach(show);
-        } else {
-            hide(document.getElementById('left-button'));
-            hide(document.getElementById('right-button'));
         }
     };
-    showItems();
-
-    fetch(url+path+id)
+    
+    fetch("https://adm-rest.herokuapp.com/products")
         .then(response => response.json())
         .then(json => {listProjects(json); showItems()})
         .catch(error => console.log(error));

@@ -11,6 +11,7 @@
     <!-- JavaScript -->
     <script src="libraries/jquery-3.3.1.min.js" type="text/javascript"></script>
     <script src="JS/pageLoad.js" type="text/javascript"></script>
+    <script src="JS/createProject.js" type="text/javascript"></script>
   </head>
 
   <body>
@@ -31,12 +32,12 @@
         <h1>Create new project</h1>
         <form class="form-area" id="js--form-id">
           Project name:<br>
-          <input class="typing-area" type="text" name="name" required /><br>
+          <input class="typing-area" type="text" id="name" name="name" required /><br>
           Delivery date:<br>
-          <input class="typing-area" type="date" name="endingDate" /><br>
+          <input class="typing-area" type="date" id="endingDate" name="endingDate" /><br>
           <label for="description">Description: </label><br>
           <textarea id="description" name="description" rows="10" cols="70"></textarea><br>
-          <input class="button button-create" id="js--button-create" type="button" value="Create" />
+          <input class="button button-create js--button-submit-project" type="button" value="Create" />
           <input class="button button-cancel js--button-select-project" type="button" value="Cancel" />
         </form>
       </div>

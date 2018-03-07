@@ -15,6 +15,7 @@ $(document).ready(function(){
   //Select customer
   $("body").on("click", ".js--button-select-customer", function(){
     $("section").load("selectCustomer.html #js--select-customer");
+    $.getScript("JS/selectCustomer.js");
   });
   //Create customer
   $("body").on("click", ".js--button-create-customer", function(){
@@ -24,6 +25,7 @@ $(document).ready(function(){
   //Select project
   $("body").on("click", ".js--button-select-project", function(){
     $("section").load("selectProject.html #js--select-project");
+    $.getScript("JS/viewProject.js");
   });
   //Create project
   $("body").on("click", ".js--button-create-project", function(){
@@ -31,25 +33,24 @@ $(document).ready(function(){
   });
 
   //View colors
-  $("body").on("click", ".js--button-view-colors",
-  function(){
-  $("section").load("viewColors.html #js--all-colors");
+  $("body").on("click", ".js--button-view-colors", function(){
+    $("section").load("viewColors.html #js--all-colors");
+    $.getScript("JS/viewColors.js");
   });
   //Create color
-  $("body").on("click", ".js--button-create-colors",
-  function(){
-  $("section").load("createColors.html #js--create-colors");
+  $("body").on("click", ".js--button-create-colors", function(){
+    $("section").load("createColors.html #js--create-colors");
+    $.getScript("JS/createColors.js");
   });
 
   //View materials
-  $("body").on("click", ".js--button-view-materials",
-  function(){
-  $("section").load("viewMaterials.html #js--all-materials");
+  $("body").on("click", ".js--button-view-materials", function(){
+    $("section").load("viewMaterials.html #js--all-materials");
   });
   //Create materials
-  $("body").on("click", ".js--button-create-materials",
-  function(){
-  $("section").load("createMaterials.html #js--create-materials");
+  $("body").on("click", ".js--button-create-materials", function(){
+    $("section").load("createMaterials.html #js--create-materials");
+    $.getScript("JS/createMaterials.js");
   });
 
 
