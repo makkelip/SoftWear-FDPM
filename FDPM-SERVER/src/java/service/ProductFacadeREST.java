@@ -30,6 +30,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import model.Color;
+import model.Customer;
 import model.Material;
 import model.Outfit;
 import model.PriceGroup;
@@ -130,6 +131,16 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         Product product = this.find(productId);
         Outfit o = getEntityManager().find(Outfit.class, outfitId);
         product.setOutfit(o);
+        em.persist(product);
+    }
+    
+    @PUT
+    @Path("{pId}/customer/{cId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void addCustomer(@PathParam("pId") Long productId, @PathParam("cId") Long customerId) {
+        Product product = this.find(productId);
+        Customer c = getEntityManager().find(Customer.class, customerId);
+        product.setCustomer(c);
         em.persist(product);
     }
 
