@@ -30,7 +30,7 @@ import javax.persistence.ManyToMany;
  * @author Markus
  */
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "userName", scope = Account.class)
+//@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "userName", scope = Account.class)
 public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
