@@ -64,13 +64,13 @@ public class AccountFacadeREST extends AbstractFacade<Account> {
     @PUT
     @Path("{aId}/customer/{cId}")
     @Produces({MediaType.APPLICATION_JSON})
-    public void addCustomer(@PathParam("aId") String accountName,@PathParam("cId") Long customerId) {
+    public void addCustomer(@PathParam("aId") String accountName, @PathParam("cId") Long customerId) {
         Account account = this.find(accountName);
         Customer customer = getEntityManager().find(Customer.class, customerId);
         account.addCustomer(customer);
         em.persist(account);
     }
-    
+
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") String id) {
@@ -109,5 +109,4 @@ public class AccountFacadeREST extends AbstractFacade<Account> {
     protected EntityManager getEntityManager() {
         return em;
     }
-    
 }

@@ -26,7 +26,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-//import javax.persistence.Transient;
 
 /**
  *
@@ -53,6 +52,7 @@ public class Material implements Serializable {
         }
     }
 
+    //GETTERS
     //@Transient
     public List<Long> getProductsID() {
         List<Long> ls = new ArrayList<>();
@@ -62,7 +62,6 @@ public class Material implements Serializable {
         return ls;
     }
 
-    //GETTERS
     public Long getId() {
         return id;
     }

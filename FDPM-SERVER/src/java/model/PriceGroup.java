@@ -45,12 +45,24 @@ public class PriceGroup implements Serializable {
     @JsonBackReference(value = "all")
     private List<Product> products;
 
-     public void addProduct(Product p) {
+    public void addProduct(Product p) {
         this.products.add(p);
         p.setPriceGroup(this);
     }
 
     //GETTERS
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public List<Long> getProductsID() {
+        List<Long> ls = new ArrayList<>();
+        for (Product p : products) {
+            ls.add(p.getId());
+        }
+        return ls;
+    }
+
     public Long getId() {
         return id;
     }
@@ -65,18 +77,6 @@ public class PriceGroup implements Serializable {
 
     public int getLowerBound() {
         return lowerBound;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public List<Long> getProductsID() {
-        List<Long> ls = new ArrayList<>();
-        for (Product p : products) {
-            ls.add(p.getId());
-        }
-        return ls;
     }
 
     //SETTERS

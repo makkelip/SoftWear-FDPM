@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -54,21 +55,30 @@ public class Customer implements Serializable {
     //@JsonManagedReference(value = "account-customer-ref")
     private List<Account> accounts;
 
+    public void addProduct(Product p) {
+        products.add(p);
+        p.setCustomer(this);
+    }
+
+    public void addAccount(Account a) {
+        accounts.add(a);
+    }
+
     //GETTERS
+    public List<Long> getProductsID() {
+        List<Long> ls = new ArrayList<>();
+        for (Product p : products) {
+            ls.add(p.getId());
+        }
+        return ls;
+    }
+
     public Long getId() {
         return id;
     }
 
     public String getName() {
         return name;
-    }
-
-    public void addProduct(Product p) {
-        products.add(p);
-    }
-
-    public void addAccount(Account a) {
-        accounts.add(a);
     }
 
     public String getEmail() {

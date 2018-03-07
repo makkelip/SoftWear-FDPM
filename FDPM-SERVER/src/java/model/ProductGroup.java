@@ -49,6 +49,14 @@ public class ProductGroup implements Serializable {
     }
 
     //GETTERS
+    public List<Long> getProductsID() {
+        List<Long> ls = new ArrayList<>();
+        for (Product p : products) {
+            ls.add(p.getId());
+        }
+        return ls;
+    }
+
     public Long getId() {
         return id;
     }
@@ -59,14 +67,6 @@ public class ProductGroup implements Serializable {
 
     public List<Product> getProducts() {
         return products;
-    }
-
-    public List<Long> getProductsID() {
-        List<Long> ls = new ArrayList<>();
-        for (Product p : products) {
-            ls.add(p.getId());
-        }
-        return ls;
     }
 
     //SETTERS

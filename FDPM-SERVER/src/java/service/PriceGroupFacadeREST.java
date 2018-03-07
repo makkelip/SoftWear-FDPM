@@ -60,7 +60,7 @@ public class PriceGroupFacadeREST extends AbstractFacade<PriceGroup> {
     public void edit(@PathParam("id") Long id, PriceGroup entity) {
         super.edit(entity);
     }
-    
+
     @PUT
     @Path("{pgId}/product/{pId}")
     @Produces({MediaType.APPLICATION_JSON})
@@ -109,5 +109,4 @@ public class PriceGroupFacadeREST extends AbstractFacade<PriceGroup> {
     protected EntityManager getEntityManager() {
         return em;
     }
-    
 }

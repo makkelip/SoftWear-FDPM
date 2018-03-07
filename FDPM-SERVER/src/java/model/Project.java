@@ -44,14 +44,34 @@ public class Project implements Serializable {
     private Double coverPercent;
 
     @OneToMany(mappedBy = "project")
-   @JsonBackReference(value = "project-reference")
+    @JsonBackReference(value = "project-reference")
     private List<Product> products;
 
     @ManyToMany
-   //@JsonManagedReference(value = "color-project-ref")
+    //@JsonManagedReference(value = "color-project-ref")
     private List<Color> colors;
 
+    public void addColor(Color color) {
+        this.colors.add(color);
+        if (!color.getProjects().contains(this)) {
+            color.addProject(this);
+        }
+    }
+
+    public void addProduct(Product p) {
+        this.products.add(p);
+        p.setProject(this);
+    }
+
     //GETTERS
+    public List<Long> getProductsID() {
+        List<Long> ls = new ArrayList<>();
+        for (Product p : products) {
+            ls.add(p.getId());
+        }
+        return ls;
+    }
+
     public Long getId() {
         return id;
     }
@@ -108,29 +128,6 @@ public class Project implements Serializable {
     public void setProducts(List<Product> products) {
         this.products = products;
     }
-
-    //Else
-    //@XmlTransient
-    public void addColor(Color color) {
-        this.colors.add(color);
-        if (!color.getProjects().contains(this)) {
-            color.addProject(this);
-        }
-    }
-     public void addProduct(Product p) {
-        this.products.add(p);
-        p.setProject(this);
-        }
-    
-     
-      public List<Long> getProductsID() {
-        List<Long> ls = new ArrayList<>();
-        for (Product p : products) {
-            ls.add(p.getId());
-        }
-        return ls;
-    }
-    
 
     @Override
     public int hashCode() {

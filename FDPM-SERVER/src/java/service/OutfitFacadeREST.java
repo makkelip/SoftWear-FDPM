@@ -60,7 +60,7 @@ public class OutfitFacadeREST extends AbstractFacade<Outfit> {
     public void edit(@PathParam("id") Long id, Outfit entity) {
         super.edit(entity);
     }
-    
+
     @PUT
     @Path("{oId}/product/{pId}")
     @Produces({MediaType.APPLICATION_JSON})
@@ -109,5 +109,4 @@ public class OutfitFacadeREST extends AbstractFacade<Outfit> {
     protected EntityManager getEntityManager() {
         return em;
     }
-    
 }

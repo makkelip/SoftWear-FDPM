@@ -51,7 +51,7 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_JSON})
-    public void create(Customer entity){
+    public void create(Customer entity) {
         super.create(entity);
     }
 
@@ -63,13 +63,13 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         super.create(entity);
         return entity;
     }
-    
+
     @PUT
     @Consumes({MediaType.APPLICATION_JSON})
     public void edit(Customer entity) {
         super.edit(entity);
     }
-    
+
     @PUT
     @Path("{cId}/product/{pId}")
     @Produces({MediaType.APPLICATION_JSON})
@@ -79,7 +79,7 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         customer.addProduct(product);
         em.persist(product);
     }
-    
+
     @PUT
     @Path("{cId}/account/{aId}")
     @Produces({MediaType.APPLICATION_JSON})
@@ -89,7 +89,7 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         customer.addAccount(account);
         em.persist(account);
     }
-    
+
     @PUT
     @Path("ret")
     @Consumes({MediaType.APPLICATION_JSON})
@@ -98,21 +98,21 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         super.edit(entity);
         return entity;
     }
-    
+
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {
         super.remove(super.find(id));
     }
-    
+
     @GET
     @Path("{cId}/products")
     @Produces({MediaType.APPLICATION_JSON})
     public List showProducts(@PathParam("cId") Long customerId) {
-       Customer customer  = this.find(customerId);
-       return customer.getProducts();
+        Customer customer = this.find(customerId);
+        return customer.getProducts();
     }
-    
+
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
@@ -145,5 +145,4 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     protected EntityManager getEntityManager() {
         return em;
     }
-    
 }

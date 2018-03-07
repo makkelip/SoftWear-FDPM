@@ -17,8 +17,6 @@
 package model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,17 +47,17 @@ public class Account implements Serializable {
         }
     }
 
-    //GETTERS
-    public String getEmail() {
-        return email;
-    }
-
     public List<Long> getCustomerIDs() {
         List<Long> ls = new ArrayList<>();
         for (Customer p : customers) {
             ls.add(p.getId());
         }
         return ls;
+    }
+
+    //GETTERS
+    public String getEmail() {
+        return email;
     }
 
     public String getUserName() {

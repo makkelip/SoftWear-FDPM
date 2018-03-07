@@ -64,35 +64,36 @@ public class ColorFacadeREST extends AbstractFacade<Color> {
         super.create(entity);
         return entity;
     }
-    
+
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_JSON})
     public void edit(@PathParam("id") Long id, Color entity) {
         super.edit(entity);
     }
-    
+
     @PUT
     @Path("{cId}/project/{pId}")
     @Produces(MediaType.APPLICATION_JSON)
     public void addProject(@PathParam("pId") Long projectId, @PathParam("cId") Long colorId) {
-        Color color  = this.find(colorId);
+        Color color = this.find(colorId);
         Project project = getEntityManager().find(Project.class, projectId);
-        color.addProject(project); 
+        color.addProject(project);
         em.persist(color);
-       
+
     }
 
     @PUT
     @Path("{cId}/product/{pId}")
     @Produces(MediaType.APPLICATION_JSON)
     public void addProduct(@PathParam("pId") Long productId, @PathParam("cId") Long colorId) {
-        Color color  = this.find(colorId);
+        Color color = this.find(colorId);
         Product product = getEntityManager().find(Product.class, productId);
-        color.addProduct(product); 
+        color.addProduct(product);
         em.persist(color);
-       
+
     }
+
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {
@@ -105,30 +106,30 @@ public class ColorFacadeREST extends AbstractFacade<Color> {
     public Color find(@PathParam("id") Long id) {
         return super.find(id);
     }
-    
+
     @GET
     @Path("{cId}/projects")
     @Produces({MediaType.APPLICATION_JSON})
     public List showProjects(@PathParam("cId") Long colorId) {
-       Color color  = this.find(colorId);
-       return color.getProjects();
+        Color color = this.find(colorId);
+        return color.getProjects();
     }
-    
+
     @GET
     @Path("{cId}/products")
     @Produces({MediaType.APPLICATION_JSON})
     public List showProducts(@PathParam("cId") Long colorId) {
-       Color color  = this.find(colorId);
-       return color.getProducts();
+        Color color = this.find(colorId);
+        return color.getProducts();
     }
-    
+
     @GET
     @Override
     @Produces({MediaType.APPLICATION_JSON})
     public List<Color> findAll() {
         return super.findAll();
     }
-    
+
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_JSON})
@@ -142,10 +143,9 @@ public class ColorFacadeREST extends AbstractFacade<Color> {
     public String countREST() {
         return String.valueOf(super.count());
     }
-    
+
     @Override
     protected EntityManager getEntityManager() {
         return em;
     }
-    
 }

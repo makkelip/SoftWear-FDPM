@@ -18,6 +18,7 @@ package model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,9 +45,18 @@ public class Outfit implements Serializable {
 
     public void addProduct(Product p) {
         products.add(p);
+        p.setOutfit(this);
     }
 
     //GETTERS
+    public List<Long> getProductsID() {
+        List<Long> ls = new ArrayList<>();
+        for (Product p : products) {
+            ls.add(p.getId());
+        }
+        return ls;
+    }
+
     public Long getId() {
         return id;
     }

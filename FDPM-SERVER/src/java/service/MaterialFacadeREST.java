@@ -108,5 +108,4 @@ public class MaterialFacadeREST extends AbstractFacade<Material> {
     protected EntityManager getEntityManager() {
         return em;
     }
-
 }

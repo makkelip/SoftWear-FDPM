@@ -134,7 +134,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         product.setOutfit(o);
         em.persist(product);
     }
-    
+
     @PUT
     @Path("{pId}/customer/{cId}")
     @Produces({MediaType.APPLICATION_JSON})
@@ -144,7 +144,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         product.setCustomer(c);
         em.persist(product);
     }
-    
+
     @PUT
     @Path("{pId}/project/{projectId}")
     @Produces({MediaType.APPLICATION_JSON})
@@ -193,5 +193,4 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
     protected EntityManager getEntityManager() {
         return em;
     }
-
 }

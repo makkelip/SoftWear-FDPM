@@ -54,7 +54,7 @@ public class ProjectFacadeREST extends AbstractFacade<Project> {
     public void create(Project entity) {
         super.create(entity);
     }
-    
+
     @POST
     @Path("ret")
     @Consumes({MediaType.APPLICATION_JSON})
@@ -70,7 +70,7 @@ public class ProjectFacadeREST extends AbstractFacade<Project> {
     public void edit(@PathParam("id") Long id, Project entity) {
         super.edit(entity);
     }
-    
+
     @PUT
     @Path("ret")
     @Consumes({MediaType.APPLICATION_JSON})
@@ -89,7 +89,7 @@ public class ProjectFacadeREST extends AbstractFacade<Project> {
         em.persist(project);
         project.addColor(color);
     }
-    
+
     @PUT
     @Path("{pId}/product/{cId}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -98,9 +98,9 @@ public class ProjectFacadeREST extends AbstractFacade<Project> {
         Product product = getEntityManager().find(Product.class, productId);
         project.addProduct(product);
         em.persist(project);
-        
+
     }
-    
+
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {
@@ -134,10 +134,9 @@ public class ProjectFacadeREST extends AbstractFacade<Project> {
     public String countREST() {
         return String.valueOf(super.count());
     }
-    
+
     @Override
     protected EntityManager getEntityManager() {
         return em;
     }
-    
 }

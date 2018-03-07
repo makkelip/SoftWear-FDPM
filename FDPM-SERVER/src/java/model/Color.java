@@ -25,7 +25,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-//import javax.persistence.Transient;
 
 /**
  *
@@ -59,7 +58,8 @@ public class Color implements Serializable {
             p.addColor(this);
         }
     }
-      public void addProduct(Product p) {
+
+    public void addProduct(Product p) {
         this.products.add(p);
         if (!p.getColors().contains(this)) {
             p.addColor(this);
@@ -67,6 +67,23 @@ public class Color implements Serializable {
     }
 
     //GETTERS
+    //@Transient
+    public List<Long> getProjectsID() {
+        List<Long> ls = new ArrayList<>();
+        for (Project p : projects) {
+            ls.add(p.getId());
+        }
+        return ls;
+    }
+
+    public List<Long> getProductsID() {
+        List<Long> ls = new ArrayList<>();
+        for (Product p : products) {
+            ls.add(p.getId());
+        }
+        return ls;
+    }
+
     public Long getId() {
         return id;
     }
@@ -89,23 +106,6 @@ public class Color implements Serializable {
 
     public List<Product> getProducts() {
         return products;
-    }
-
-    //@Transient
-    public List<Long> getProjectsID() {
-        List<Long> ls = new ArrayList<>();
-        for (Project p : projects) {
-            ls.add(p.getId());
-        }
-        return ls;
-    }
-    
-    public List<Long> getProductsID() {
-        List<Long> ls = new ArrayList<>();
-        for (Product p : products) {
-            ls.add(p.getId());
-        }
-        return ls;
     }
 
     //SETTERS

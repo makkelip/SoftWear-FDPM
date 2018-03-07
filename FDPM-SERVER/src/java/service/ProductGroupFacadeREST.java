@@ -109,5 +109,4 @@ public class ProductGroupFacadeREST extends AbstractFacade<ProductGroup> {
     protected EntityManager getEntityManager() {
         return em;
     }
-
 }
