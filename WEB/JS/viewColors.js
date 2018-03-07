@@ -1,16 +1,11 @@
-/* eslint-env browser, console */
-/* eslint-disable no-alert, no-console, no-unused-vars*/
-
-document.addEventListener("DOMContentLoaded", function (event) {
-
-    const url = "http://10.114.32.58:8080/";
-    const path = "FDPM-SERVER/sources/model.color";
-
+$(function() {
     let listColors = function (colors) {
-        const colorsElement = document.querySelector("#js--all-colors");
-        colorsElement.innerHTML = "";
         console.log(colors);
-
+        const colorsElement = document.querySelector("#js--all-colors");
+        if (colorsElement === null){
+            throw new Error("No Color yet!");
+        } else {
+        colorsElement.innerHTML = "";
         for (let color of colors) {
             colorsElement.innerHTML +=
                 `<div class="color-card"> <!-- värikortti-->
@@ -24,9 +19,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
             document.getElementsByClassName('color')[color.id-1].style.backgroundColor = color.hexColorValue;
         }
         console.log(colorsElement);
+    }
     };
-    
-    fetch(url + path)
+    fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.color")
         .then(response => response.json())
         .then(json => listColors(json))
         .catch(error => console.log(error));

@@ -37,6 +37,7 @@ $(document).ready(function(){
     $("section").load("viewColors.html #js--all-colors");
     $.getScript("JS/viewColors.js");
   });
+
   //Create color
   $("body").on("click", ".js--button-create-colors", function(){
     $("section").load("createColors.html #js--create-colors");
