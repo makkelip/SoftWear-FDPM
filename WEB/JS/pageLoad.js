@@ -39,7 +39,9 @@ $(document).ready(function(){
   $("body").on("click", ".js--button-create-colors",
   function(){
   $("section").load("createColors.html #js--create-colors");
+  $.getScript("JS/createColors.js")
   });
+
 
   //View materials
   $("body").on("click", ".js--button-view-materials",
