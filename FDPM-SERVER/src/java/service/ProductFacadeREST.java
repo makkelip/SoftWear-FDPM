@@ -31,7 +31,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import model.Color;
 import model.Material;
+import model.Outfit;
+import model.PriceGroup;
 import model.Product;
+import model.ProductGroup;
 
 /**
  *
@@ -97,6 +100,36 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         Product product = this.find(productId);
         Material material = getEntityManager().find(Material.class, materialId);
         product.addMaterial(material);
+        em.persist(product);
+    }
+
+    @PUT
+    @Path("{pId}/pricegroup/{pgId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void addPriceGroup(@PathParam("pId") Long productId, @PathParam("pgId") Long priceGroupId) {
+        Product product = this.find(productId);
+        PriceGroup pricegroup = getEntityManager().find(PriceGroup.class, priceGroupId);
+        product.setPriceGroup(pricegroup);
+        em.persist(product);
+    }
+
+    @PUT
+    @Path("{pId}/productgroup/{pgId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void addProductGroup(@PathParam("pId") Long productId, @PathParam("pgId") Long productGroupId) {
+        Product product = this.find(productId);
+        ProductGroup pg = getEntityManager().find(ProductGroup.class, productGroupId);
+        product.setProductGroup(pg);
+        em.persist(product);
+    }
+
+    @PUT
+    @Path("{pId}/outfit/{oId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void addOutfit(@PathParam("pId") Long productId, @PathParam("oId") Long outfitId) {
+        Product product = this.find(productId);
+        Outfit o = getEntityManager().find(Outfit.class, outfitId);
+        product.setOutfit(o);
         em.persist(product);
     }
 
