@@ -36,9 +36,9 @@ $(document).ready(function(){
   $("section").load("viewColors.html #js--all-colors");
   });
   //Create color
-  $("body").on("click", ".js--button-create-color",
+  $("body").on("click", ".js--button-create-colors",
   function(){
-  $("section").load("createColor.html #js--create-color");
+  $("section").load("createColors.html #js--create-colors");
   });
 
   //View materials
