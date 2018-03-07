@@ -2,7 +2,6 @@
 .color-container {
     text-align: justify;
     width: 600px;
-    margin:10px 100px;
 }
 
 .colorpicker {
@@ -38,4 +37,3 @@
     height: 50px;
     width: 140px;
 }
-
