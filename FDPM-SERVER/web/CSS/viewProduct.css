@@ -1,0 +1,16 @@
+.view-product{
+   
+    min-width: 100%;
+    background-color: #F5F5F5;
+}
+
+.product-card{
+    background-color: #FFF;
+    display: grid;
+    height: 10em;
+    width: 55em;
+    margin: 2em;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    border: solid 1px black;
+
+}
