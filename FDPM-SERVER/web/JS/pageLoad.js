@@ -30,7 +30,7 @@ $(document).ready(function(){
     $("section").load("createProject.html #js--create-project");
   });
 
-  //View Colors
+  //View colors
   $("body").on("click", ".js--button-view-colors",
   function(){
   $("section").load("viewColors.html #js--all-colors");
@@ -40,5 +40,13 @@ $(document).ready(function(){
   function(){
   $("section").load("createColor.html #js--create-color");
   });
+
+  //View materials
+  $("body").on("click", ".js--button-view-materials",
+  function(){
+  $("section").load("viewMaterials.html #js--all-materials");
+  });
+  //Create material
+
 
 });
