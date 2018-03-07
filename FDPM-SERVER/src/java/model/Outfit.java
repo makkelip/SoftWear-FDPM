@@ -17,7 +17,6 @@
 package model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
@@ -38,16 +37,15 @@ public class Outfit implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    
-    @OneToMany(mappedBy="outfit")
+
+    @OneToMany(mappedBy = "outfit")
     @JsonBackReference(value = "out-ref")
     private List<Product> products;
-    
-    
-     public void addProduct(Product p) {
+
+    public void addProduct(Product p) {
         products.add(p);
     }
-    
+
     //GETTERS
     public Long getId() {
         return id;
@@ -98,5 +96,4 @@ public class Outfit implements Serializable {
     public String toString() {
         return "model.Outfit[ id=" + id + " ]";
     }
-    
 }

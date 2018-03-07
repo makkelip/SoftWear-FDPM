@@ -17,7 +17,6 @@
 package model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
@@ -40,16 +39,15 @@ public class PriceGroup implements Serializable {
     private String name;
     private int upperBound;
     private int lowerBound;
-    
-    @OneToMany(mappedBy="priceGroup")
+
+    @OneToMany(mappedBy = "priceGroup")
     @JsonBackReference(value = "all")
     private List<Product> products;
-    
-    
-     public void addProduct(Product p) {
+
+    public void addProduct(Product p) {
         products.add(p);
     }
-    
+
     //GETTERS
     public Long getId() {
         return id;
@@ -70,7 +68,7 @@ public class PriceGroup implements Serializable {
     public List<Product> getProducts() {
         return products;
     }
-    
+
     //SETTERS
     public void setId(Long id) {
         this.id = id;
@@ -91,7 +89,7 @@ public class PriceGroup implements Serializable {
     public void setProducts(List<Product> products) {
         this.products = products;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -116,5 +114,4 @@ public class PriceGroup implements Serializable {
     public String toString() {
         return "model.PriceGroup[ id=" + id + " ]";
     }
-    
 }

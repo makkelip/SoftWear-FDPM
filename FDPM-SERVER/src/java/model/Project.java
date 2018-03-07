@@ -17,10 +17,6 @@
 package model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -34,9 +30,6 @@ import javax.persistence.Temporal;
 import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
-//@JsonIdentityInfo(
-//generator = ObjectIdGenerators.PropertyGenerator.class, 
-//property = "id")
 public class Project implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -49,16 +42,15 @@ public class Project implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date endingDate;
     private Double coverPercent;
-    
+
     @OneToMany(mappedBy = "project")
     @JsonBackReference(value = "project-reference")
     private List<Product> products;
-    
+
     @ManyToMany
     //@JsonManagedReference(value = "color-project-ref")
-    //@JsonIgnore
-    private List<Color> colors; 
-    
+    private List<Color> colors;
+
     //GETTERS
     public Long getId() {
         return id;
@@ -80,7 +72,6 @@ public class Project implements Serializable {
         return coverPercent;
     }
 
-    //@XmlTransient
     public List<Color> getColors() {
         return colors;
     }
@@ -88,8 +79,7 @@ public class Project implements Serializable {
     public List<Product> getProducts() {
         return products;
     }
-    
-    
+
     //SETTERS
     public void setId(Long id) {
         this.id = id;
@@ -106,7 +96,7 @@ public class Project implements Serializable {
     public void setEndingDate(Date endingDate) {
         this.endingDate = endingDate;
     }
-    
+
     public void setCoverPercent(Double coverPercent) {
         this.coverPercent = coverPercent;
     }
@@ -118,16 +108,16 @@ public class Project implements Serializable {
     public void setProducts(List<Product> products) {
         this.products = products;
     }
-    
+
     //Else
     @XmlTransient
     public void addColor(Color color) {
         this.colors.add(color);
-         if (!color.getProjects().contains(this)) {
-       color.addProject(this);
+        if (!color.getProjects().contains(this)) {
+            color.addProject(this);
+        }
     }
-    }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -150,7 +140,6 @@ public class Project implements Serializable {
 
     @Override
     public String toString() {
-          return "model.Project[ id=" + id + " name=" + name + " starting date=" + startingDate + " ending date=" + endingDate + " cover percent= " + coverPercent + " ]";
+        return "model.Project[ id=" + id + " name=" + name + " starting date=" + startingDate + " ending date=" + endingDate + " cover percent= " + coverPercent + " ]";
     }
-    
 }

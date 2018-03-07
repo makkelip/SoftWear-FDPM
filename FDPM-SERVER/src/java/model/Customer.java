@@ -18,7 +18,6 @@ package model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
 import java.util.List;
@@ -35,7 +34,7 @@ import javax.persistence.OneToMany;
  * @author Markus
  */
 @Entity
-@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="id", scope = Customer.class)
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id", scope = Customer.class)
 public class Customer implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -46,11 +45,11 @@ public class Customer implements Serializable {
     private String name;
     private String email;
     private String description;
-    
-    @OneToMany(mappedBy="customer")
+
+    @OneToMany(mappedBy = "customer")
     @JsonBackReference(value = "customer-product-ref")
     private List<Product> products;
-    
+
     @ManyToMany
     //@JsonManagedReference(value = "account-customer-ref")
     private List<Account> accounts;
@@ -63,12 +62,12 @@ public class Customer implements Serializable {
     public String getName() {
         return name;
     }
-    
-     public void addProduct(Product p) {
+
+    public void addProduct(Product p) {
         products.add(p);
     }
-     
-     public void addCustomer(Account a) {
+
+    public void addCustomer(Account a) {
         accounts.add(a);
     }
 
@@ -113,7 +112,6 @@ public class Customer implements Serializable {
         this.accounts = accounts;
     }
 
-    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -138,6 +136,4 @@ public class Customer implements Serializable {
     public String toString() {
         return "model.Customer[ id=" + id + " name=" + name + " email=" + email + " description=" + description + " ]";
     }
-    
-    
 }

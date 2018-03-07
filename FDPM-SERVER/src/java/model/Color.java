@@ -31,41 +31,36 @@ import javax.persistence.Transient;
  *
  * @author Markus
  */
-
 @Entity
-//@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@id")
 public class Color implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private String pantone;
     private String hexColorValue;
-    
+
     @ManyToMany(mappedBy = "colors")
     @JsonBackReference(value = "color-product-ref")
     private List<Product> products;
-    
-     
+
     @ManyToMany(mappedBy = "colors")
     @JsonBackReference(value = "color-project-ref")
     private List<Project> projects;
-    
+
     //@Transient
     //private List<Long> projectsID;
-    
-     public void addProject(Project p) {
+    public void addProject(Project p) {
         this.projects.add(p);
-      if (!p.getColors().contains(this)) {
-       p.addColor(this);
-   }
+        if (!p.getColors().contains(this)) {
+            p.addColor(this);
+        }
     }
-    
+
     //GETTERS
-    //@Id
     public Long getId() {
         return id;
     }
@@ -81,7 +76,7 @@ public class Color implements Serializable {
     public String getHexColorValue() {
         return hexColorValue;
     }
-   
+
     public List<Project> getProjects() {
         return projects;
     }
@@ -89,15 +84,16 @@ public class Color implements Serializable {
     public List<Product> getProducts() {
         return products;
     }
-    
+
     @Transient
-    public List<Long> getProjectsID(){
+    public List<Long> getProjectsID() {
         List<Long> ls = new ArrayList<>();
-        for(Project p : projects)
+        for (Project p : projects) {
             ls.add(p.getId());
+        }
         return ls;
     }
-    
+
     //SETTERS
     public void setId(Long id) {
         this.id = id;
@@ -114,7 +110,7 @@ public class Color implements Serializable {
     public void setHexColorValue(String hexColorValue) {
         this.hexColorValue = hexColorValue;
     }
-   
+
     public void setProjects(List<Project> projects) {
         this.projects = projects;
     }
@@ -123,7 +119,6 @@ public class Color implements Serializable {
         this.products = products;
     }
 
-    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -148,5 +143,4 @@ public class Color implements Serializable {
     public String toString() {
         return "model.Color[ id=" + id + " ]";
     }
-    
 }
