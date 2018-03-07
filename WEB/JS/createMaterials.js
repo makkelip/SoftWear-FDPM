@@ -24,5 +24,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
         document.getElementById('material-name').value = "";
     },false);
 
-    });
+    materialset = new Object();
+
+    document.getElementById('create-material').addEventListener('click',function(){
+        var materialname = document.getElementById('material-name').value;
+        materialset.name = materialname;
+        fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.material",{
+            'method': 'POST',
+            'body': JSON.stringify(materialset),
+            'headers': new Headers({'Content-Type': 'application/json'})
+        }).then(result => result.json())
+        .then(response => console.log('Success', response))
+        .catch(error => console.log('error', error));
+    })
+});
 
