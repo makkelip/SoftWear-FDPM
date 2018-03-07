@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -43,6 +44,9 @@ public class Account implements Serializable {
 
     public void addCustomer(Customer customer) {
         customers.add(customer);
+        if (!customer.getAccounts().contains(this)) {
+            customer.addAccount(this);
+        }
     }
 
     //GETTERS
@@ -50,8 +54,12 @@ public class Account implements Serializable {
         return email;
     }
 
-    public List<Customer> getCustomers() {
-        return customers;
+    public List<Long> getCustomerIDs() {
+        List<Long> ls = new ArrayList<>();
+        for (Customer p : customers) {
+            ls.add(p.getId());
+        }
+        return ls;
     }
 
     public String getUserName() {

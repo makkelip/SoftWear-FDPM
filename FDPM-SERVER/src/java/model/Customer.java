@@ -67,7 +67,7 @@ public class Customer implements Serializable {
         products.add(p);
     }
 
-    public void addCustomer(Account a) {
+    public void addAccount(Account a) {
         accounts.add(a);
     }
 

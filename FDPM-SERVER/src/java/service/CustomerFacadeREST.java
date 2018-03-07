@@ -86,7 +86,7 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     public void addAccount(@PathParam("cId") Long customerId, @PathParam("aId") String accountName) {
         Customer customer = this.find(customerId);
         Account account = getEntityManager().find(Account.class, accountName);
-        customer.addCustomer(account);
+        customer.addAccount(account);
         em.persist(account);
     }
     
