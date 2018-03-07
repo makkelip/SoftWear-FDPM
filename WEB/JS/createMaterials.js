@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(event) {
+$(function(){
     $("input[type=file]").change(function(e) {
         var file = e.originalEvent.srcElement.files[0];
         var img = document.createElement("img");
