@@ -1,6 +1,3 @@
-const url = "http://10.114.32.58:8080/";
-const path = "FDPM-SERVER/sources/model.customer";
-
 document.addEventListener("DOMContentLoaded", function(event) {
     $("input[type=file]").change(function(e) {
         var file = e.originalEvent.srcElement.files[0];
@@ -18,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         $("input[type=file]").after(img);
 
     });
-    document.getElementById('cancel').addEventListener('click', function() {
+    $('body').on('click','#cancel',function() {
         var image_remove = document.getElementById('imageCreated');
         image_remove.parentNode.removeChild(image_remove);
         document.getElementById('material-name').value = "";
@@ -26,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     materialset = new Object();
 
-    document.getElementById('create-material').addEventListener('click',function(){
+    $('body').on('click','#create-material',function(){
         var materialname = document.getElementById('material-name').value;
         materialset.name = materialname;
         fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.material",{
