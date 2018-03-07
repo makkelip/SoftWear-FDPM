@@ -1,13 +1,13 @@
 const url = "http://10.114.32.58:8080/";
 const path = "FDPM-SERVER/sources/model.customer";
 
-document.addEventListener("DOMContentLoaded", function(event) {
-  document.getElementById("js--button-create").addEventListener("click", function() {
-    let form = document.getElementById("js--form-id");
-    let name = form.childNodes[3].value;
-    let email = form.childNodes[8].value;
-    let description = form.childNodes[14].value;
-    postCustomer(name,email,description);
+$(document).ready(function(){
+    $("body").on("click", ".js--button-submit-customer", function() {
+        console.log('clicked');
+        let name = $("#name").val();
+        let email = $("#email").val();
+        let description = $("#description").val();
+        postCustomer(name,email,description);
     });
 });
 

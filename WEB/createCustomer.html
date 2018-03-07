@@ -32,12 +32,12 @@
         <h1>Create new customer</h1>
         <form class="form-area" id="js--form-id">
           Company name:<br>
-          <input type="text" name="name" required /><br>
+          <input type="text" name="name" id="name" required /><br>
           Email:<br>
-          <input type="email" name="email" /><br>
+          <input type="email" name="email" id="email"/><br>
           <label for="description">Description: </label><br>
           <textarea id="description" name="description" rows="10" cols="70"></textarea><br>
-          <input class="button button-create" id="js--button-create" type="button" value="Create" />
+          <input class="button button-create js--button-submit-customer" type="button" value="Create" />
           <input class="button button-cancel js--button-select-customer" type="button" value="Cancel" />
         </form>
       </div>
