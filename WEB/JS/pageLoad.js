@@ -55,6 +55,10 @@ $(document).ready(function(){
     $("section").load("createMaterials.html #js--create-materials");
     $.getScript("JS/createMaterials.js");
   });
-
+ //Select product
+  $("body").on("click", ".js--button-select-product", function(){
+    $("section").load("selectProduct.html #js--all-products");
+  });
+ 
 
 });
