@@ -11,8 +11,9 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
-
+    align-content: flex-start;
+    
+    
 }
 
 /*one whole color card*/
@@ -23,6 +24,7 @@
 
     border: solid 0.05em #D3D3D3;
     overflow: hidden;
+    
 }
 
 /*color area in cord*/
