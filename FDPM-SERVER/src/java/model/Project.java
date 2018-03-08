@@ -17,6 +17,7 @@
 package model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -79,11 +80,13 @@ public class Project implements Serializable {
     public String getName() {
         return name;
     }
-
+    
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     public Date getStartingDate() {
         return startingDate;
     }
-
+    
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     public Date getEndingDate() {
         return endingDate;
     }
