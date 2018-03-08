@@ -1,0 +1,74 @@
+:root{
+ --info-box-background: #F5F5F5;
+    
+}
+.infobox{
+    display: grid;
+    height: 30em;
+    width: 70em;
+    background-color: var(--info-box-background);
+    padding: 1em;
+    grid-template-rows: 10% 10% 10% 30% 30%;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:"name name"
+                        "startdate enddate"
+                        "coverpercentage ."
+                        "products colors"
+                        "desc desc";
+    grid-gap: 0.5em;
+}
+
+.info-container{
+    background-color:white;
+    padding:0.5em;
+    overflow: hidden;
+    word-wrap: break-word;
+    border: solid 1px #5E5E5E;
+    font-size: 0.7em;
+    font-weight: bold;
+}
+
+
+
+#name-info{
+    grid-area: name;
+    
+}
+
+#startdate-info{
+    grid-area: startdate;
+}
+
+#enddate-info{
+    grid-area: enddate;
+    
+}
+
+#cover-percentage-info{
+    grid-area: coverpercentage;
+}
+
+#products-info{
+    grid-area: products;
+    word-wrap: break-word;
+    overflow-y: scroll;
+    max-height: 126px;
+}
+
+#colors-info{
+    grid-area: colors;
+    word-wrap: break-word;
+    overflow-y: scroll;
+    max-height: 126px;
+}
+
+#desc-info{
+    grid-area: desc;
+    word-wrap: break-word;
+    overflow-y: scroll;
+    max-height: 126px;
+}
+
+p{
+    font-weight: normal;
+}
