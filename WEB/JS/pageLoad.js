@@ -20,6 +20,7 @@ $(document).ready(function(){
   //Create customer
   $("body").on("click", ".js--button-create-customer", function(){
     $("section").load("createCustomer.html #js--create-customer");
+    $.getScript("JS/createCustomer.js");
   });
 
   //Select project
