@@ -10,10 +10,10 @@ $(document).ready(function(){
         for (let project of projects) {
             projectsElement.innerHTML +=
                 `<a href="#" class="boxitem" id="${project.id}">
-                <div>Project name: ${project.name}</div>
-                <div>Starting date: ${project.startingDate}</div>
-                <div>Delivery date: ${project.endingDate}</div>
-                <div>Description: ${project.description}</div></a>`;
+                <div>Project name:<br> ${project.name}</div>
+                <div>Starting date:<br> ${project.startingDate}</div>
+                <div>Delivery date:<br> ${project.endingDate}</div>
+                <div>Description:<br> ${project.description}</div></a>`;
         }
         console.log(projectsElement);
     };

@@ -2,7 +2,7 @@
 /* eslint-disable no-alert, no-console, no-unused-vars*/
 
 $(document).ready(function(){
-    
+
     let listCustomers = function (customers) {
         const customersElement = document.getElementById("js--customers-list");
         customersElement.innerHTML = "";
@@ -10,16 +10,16 @@ $(document).ready(function(){
         for (let customer of customers) {
             customersElement.innerHTML +=
                 `<a href="#" class="boxitem" id="${customer.id}">
-                <div>Company name: ${customer.name}</div>
-                <div>Email: ${customer.email}</div>
-                <div>Description: ${customer.description}</div></a>`;
+                <div>Company name:<br> ${customer.name}</div>
+                <div>Email:<br> ${customer.email}</div>
+                <div>Description:<br> ${customer.description}</div></a>`;
         }
         console.log(customersElement);
     };
 
     let firstItem = 0;
     let lastItem = 2;
-    
+
     const hide = item => item.style.display = "none";
     const show = item => item.style.display = "block";
 
@@ -29,11 +29,11 @@ $(document).ready(function(){
     const showItems = () => {
 
         const items = $(".boxitem");
-        
+
         if (items.length > 3) {
             show(document.getElementById('left-button'));
             show(document.getElementById('right-button'));
-            
+
             let activeItems = [];
             for (let i = firstItem; i <= lastItem; i++) {
                 activeItems.push(items[i]);
