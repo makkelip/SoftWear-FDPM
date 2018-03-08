@@ -2,6 +2,7 @@
 .color-container {
     text-align: justify;
     width: 600px;
+    /*position: relative;*/
 }
 
 .colorpicker {
@@ -10,24 +11,21 @@
     box-shadow: 2px 2px 2px #444444;
     color: #FFFFFF;
     font-size: 12px;
-    width:620px;
-    right:500px;
-    top:80px;
-    position:absolute;
+    position: fixed;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    /*position: absolute;
+    left: 180px;
+    top: 40px;*/
 }
 
 #picker {
     cursor: crosshair;
-    float: left;
     margin: 10px;
     border: 0;
+    position: relative;
 }
-
-.controls {
-    float: right;
-    margin: 10px;
-}
-
 
 .preview {
     border-radius: 3px;
