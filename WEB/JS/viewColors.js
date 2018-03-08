@@ -1,11 +1,10 @@
 $(function() {
     let listColors = function (colors) {
         console.log(colors);
-        const colorsElement = document.querySelector("#js--all-colors");
+        const colorsElement = document.querySelector(".color-container-flex");
         if (colorsElement === null){
             throw new Error("No Color yet!");
         } else {
-        colorsElement.innerHTML = "";
         for (let color of colors) {
             colorsElement.innerHTML +=
                 `<div class="color-card"> <!-- värikortti-->
