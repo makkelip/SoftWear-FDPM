@@ -1,6 +1,5 @@
 $(document).ready(function(){
   const productContainer = document.getElementById("js--product-container");
-  let parser = new DOMParser();
 
   let addProduct = function(productJson) {
     let productCard =
@@ -17,7 +16,8 @@ $(document).ready(function(){
     console.log(json);
     for (let product of json) {
       productContainer.innerHTML += addProduct(product);
-      $("body").on("click", "#" + product.id, function(){
+      $("body").one("click", "#" + product.id, function(event){
+          event.preventDefault();
           $("section").load("viewProduct.html #js--view-product");
           productId = product.id;
           $.getScript("JS/viewProduct.js");

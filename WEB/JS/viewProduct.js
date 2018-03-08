@@ -23,9 +23,3 @@ function displayCustomer(json) {
 }
 //Create method for displaying all colors!!!
 //Create method for displaying all materials!!!
-
-function displayAllProducts(json) {
-  for (let customer of json) {
-    displayCustomer(customer);
-  }
-}
