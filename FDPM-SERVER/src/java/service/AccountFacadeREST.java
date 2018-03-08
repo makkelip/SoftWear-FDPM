@@ -39,28 +39,28 @@ import model.Customer;
 @Stateless
 @Path("model.account")
 public class AccountFacadeREST extends AbstractFacade<Account> {
-
+    
     @PersistenceContext(unitName = "FDPM-SERVERPU")
     private EntityManager em;
-
+    
     public AccountFacadeREST() {
         super(Account.class);
     }
-
+    
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_JSON})
     public void create(Account entity) {
         super.create(entity);
     }
-
+    
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_JSON})
     public void edit(@PathParam("id") String id, Account entity) {
         super.edit(entity);
     }
-
+    
     @PUT
     @Path("{aId}/customer/{cId}")
     @Produces({MediaType.APPLICATION_JSON})
@@ -70,41 +70,51 @@ public class AccountFacadeREST extends AbstractFacade<Account> {
         account.addCustomer(customer);
         em.persist(account);
     }
-
+    
+    @PUT
+    @Path("{aId}/dcustomer/{cId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void deleteCustomer(@PathParam("aId") String accountName, @PathParam("cId") Long customerId) {
+        Account account = this.find(accountName);
+        Customer customer = getEntityManager().find(Customer.class, customerId);
+        account.deleteCustomer(customer);
+        customer.deleteAccount(account);
+    }
+    
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") String id) {
         super.remove(super.find(id));
     }
-
+    
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public Account find(@PathParam("id") String id) {
         return super.find(id);
     }
-
+    
     @GET
     @Override
     @Produces({MediaType.APPLICATION_JSON})
     public List<Account> findAll() {
         return super.findAll();
     }
-
+    
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_JSON})
     public List<Account> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
-
+    
     @GET
     @Path("count")
     @Produces(MediaType.TEXT_PLAIN)
     public String countREST() {
         return String.valueOf(super.count());
     }
-
+    
     @Override
     protected EntityManager getEntityManager() {
         return em;

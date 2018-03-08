@@ -40,21 +40,21 @@ import model.Product;
 @Stateless
 @Path("model.customer")
 public class CustomerFacadeREST extends AbstractFacade<Customer> {
-    
+
     @PersistenceContext(unitName = "FDPM-SERVERPU")
     private EntityManager em;
-    
+
     public CustomerFacadeREST() {
         super(Customer.class);
     }
-    
+
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_JSON})
     public void create(Customer entity) {
         super.create(entity);
     }
-    
+
     @POST
     @Path("ret")
     @Consumes({MediaType.APPLICATION_JSON})
@@ -63,13 +63,13 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         super.create(entity);
         return entity;
     }
-    
+
     @PUT
     @Consumes({MediaType.APPLICATION_JSON})
     public void edit(Customer entity) {
         super.edit(entity);
     }
-    
+
     @PUT
     @Path("{cId}/product/{pId}")
     @Produces({MediaType.APPLICATION_JSON})
@@ -79,7 +79,7 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         customer.addProduct(product);
         em.persist(product);
     }
-    
+
     @PUT
     @Path("{cId}/account/{aId}")
     @Produces({MediaType.APPLICATION_JSON})
@@ -90,7 +90,18 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         account.addCustomer(customer);
         em.persist(account);
     }
-    
+
+    @PUT
+    @Path("{cId}/daccount/{aId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void deleteAccount(@PathParam("cId") Long customerId, @PathParam("aId") String accountName) {
+        Customer customer = this.find(customerId);
+        Account account = getEntityManager().find(Account.class, accountName);
+        customer.deleteAccount(account);
+        account.deleteCustomer(customer);
+        em.persist(account);
+    }
+
     @PUT
     @Path("ret")
     @Consumes({MediaType.APPLICATION_JSON})
@@ -99,13 +110,13 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         super.edit(entity);
         return entity;
     }
-    
+
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {
         super.remove(super.find(id));
     }
-    
+
     @GET
     @Path("{cId}/products")
     @Produces({MediaType.APPLICATION_JSON})
@@ -113,35 +124,35 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         Customer customer = this.find(customerId);
         return customer.getProducts();
     }
-    
+
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public Customer find(@PathParam("id") Long id) {
         return super.find(id);
     }
-    
+
     @GET
     @Override
     @Produces({MediaType.APPLICATION_JSON})
     public List<Customer> findAll() {
         return super.findAll();
     }
-    
+
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_JSON})
     public List<Customer> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
-    
+
     @GET
     @Path("count")
     @Produces(MediaType.TEXT_PLAIN)
     public String countREST() {
         return String.valueOf(super.count());
     }
-    
+
     @Override
     protected EntityManager getEntityManager() {
         return em;

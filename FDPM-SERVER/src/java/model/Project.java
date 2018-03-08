@@ -43,6 +43,7 @@ public class Project implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date endingDate;
     private Double coverPercent;
+    private String description;
 
     @OneToMany(mappedBy = "project")
     @JsonBackReference(value = "project-reference")
@@ -103,6 +104,10 @@ public class Project implements Serializable {
         return products;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     //SETTERS
     public void setId(Long id) {
         this.id = id;
@@ -132,6 +137,10 @@ public class Project implements Serializable {
         this.products = products;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;

@@ -58,7 +58,7 @@ public class Product implements Serializable {
     @ManyToMany
     //@JsonManagedReference(value = "mat-ref")
     private List<Material> materials;
-
+    private String description;
     public void addColor(Color e) {
         colors.add(e);
     }
@@ -104,6 +104,10 @@ public class Product implements Serializable {
         return materials;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     //SETTERS
     public void setName(String name) {
         this.name = name;
@@ -139,6 +143,10 @@ public class Product implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override

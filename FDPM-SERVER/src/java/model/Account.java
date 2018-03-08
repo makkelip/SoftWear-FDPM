@@ -47,6 +47,13 @@ public class Account implements Serializable {
         }
     }
 
+    public void deleteCustomer(Customer customer) {
+        if (!customer.getAccounts().contains(this)) {
+            customer.deleteAccount(this);
+        }
+        customers.remove(customer);
+    }
+
     public List<Long> getCustomerIDs() {
         List<Long> ls = new ArrayList<>();
         for (Customer p : customers) {
