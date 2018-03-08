@@ -24,6 +24,7 @@
 
 /* Area for one customer only */
 .customers > a {
+  height: 400px;
   width: 250px;
   margin: 10px;
   border-radius: 20px;

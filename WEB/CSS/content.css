@@ -15,27 +15,15 @@
   grid-template-columns: 80% 20%;
 }
 
-/* Page header and create new link */
+/* Page header */
 .section-text-margin {
   margin-left: 50px;
-}
-
-/* Create new link colors */
-.create-new a:link {
-  color: var(--create-new);
-}
-
-.create-new a:visited {
-  color: var(--create-new);
-}
-
-.create-new a:hover {
-  color: var(--create-new-hover);
 }
 
 /* CONTENT */
 .section-content {
   grid-area: content;
+  min-height: 100%;
 }
 
 /* ASIDE */
@@ -44,7 +32,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--aside)
+  max-height: 100%;
+  background-color: var(--aside);
  }
 
 /* Settings header */
@@ -59,8 +48,9 @@
   display: flex;
   flex-direction: column;
   width: 90%;
-  height: 80%;
+  max-height: 90%;
   font-size: 0.9em;
+  overflow-y: scroll;
 }
 
 /* Single settings link */

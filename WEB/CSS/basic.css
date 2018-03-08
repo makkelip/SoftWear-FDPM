@@ -37,7 +37,7 @@ header {
 }
 
 .header-navigation {
-  width: 50%;
+  width: 600px;
   display: flex;
   justify-content: space-around;
 }
@@ -98,6 +98,6 @@ a:link {
 }
 
 
-/* grow effect*/ 
+/* grow effect*/
 .grow { transition: all .2s ease-in-out; }
 .grow:hover { transform: scale(1.03);  box-shadow: 3px 3px 15px 3px #888888;  }
