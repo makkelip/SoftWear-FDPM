@@ -31,6 +31,7 @@ $(document).ready(function(){
   //Create project
   $("body").on("click", ".js--button-create-project", function(){
     $("section").load("createProject.html #js--create-project");
+    $.getScript("JS/createProject.js");
   });
 
   //View colors
