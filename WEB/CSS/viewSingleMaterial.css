@@ -5,8 +5,8 @@
 .material-window{
     
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% auto;
+    grid-template-rows: 50% auto;
     grid-template-areas: "img products"
                          "name products";    
     min-width: 100%;
@@ -23,6 +23,7 @@
     background-color:#F5F5F5;
     
     padding: 1em;
+    border: solid 1px #DCDCDC
 }
 
 #material-name{
