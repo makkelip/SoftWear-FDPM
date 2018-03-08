@@ -3,10 +3,11 @@ const path = "FDPM-SERVER/sources/model.product";
 
 $(document).ready(function() {
   $("body").on("click", ".js--button-submit-product", function() {
-    let form = document.getElementById("js--form-id");
+    let form = document.getElementById("js--form-id-product");
     let name = $("#name").val();
     let description = $("#description").val();
     postProduct(name,description);
+    form.reset();
     console.log('clicked');
   });
 });

@@ -1,10 +1,12 @@
 
 document.getElementById("js--button-submit-customer").addEventListener('click', function() {
+    let form = document.getElementById("js--form-id-customer");
     let name = $("#name").val();
     let email = $("#email").val();
     let description = $("#description").val();
 
     postCustomer(name,email,description);
+    form.reset();
     console.log('clicked');
 });
 
