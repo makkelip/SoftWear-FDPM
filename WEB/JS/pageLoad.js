@@ -39,6 +39,7 @@ $(document).ready(function(){
     $("section").load("viewColors.html #js--all-colors");
     $.getScript("JS/viewColors.js");
   });
+
   //Create color
   $("body").on("click", ".js--button-create-colors", function(){
     $("section").load("createColors.html #js--create-colors");
@@ -48,20 +49,22 @@ $(document).ready(function(){
   //View materials
   $("body").on("click", ".js--button-view-materials", function(){
     $("section").load("viewMaterials.html #js--all-materials");
+    $.getScript("JS/selectMaterial");
   });
   //Create materials
   $("body").on("click", ".js--button-create-materials", function(){
     $("section").load("createMaterials.html #js--create-materials");
     $.getScript("JS/createMaterials.js");
   });
-
-  //Select product
+ //Select product
   $("body").on("click", ".js--button-select-product", function(){
-    $("section").load("selectProduct.html #js--all-products");
+    $("section").load("selectProduct.html #js--select-product");
+    $.getScript("JS/selectProduct.js");
   });
   //Create product
   $("body").on("click", ".js--button-create-product", function(){
     $("section").load("createProduct.html #js--create-product");
     $.getScript("JS/createProduct.js");
   });
+
 });
