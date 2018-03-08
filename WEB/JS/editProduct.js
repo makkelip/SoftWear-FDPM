@@ -1,3 +1,4 @@
+
 $(function(){
     const colorDisplay = (colors) => {
         const colorSideBar = document.querySelector('.aside-content');
@@ -7,9 +8,6 @@ $(function(){
         }
         var colorSideBars = document.querySelector('.aside-content');
         var colorsChosen = colorSideBars.getElementsByTagName("a");
-        colorsChosen.addEventListener('click',function(){
-            document.getElementById("product-colors-text-field").textContent = "";
-        });
         Array.prototype.forEach.call(colorsChosen, function(colorChosen){
             colorChosen.addEventListener('click', function(){
 
