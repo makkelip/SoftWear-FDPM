@@ -1,8 +1,8 @@
 :root {
   --aside: inherit;
-  --aside-button: #CCDFCB;
-  --aside-content-link: #000;
-  --aside-content-link-hover: #000;
+  --aside-button: #414141;
+  --aside-content-link: #FFF;
+  --aside-content-link-hover: #D6F9DD;
   --create-new: #414141;
   --create-new-hover: #000;
 }
@@ -47,11 +47,14 @@
   background-color: var(--aside)
  }
 
+/* Settings header */
 .aside-tab {
   display: flex;
   justify-content: flex-start;
+  margin-bottom: 10px;
 }
 
+/* All settings links together */
 .aside-content {
   display: flex;
   flex-direction: column;
@@ -60,13 +63,13 @@
   font-size: 0.9em;
 }
 
+/* Single settings link */
 .aside-content > a {
   background-color: var(--aside-button);
   border: 1px solid var(--aside-button);
-  border-radius: 2px;
+  border-radius: 3px;
   margin: 5px;
   padding: 10px;
-  box-shadow: 1px 1px 2px black;
 }
 
 /* Aside link colors */

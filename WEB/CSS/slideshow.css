@@ -1,8 +1,8 @@
 :root {
-  --customer-box: #FF6A5C;
-  --section-slideshow-link: #FFF;
-  --section-slideshow-link-hover: #FFF;
-  --slideshow-button: #CCDFCB;
+  --customer-box: #D9E7E0;
+  --section-slideshow-link: #000;
+  --section-slideshow-link-hover: #000;
+  --slideshow-button: #D9E7E0;
 }
 
 /* Slideshow layout */
@@ -23,9 +23,10 @@
 
 /* Area for one customer only */
 .customers > a {
-  /*background-color: var(--customer-box);*/
-  background-image: linear-gradient(-144deg, #FF6A5C 0%, #b52b2b 100%);
   margin: 10px;
+  border-radius: 20px;
+  background-color: var(--customer-box);
+  box-shadow: 1px 1px 3px black;
 }
 
 .customers > a > div {
