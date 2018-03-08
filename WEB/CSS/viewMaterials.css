@@ -24,6 +24,8 @@
     margin: 0.5em;
     border: solid 0.05em #D3D3D3;
     overflow: hidden;
+    box-shadow: 1px 1px 15px 1px #888888;
+    
 
 }
 
@@ -31,17 +33,31 @@
     
     height: 10em;
     width: inherit;
+    display: block;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    
+    
+}
+
+
+img{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
 }
 
 
 .material-card-name{
     line-height: 2em;
-    padding-left: 0.3em;
-    padding-right: 0.3em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
     font-size: 0.8em;
     word-wrap: break-word;
     overflow: inherit;
-    border-top: solid 0.05em #D3D3D3;
+    border-top: solid 0.1em #5E5E5E;
     font-weight: bold;
 
 }
+

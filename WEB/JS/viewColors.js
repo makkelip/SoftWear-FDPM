@@ -9,7 +9,7 @@ $(function() {
         } else {
         for (let color of colors) {
             colorsElement.innerHTML +=
-                `<div class="color-card"> <!-- värikortti-->
+                `<div class="grow color-card"> <!-- värikortti-->
                     <div class="color"></div> <!-- väri-->
                     <div class="color-info"> <!--väri-info-->
                         <p class="color-info-name">${color.name}</p>
