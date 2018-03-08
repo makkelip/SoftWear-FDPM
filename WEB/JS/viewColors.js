@@ -2,6 +2,8 @@ $(function() {
     let listColors = function (colors) {
         console.log(colors);
         const colorsElement = document.querySelector(".color-container-flex");
+        colorsElement.innerHTML = "";
+        colorsContainner = new Array();
         if (colorsElement === null){
             throw new Error("No Color yet!");
         } else {
@@ -15,7 +17,14 @@ $(function() {
                         <p class="color-info-hex">${color.hexColorValue}</p>
                     </div>
                 </div>`;
-            document.getElementsByClassName('color')[color.id-1].style.backgroundColor = color.hexColorValue;
+
+            colorsContainner.push(color.hexColorValue);
+        }
+        var colors_display = document.getElementsByClassName('color');
+        console.log(colors_display);
+        console.log(colorsContainner);
+        for (let i = 0; i<colorsContainner.length;i++){
+            colors_display[i].style.backgroundColor = colorsContainner[i];
         }
         console.log(colorsElement);
     }
