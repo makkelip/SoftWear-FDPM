@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit product</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="CSS/basic.css">
+    <link rel="stylesheet" type="text/css" href="CSS/content.css">
+    <link rel="stylesheet" type="text/css" href="CSS/editProduct.css">
+    <!--JavaScript-->
+    <script src="libraries/jquery-3.3.1.min.js" type="text/javascript"></script>
+    
+</head>
+
+<body>
+    <header>
+        <div class="header-logo">
+            <a href="#" class="js--button-home">FDPM</a>
+        </div>
+        <nav class="header-navigation">
+            <a href="#" class="js--button-select-customer">Customer</a>
+            <a href="#" class="js--button-select-project">Project</a>
+            <a href="#">Product</a>
+            <a href="#" class="js--button-view-colors">Color</a>
+        </nav>
+    </header>
+
+    <section>
+        <div class="section edit-product" id="js--edit-product">
+            <div class="product-card">
+                <div class="product-info-cell" id="product-img" >
+                <img src="http://www.drawingskill.com/wp-content/uploads/1/T-Shirt-Image-Drawing.jpg">
+                </div>
+                <div class="product-info-cell" id="product-name">Name:
+                    <p class="text-field js--product-name" id="name-text-field">Unicorn t-shirt</p>
+                </div>
+                <div class="product-info-cell" id="product-group">Product group:
+                    <p class="text-field js--product-group" id="product-group-text-field">T-shirt</p>
+                </div>
+
+                <div class="product-card-info-grid">
+
+                    <div class="product-info-cell" id="product-colors">Colors:
+                        <p class="text-field js--product-colors" id="product-colors-text-field">Blue, Indigo, scarlet</p>
+                    </div>
+                    <div class="product-info-cell" id="product-materials">Materials:
+                        <p class="text-field js--product-materials" id="product-materials-text-field">Polyester, cotton</p>
+                    </div>
+                    <div class="product-info-cell" id="customer">Customer:
+                        <p class="text-field js--product-customer" id="customer-text-field">Cubus</p>
+                    </div>
+                    <div class="product-info-cell" id="project">Project:
+                        <p class="text-field js--product-project" id="project-text-field">Magical animals</p>
+                    </div>
+                    <div class="product-info-cell" id="outfit">Outfit:
+                        <p class="text-field js--product-outfit" id="outfit-text-field">Unicorn ensemble</p>
+                    </div>
+                    <div class="product-info-cell" id="product-price-group">Price group:
+                        <p class="text-field js--product-pricegroup" id="product-price-group-text-field">very expensive</p>
+                    </div>
+
+                    <div class="product-info-cell" id="product-desc">Description:
+                        <p class="text-field js--product-description" id="product-desc-text-field">A unicorn t-shirt. </p>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="section-aside">
+            <h4 class="aside-tab">Settings</h4>
+                <div class="aside-content">
+                    <a href="#">Edit customer information</a>
+                    <a href="#">Budget</a>
+                    <a href="#">Color palette</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2018 SoftWear</p>
+    </footer>
+</body>
+
+</html>

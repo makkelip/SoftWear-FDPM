@@ -1,0 +1,114 @@
+.view-product{
+   
+    min-width: 100%;
+    background-color: #F5F5F5;
+}
+
+.product-card{
+    background-color: #FFF;
+    display: grid;
+    min-width: 100%;
+    
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 60% 1fr 1fr;
+    grid-template-areas: "image infogrid"
+                         "name infogrid"
+                         "pgroup infogrid";
+    border: solid 1px black;
+    font-size: 0.7em;
+    word-wrap: break-word;
+    overflow: hidden;
+    
+    
+}
+
+
+    
+    
+}
+
+
+img{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+}
+
+
+#product-img{
+grid-area: image;
+display: block;
+
+}
+
+img{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+}
+
+
+#product-name{
+    grid-area: name;
+    
+   
+}
+
+#product-group{
+    grid-area: pgroup;
+    
+}
+
+.product-card-info-grid{
+    grid-area: infogrid;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 40%;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "colors materials"
+                         "customer project"
+                         "outfit pricegroup"
+                         "desc desc";
+   
+    
+    
+}
+
+#customer{
+    grid-area: customer;
+}
+
+#outfit{
+    grid-area: outfit;
+}
+
+#project{
+    grid-area: project;
+}
+#product-colors{
+    grid-area: colors;
+}
+#product-materials{
+    grid-area: materials;
+}
+#product-desc{
+    grid-area: desc;
+    
+}
+#product-price-group{
+    grid-area: pricegroup;
+}
+
+
+.product-info-cell{
+    border:solid black 1px;
+    padding: 0.5em;
+    font-weight: bold;
+    
+}
+
+.text-field{
+    font-weight: normal;
+}
+
