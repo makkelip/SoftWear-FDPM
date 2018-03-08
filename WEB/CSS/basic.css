@@ -3,13 +3,13 @@
   --header: #414141;
   --footer: #414141;
   /* Header */
-  --header-link: #E2E2E2;
-  --header-link-hover: #636363;
+  --header-link: #FFF;
+  --header-link-hover: #CCDFCB;
   /* Section */
   --main-content-link: #414141;
-  --main-content-link-hover: #E2E2E2;
+  --main-content-link-hover: #000;
   /* Footer */
-  --footer-text: #E2E2E2;
+  --footer-text: #FFF;
 }
 
 html {
@@ -24,7 +24,7 @@ body {
   grid-template-areas: "head"
                        "section"
                        "foot";
-  grid-template-rows: 60px auto 30px;
+  grid-template-rows: 70px auto 30px;
 }
 
 /* HEADER */
@@ -57,7 +57,7 @@ header {
 
 /* FDPM logo and its colors */
 .header-logo {
-  padding-left: 5%;
+  padding-left: 50px;
   font-size: 2em;
 }
 

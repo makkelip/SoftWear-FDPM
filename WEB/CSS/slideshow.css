@@ -2,6 +2,7 @@
   --customer-box: #FF6A5C;
   --section-slideshow-link: #FFF;
   --section-slideshow-link-hover: #FFF;
+  --slideshow-button: #CCDFCB;
 }
 
 /* Slideshow layout */
@@ -33,7 +34,11 @@
 
 /* Slideshow buttons */
 .section-slideshow > button {
-  border: 1px solid black;
+  padding: 5px;
+  border: 1px solid var(--slideshow-button);
+  box-shadow: 1px 1px 2px black;
+  background-color: var(--slideshow-button);
+  font-size: 0.9em;
 }
 
 /* Customer information link colors */
