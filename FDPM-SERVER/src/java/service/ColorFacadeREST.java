@@ -80,7 +80,6 @@ public class ColorFacadeREST extends AbstractFacade<Color> {
         Project project = getEntityManager().find(Project.class, projectId);
         color.addProject(project);
         em.persist(color);
-
     }
 
     @PUT

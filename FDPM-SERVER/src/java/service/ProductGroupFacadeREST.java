@@ -68,6 +68,7 @@ public class ProductGroupFacadeREST extends AbstractFacade<ProductGroup> {
         ProductGroup pg = this.find(productGroupId);
         Product product = getEntityManager().find(Product.class, productId);
         pg.addProduct(product);
+        product.setProductGroup(pg);
         em.persist(pg);
     }
 

@@ -68,6 +68,7 @@ public class OutfitFacadeREST extends AbstractFacade<Outfit> {
         Outfit o = this.find(outfitId);
         Product product = getEntityManager().find(Product.class, productId);
         o.addProduct(product);
+        product.setOutfit(o);
         em.persist(o);
     }
 

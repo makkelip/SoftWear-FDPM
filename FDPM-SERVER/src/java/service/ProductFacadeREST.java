@@ -92,6 +92,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         Product product = this.find(productId);
         Color color = getEntityManager().find(Color.class, colorId);
         product.addColor(color);
+        color.addProduct(product);
         em.persist(product);
     }
 
@@ -102,6 +103,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         Product product = this.find(productId);
         Material material = getEntityManager().find(Material.class, materialId);
         product.addMaterial(material);
+        material.addProducts(product);
         em.persist(product);
     }
 
@@ -112,6 +114,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         Product product = this.find(productId);
         PriceGroup pricegroup = getEntityManager().find(PriceGroup.class, priceGroupId);
         product.setPriceGroup(pricegroup);
+        pricegroup.addProduct(product);
         em.persist(product);
     }
 
@@ -122,6 +125,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         Product product = this.find(productId);
         ProductGroup pg = getEntityManager().find(ProductGroup.class, productGroupId);
         product.setProductGroup(pg);
+        pg.addProduct(product);
         em.persist(product);
     }
 
@@ -132,6 +136,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         Product product = this.find(productId);
         Outfit o = getEntityManager().find(Outfit.class, outfitId);
         product.setOutfit(o);
+        o.addProduct(product);
         em.persist(product);
     }
 
@@ -142,6 +147,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         Product product = this.find(productId);
         Customer c = getEntityManager().find(Customer.class, customerId);
         product.setCustomer(c);
+        c.addProduct(product);
         em.persist(product);
     }
 
@@ -152,6 +158,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         Product product = this.find(productId);
         Project p = getEntityManager().find(Project.class, projectId);
         product.setProject(p);
+        p.addProduct(product);
         em.persist(product);
     }
 
