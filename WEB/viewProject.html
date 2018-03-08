@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>View project</title>
+    <title>View customer</title>
     <meta charset="utf-8">
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="CSS/basic.css">
     <link rel="stylesheet" type="text/css" href="CSS/content.css"/>
-    <link rel="stylesheet" type="text/css" href="CSS/carousel.css"/>
+    <link rel="stylesheet" type="text/css" href="CSS/viewForm.css"/>
     <!-- JavaScript -->
     <script src="libraries/jquery-3.3.1.min.js" type="text/javascript"></script>
     <script src="JS/pageLoad.js" type="text/javascript"></script>
-    <!-- which JS file for this??????? -->
+    <!-- uncomment this when you want to view a customer: -->
+    <script src="JS/viewProject.js" type="text/javascript"></script>
   </head>
 
   <body>
@@ -27,25 +28,28 @@
     </header>
 
     <section>
-      <div class="section-text-margin" id="js--view-project">
-        <h1>View project</h1>
+      <div id="js--view-project">
+        <h1 id="customer-page-title">View project</h1>
         <!-- p tags have ids -> use for form data -->
-        <div class="infobox">
+        <div class="infobox"> <!--ignored css infobox -->
           <div class="info-container" id="name-info">Name:
             <p id="form-name">soifuaidfo</p>
           </div>
-          <div class="info-container" id="date-info">Delivery date:
-            <p id="form-mail">soifoifiajfo</p>
+          <div class="info-container" id="startdate-info">Starting date:
+            <p id="form-startdate">soifoifiajfo</p>
+          </div>
+          <div class="info-container" id="enddate-info">Ending date:
+            <p id="form-enddate">soifoifiajfo</p>
           </div>
           <div class="info-container" id="desc-info">Description:
-            <p id="form-desc">iodfspdogspgfafasdfjasdfdsfhsudfhikdfhkaefhauihfoiawefjaeoijrföaoeirfseirfesruhgejrfrefierugisergiuerfgiuergurguhrfijeffiierfjreoijorefsieorfjoi</p>
+            <p id="form-desc">piifeiroeirfirfporioorforfrfirgiriiriergorigerijgeoirjgierjgiirjgoeirjgiergiergrgigreorgieroregoeirgoirgierogiepogeoprgekekgoergerogkergkergkeprokgeopkgoergkergkperkgpeorkgeoprkgeoprgkeorkgopegoergoekrgpoergpeorgkpeorkgeporkgoergejrgoiweoiwoiwueriweriwepoieporgopdigåeiaurgeoirglkergjierugeiorgekrjgoierugeirgueoirugåo</p>
           </div>
         </div>
       </div>
     </section>
 
     <footer>
-        <p>&copy; 2018 SoftWear</p>
+      <p>&copy; 2018 SoftWear</p>
     </footer>
   </body>
 </html>

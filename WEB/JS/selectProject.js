@@ -15,6 +15,15 @@ $(document).ready(function(){
                 <div>Delivery date:<br> ${project.endingDate}</div>
                 <div>Description:<br> ${project.description}</div></a>`;
         }
+        
+        for (let project of projects) {
+            //document.getElementById(""+customer.id).onclick = () => {
+            $("body").on("click", "#" + project.id, function(){
+                $("section").load("viewProject.html #js--view-project");
+                projectId = project.id;
+                $.getScript("JS/viewProject.js");
+            });
+        }
         console.log(projectsElement);
     };
 
