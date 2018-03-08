@@ -1,8 +1,8 @@
 /* eslint-env browser, console */
 /* eslint-disable no-alert, no-console, no-unused-vars*/
 
-$(document).ready(function(){
-
+$(function() {
+    
     let listCustomers = function (customers) {
         const customersElement = document.getElementById("js--customers-list");
         customersElement.innerHTML = "";
@@ -13,18 +13,24 @@ $(document).ready(function(){
                 <div>Company name:<br> ${customer.name}</div>
                 <div>Email:<br> ${customer.email}</div>
                 <div>Description:<br> ${customer.description}</div></a>`;
+            console.log(customer.id);
+        }
+        for (let customer of customers) {
+            //document.getElementById(""+customer.id).onclick = () => {
+            $("body").on("click", "#" + customer.id, function(){
+                $("section").load("viewCustomer.html #js--view-customer");
+                customerId = customer.id;
+                $.getScript("JS/viewCustomer.js");
+            });
         }
         console.log(customersElement);
     };
-
+    
     let firstItem = 0;
     let lastItem = 2;
 
     const hide = item => item.style.display = "none";
     const show = item => item.style.display = "block";
-
-    hide(document.getElementById('left-button'));
-    hide(document.getElementById('right-button'));
 
     const showItems = () => {
 
@@ -67,8 +73,11 @@ $(document).ready(function(){
         }
     };
 
+    hide(document.getElementById('left-button'));
+    hide(document.getElementById('right-button'));
+
     fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.customer")
-        .then(response => response.json())
-        .then(json => {listCustomers(json); showItems()})
-        .catch(error => console.log(error));
+            .then(response => response.json())
+            .then(json => {listCustomers(json); showItems()})
+            .catch(error => console.log(error));
 });
