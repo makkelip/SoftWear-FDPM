@@ -1,5 +1,6 @@
 :root {
   --customer-box: #D9E7E0;
+  --customer-box-hover: #CFF1C1;
   --section-slideshow-link: #000;
   --section-slideshow-link-hover: #000;
   --slideshow-button: #D9E7E0;
@@ -31,6 +32,10 @@
 
 .customers > a > div {
   padding: 30px;
+}
+
+.customers > a:hover {
+  background-color: var(--customer-box-hover);
 }
 
 /* Slideshow buttons */
