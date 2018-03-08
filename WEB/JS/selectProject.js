@@ -2,6 +2,7 @@
 /* eslint-disable no-alert, no-console, no-unused-vars*/
 
 $(document).ready(function(){
+    
     let listProjects = function (projects) {
         const projectsElement = document.getElementById("js--projects-list");
         projectsElement.innerHTML = "";
@@ -18,15 +19,16 @@ $(document).ready(function(){
 
     let firstItem = 0;
     let lastItem = 2;
+    
+    const hide = item => item.style.display = "none";
+    const show = item => item.style.display = "block";
+
+    hide(document.getElementById('left-button'));
+    hide(document.getElementById('right-button'));
 
     const showItems = () => {
 
-        const items = document.getElementsByClassName("boxitem");
-        const hide = item => item.style.display = "none";
-        const show = item => item.style.display = "block";
-        
-        hide(document.getElementById('left-button'));
-        hide(document.getElementById('right-button'));
+        const items = $(".boxitem");
         
         if (items.length > 3) {
             show(document.getElementById('left-button'));
@@ -65,7 +67,7 @@ $(document).ready(function(){
         }
     };
     
-    fetch("https://adm-rest.herokuapp.com/products")
+    fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.project")
         .then(response => response.json())
         .then(json => {listProjects(json); showItems()})
         .catch(error => console.log(error));

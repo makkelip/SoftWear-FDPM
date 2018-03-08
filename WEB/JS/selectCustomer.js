@@ -2,8 +2,9 @@
 /* eslint-disable no-alert, no-console, no-unused-vars*/
 
 $(document).ready(function(){
+    
     let listCustomers = function (customers) {
-        const customersElement = document.querySelector("#js--customers-list");
+        const customersElement = document.getElementById("js--customers-list");
         customersElement.innerHTML = "";
 
         for (let customer of customers) {
@@ -18,15 +19,16 @@ $(document).ready(function(){
 
     let firstItem = 0;
     let lastItem = 2;
+    
+    const hide = item => item.style.display = "none";
+    const show = item => item.style.display = "block";
+
+    hide(document.getElementById('left-button'));
+    hide(document.getElementById('right-button'));
 
     const showItems = () => {
 
-        const items = document.getElementsByClassName("boxitem");
-        const hide = item => item.style.display = "none";
-        const show = item => item.style.display = "block";
-        
-        hide(document.getElementById('left-button'));
-        hide(document.getElementById('right-button'));
+        const items = $(".boxitem");
         
         if (items.length > 3) {
             show(document.getElementById('left-button'));
@@ -64,7 +66,6 @@ $(document).ready(function(){
             activeItems.forEach(show);
         }
     };
-    //showItems();
 
     fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.customer")
         .then(response => response.json())

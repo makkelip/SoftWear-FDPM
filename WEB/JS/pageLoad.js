@@ -25,7 +25,7 @@ $(document).ready(function(){
   //Select project
   $("body").on("click", ".js--button-select-project", function(){
     $("section").load("selectProject.html #js--select-project");
-    $.getScript("JS/viewProject.js");
+    $.getScript("JS/selectProject.js");
   });
   //Create project
   $("body").on("click", ".js--button-create-project", function(){
