@@ -2,7 +2,7 @@
 /* eslint-disable no-alert, no-console, no-unused-vars*/
 
 $(document).ready(function(){
-    
+
     let listProjects = function (projects) {
         const projectsElement = document.getElementById("js--projects-list");
         projectsElement.innerHTML = "";
@@ -11,7 +11,8 @@ $(document).ready(function(){
             projectsElement.innerHTML +=
                 `<a href="#" class="boxitem" id="${project.id}">
                 <div>Project name: ${project.name}</div>
-                <div>Delivery date: ${project.date}</div>
+                <div>Starting date: ${project.startingDate}</div>
+                <div>Delivery date: ${project.endingDate}</div>
                 <div>Description: ${project.description}</div></a>`;
         }
         console.log(projectsElement);
@@ -19,7 +20,7 @@ $(document).ready(function(){
 
     let firstItem = 0;
     let lastItem = 2;
-    
+
     const hide = item => item.style.display = "none";
     const show = item => item.style.display = "block";
 
@@ -29,11 +30,11 @@ $(document).ready(function(){
     const showItems = () => {
 
         const items = $(".boxitem");
-        
+
         if (items.length > 3) {
             show(document.getElementById('left-button'));
             show(document.getElementById('right-button'));
-            
+
             let activeItems = [];
             for (let i = firstItem; i <= lastItem; i++) {
                 activeItems.push(items[i]);
@@ -66,7 +67,7 @@ $(document).ready(function(){
             activeItems.forEach(show);
         }
     };
-    
+
     fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.project")
         .then(response => response.json())
         .then(json => {listProjects(json); showItems()})
