@@ -63,4 +63,5 @@ $(document).ready(function(){
   $("body").on("click", ".js--button-create-product", function(){
     $("section").load("createProduct.html #js--create-product");
     $.getScript("JS/createProduct.js");
+  });
 });
