@@ -72,16 +72,17 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Long id, Product entity) {
+    public void edit(Product entity) {
         super.edit(entity);
+        
     }
-
+    
     @PUT
-    @Path("ret")
+    @Path("{id}/ret")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     public Product editReturn(Product entity) {
-        em.merge(entity);
+        super.edit(entity);
         return entity;
     }
 

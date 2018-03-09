@@ -65,6 +65,12 @@ public class Project implements Serializable {
         p.setProject(this);
     }
 
+    public void deleteColor(Color color) {
+        this.colors.remove(color);
+        if (color.getProjects().contains(this)) {
+            color.deleteProject(this);
+        }
+    }
     //GETTERS
     public List<Long> getProductsID() {
         List<Long> ls = new ArrayList<>();

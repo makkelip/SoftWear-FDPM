@@ -90,7 +90,26 @@ public class ColorFacadeREST extends AbstractFacade<Color> {
         Product product = getEntityManager().find(Product.class, productId);
         color.addProduct(product);
         em.persist(color);
+    }
 
+    @PUT
+    @Path("{cId}/dproduct/{pId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public void deleteProduct(@PathParam("pId") Long productId, @PathParam("cId") Long colorId) {
+        Color color = this.find(colorId);
+        Product product = getEntityManager().find(Product.class, productId);
+        color.deleteProduct(product);
+        em.persist(color);
+    }
+
+    @PUT
+    @Path("{cId}/dproject/{pId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public void deleteProject(@PathParam("pId") Long projectId, @PathParam("cId") Long colorId) {
+        Color color = this.find(colorId);
+        Project project = getEntityManager().find(Project.class, projectId);
+        color.deleteProject(project);
+        em.persist(color);
     }
 
     @DELETE

@@ -48,9 +48,6 @@ public class Account implements Serializable {
     }
 
     public void deleteCustomer(Customer customer) {
-        if (!customer.getAccounts().contains(this)) {
-            customer.deleteAccount(this);
-        }
         customers.remove(customer);
     }
 
