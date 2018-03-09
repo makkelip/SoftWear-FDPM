@@ -2,10 +2,11 @@
  --info-box-background: #F5F5F5;
     
 }
-.infobox{
+.infobox-project {
     display: grid;
     height: 30em;
-    width: 70em;
+    width: auto;
+    max-width: 70em;
     background-color: var(--info-box-background);
     padding: 1em;
     grid-template-rows: 10% 10% 10% 30% 30%;
