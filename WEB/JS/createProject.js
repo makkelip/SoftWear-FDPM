@@ -2,19 +2,22 @@
 document.getElementById("js--button-submit-project").addEventListener('click', function() {
         let form = document.getElementById("js--form-id-project");
         let name = $("#name").val();
-        let date = $("#endingDate").val();
+        let date = new Date();
+        let startingDate = date.toISOString().slice(0,10);
+        let endingDate = $("#endingDate").val();
         let description = $("#description").val();
-
-        postProject(name, date, description);
+        
+        postProject(name, startingDate, endingDate, description);
         form.reset();
-        console.log('clicked');
+        console.log(startingDate);
   });
 
-function postProject(name, date, description) {
+function postProject(name, startingDate, endingDate, description) {
 
   let data = {
     "name": name,
-    "endingDate": date,
+    "startingDate": startingDate,
+    "endingDate": endingDate,
     "description": description
   }
 
