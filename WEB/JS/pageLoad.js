@@ -49,7 +49,8 @@ $(document).ready(function(){
   //View materials
   $("body").one("click", ".js--button-view-materials", function(){
     $("section").load("viewMaterials.html #js--all-materials");
-    $.getScript("JS/selectMaterial");
+    $.getScript("JS/selectMaterial.js");
+    $.getScript("JS/viewMaterials.js")
   });
   //Create materials
   $("body").one("click", ".js--button-create-materials", function(){
