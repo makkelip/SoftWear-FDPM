@@ -19,8 +19,8 @@
 /*one whole color card*/
 .color-card {
     background-color: #fff;
-    height: 11.5em;
-    width: 8.25em;
+    height: 12.5em;
+    width: 10.25em;
 
     border: solid 0.05em #D3D3D3;
     overflow: hidden;
@@ -30,32 +30,42 @@
 /*color area in cord*/
 .color {
     background-color: lightsalmon;
-    height: 8.25em;
+    height: 9.25em;
     width: inherit;
 }
 
 /*color card information part*/
 .color-info{
-    line-height: 0.1em;
+   /* line-height: 0.1em;*/
     padding-left: 0.3em;
     padding-right: 0.3em;
     font-size: 0.65em;
     word-wrap: break-word;
     overflow: inherit;
+    
+    
 }
 
 /*name part of color info*/
 .color-info-name {
     font-weight: bold;
     font-size: 1.08em;
-    word-wrap: inherit;
-
+    word-wrap: inherit; 
+    height: 2em;
+    width: inherit;
+    margin: 0.2em;
+    overflow: hidden;
+    
 }
 
 /*pantone code part of color info*/
 .color-info-pantone {
     font-size: inherit;
     word-wrap: inherit;
+    height: 1em;
+    width: inherit;
+    margin: 0.1em;
+    overflow: hidden;
 
 }
 
@@ -63,4 +73,8 @@
 .color-info-hex {
     font-size: inherit;
     word-wrap: inherit;
+    height: 1em;
+    width: inherit;
+    margin: 0.1em;
+    overflow: hidden;
 }
