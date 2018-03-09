@@ -1,15 +1,7 @@
-:root{
+/*:root{
  --info-box-background: #F5F5F5;
  --button-delete: #FF6A5C;
-}
-
-.info-header{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  margin-right: 10%;
-}
+}*/
 
 .button-delete {
   margin-left: 50px;

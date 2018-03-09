@@ -1,7 +1,16 @@
 :root{
  --info-box-background: #F5F5F5;
-    
+ --button-delete: #FF6A5C;
 }
+
+.info-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 10%;
+}
+
 .infobox{
     display: grid;
     height: 30em;
@@ -27,16 +36,12 @@
     font-weight: bold;
 }
 
-
-
 #name-info{
     grid-area: name;
-    
 }
 
 #mail-info{
     grid-area: email;
-    
 }
 
 #desc-info{
@@ -44,13 +49,8 @@
     word-wrap: break-word;
     overflow-y: scroll;
     max-height: 126px;
-   
 }
 
 p{
     font-weight: normal;
-}
-
-#customer-page-title{
-    margin-left: 50px;
 }
