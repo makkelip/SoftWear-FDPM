@@ -16,14 +16,14 @@
 }
 
 /* Area for all customers */
-.customers {
+.all-boxes {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
 /* Area for one customer only */
-.customers > a {
+.all-boxes > a {
   height: 350px;
   width: 250px;
   margin: 10px;
@@ -32,11 +32,11 @@
   box-shadow: 1px 1px 3px black;
 }
 
-.customers > a > div {
+.all-boxes > a > div {
   padding: 20px;
 }
 
-.customers > a:hover {
+.all-boxes > a:hover {
   background-color: var(--customer-box-hover);
 }
 

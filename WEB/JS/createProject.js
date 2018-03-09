@@ -14,15 +14,19 @@ function postProject(name, date, description) {
 
   let data = {
     "name": name,
-    "startingDate": date
+    "endingDate": date,
+    "description": description
   }
-  console.log(data);
+
   fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.project", {
     'method': 'POST',
     'body': JSON.stringify(data),
     'headers': new Headers({'Content-Type': 'application/json'})
   })
-      .then(result => result.json())
-      .then(response => console.log('Succes', response))
-      .catch(error => console.error(error));
+    .then(result => result.json())
+    .then(response => console.log('Success', response))
+    .catch(error => console.error(error));
+
+    $("section").load("selectProject.html #js--select-project");
+    $.getScript("JS/selectProject.js");
 }

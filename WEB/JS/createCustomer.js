@@ -1,5 +1,5 @@
-
-document.getElementById("js--button-submit-customer").addEventListener('click', function() {
+$(document).ready(function() {
+  document.getElementById("js--button-submit-customer").addEventListener('click', function() {
     let form = document.getElementById("js--form-id-customer");
     let name = $("#name").val();
     let email = $("#email").val();
@@ -8,6 +8,7 @@ document.getElementById("js--button-submit-customer").addEventListener('click', 
     postCustomer(name,email,description);
     form.reset();
     console.log('clicked');
+  });
 });
 
 
@@ -24,7 +25,10 @@ function postCustomer(name, email, description) {
     'body': JSON.stringify(data),
     'headers': new Headers({'Content-Type': 'application/json'})
   })
-      .then(result => result.json())
-      .then(response => console.log('Success', response))
-      .catch(error => console.error(error));
+    .then(result => result.json())
+    .then(response => console.log('Success', response))
+    .catch(error => console.error(error));
+
+    $("section").load("selectCustomer.html #js--select-customer");
+    $.getScript("JS/selectCustomer.js");
 }
