@@ -23,7 +23,7 @@
 /* CONTENT */
 .section-content {
   grid-area: content;
-  min-height: 100%;
+  max-height: 100%;
 }
 
 /* ASIDE */
