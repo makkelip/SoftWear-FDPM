@@ -5,21 +5,55 @@ $(document).ready(function() {
 function fetchCustomer(id) {
   fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.product/" + id)
   .then((response) => response.json())
-  .then(json => displayAllProducts(json))
+  .then(json => displayProduct(json))
 }
 
-function displayCustomer(json) {
+function displayProduct(json) {
   //IMAGE MISSING
-  console.log(json.name);
+  //name
   $(".js--product-name").text(json.name);
-  $(".js--product-group").text(json.productGroup.name);
-  $(".js--product-colors").text(json.colors[0].name); //now only shows single color
-  $(".js--product-materials").text(json.materials[0].name) //only first one
-  $(".js--product-customer").text(json.customer.name);
-  $(".js--product-project").text(json.project.name);
-  $(".js--product-outfit").text(json.outfit.name);
-  $(".js--product-pricegroup").text(json.priceGroup.name);
-  $(".js--product-description").text(json.description);
+  //productGroup
+  if(json.productGroup != null) {
+    $(".js--product-group").text(json.productGroup.name);
+  }
+  //colors
+  if(json.colors.length > 0) {
+    let colorsContainer = document.querySelector(".js--product-colors");
+    colorsContainer.innerHTML = "";
+      for (let color of json.colors) {
+      colorsContainer.innerHTML +=
+        `<color id=${color.id} value="${color.hexColorValue}">${color.name}</color>`;
+    }
+  }
+  //materials
+  if (json.materials.length > 0) {
+    let materialsContainer = document.querySelector(".js--product-materials");
+    materialsContainer.innerHTML = "";
+      for (let material of json.materials) {
+      materialsContainer.innerHTML +=
+        `<material id=${material.id}>${material.name}</material>`;
+    }
+  }
+  //customer
+  if(json.customer != null) {
+    $(".js--product-customer").text(json.customer.name);
+  }
+  //project
+  if(json.project != null) {
+    $(".js--product-project").text(json.project.name);
+  }
+  //outfit
+  if(json.outfit != null) {
+    $(".js--product-outfit").text(json.outfit.name);
+  }
+  //priceGroup
+  if(json.priceGroup != null) {
+    $(".js--product-pricegroup").text(json.priceGroup.name);
+  }
+  //description
+  if(json.description != null) {
+    $(".js--product-description").text(json.description);
+  }
 }
 //Create method for displaying all colors!!!
 //Create method for displaying all materials!!!
