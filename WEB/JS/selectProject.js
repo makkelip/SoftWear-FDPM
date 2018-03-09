@@ -17,14 +17,14 @@ $(document).ready(function(){
         }
         
         for (let project of projects) {
-            //document.getElementById(""+customer.id).onclick = () => {
-            $("body").on("click", "#" + project.id, function(){
+            $("body").one("click", "#" + project.id, function(){
                 $("section").load("viewProject.html #js--view-project");
                 projectId = project.id;
                 $.getScript("JS/viewProject.js");
             });
+            if (projectId == project.id) {break;}
         }
-        console.log(projectsElement);
+        //console.log(projectsElement);
     };
 
     let firstItem = 0;
