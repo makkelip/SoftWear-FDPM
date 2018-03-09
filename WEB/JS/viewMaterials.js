@@ -1,5 +1,4 @@
 $(function() {
-
     //List all the materials
 
     let listMaterials = function (materials) {
@@ -19,9 +18,10 @@ $(function() {
 
                 $("body").one("click", "#" + material.id, function(event){
                     event.preventDefault();
-                    $("section").load("viewSingleMaterial.html #js--view-material");
                     materialId = material.id;
-                    $.getScript("JS/viewSingleMaterial.js")
+                    $("section").load("viewSingleMaterial.html #js--view-material");
+                    $.getScript("JS/viewSingleMaterial.js");
+                    throw new Error('Stop');
                 });
             }
         }

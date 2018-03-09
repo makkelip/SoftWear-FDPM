@@ -1,4 +1,5 @@
-$(document).ready(function() {
+$(function() {
+    document.getElementById('products-field').innerHTML = "";
     fetchSingleMaterial(materialId);
 });
 
@@ -12,20 +13,15 @@ function fetchSingleMaterial(id) {
 function displaySingleMaterial(json){
     //name
     $("#material-name-field").text(json.name);
-
     //product related
-    function displayProductRelated(productJson){
-        console.log(productJson);
-        if(!productJson.id){
-            $("#products-field").text("");
-        } else{
-            $("#products-field").text(productJson.name += `, ${productJson.name}`);
-        }
-    }
-    for (var i = 0; i< json.productsID.length; i ++){
+    for (let i = 0; i< json.productsID.length; i ++){
         console.log(json.productsID[i]);
         fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.product/" + json.productsID[i])
             .then((response) => response.json())
-            .then(response => displayProductRelated(response));
+    .then(response => displayProductRelated(response));
     }
+    function displayProductRelated(productJson){
+            var previousProduct = document.getElementById('products-field');
+            previousProduct.innerHTML += `<p>${productJson.name}</p>`;
+        }
 }
