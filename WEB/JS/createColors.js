@@ -3,7 +3,7 @@ $(function(){
     // create canvas and context objects
     var canvas = document.getElementById('picker');
     if (canvas === null){
-        throw new Error("Something went badly wrong!");
+        $.getScript("JS/createColors.js");
     }
     else{
     var ctx = canvas.getContext('2d');
