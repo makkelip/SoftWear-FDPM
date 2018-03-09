@@ -39,7 +39,6 @@ $(document).ready(function(){
     $("section").load("viewColors.html #js--all-colors");
     $.getScript("JS/viewColors.js");
   });
-
   //Create color
   $("body").on("click", ".js--button-create-colors", function(){
     $("section").load("createColors.html #js--create-colors");
@@ -57,6 +56,7 @@ $(document).ready(function(){
     $("section").load("createMaterials.html #js--create-materials");
     $.getScript("JS/createMaterials.js");
   });
+
  //Select product
   $("body").on("click", ".js--button-select-product", function(){
     $("section").load("selectProduct.html #js--select-product");

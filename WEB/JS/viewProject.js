@@ -1,5 +1,5 @@
 $(function(){
-    
+
     const loadProject = function (project) {
         //console.log(project.name);
         document.getElementById('form-name').textContent = project.name;
@@ -10,6 +10,9 @@ $(function(){
         document.getElementById('form-colors').textContent = project.productsID;
         document.getElementById('form-desc').textContent = project.description;
         //console.log(project);
+
+        //Loads the delete project script
+        $.getScript("JS/deleteProject.js");
     };
 
     fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.project/" + projectId)
