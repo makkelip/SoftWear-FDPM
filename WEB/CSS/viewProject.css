@@ -1,14 +1,23 @@
 :root{
  --info-box-background: #F5F5F5;
-    
+ --button-delete: #FF6A5C;
 }
+
+.info-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 10%;
+}
+
+.button-delete {
+  margin-left: 50px;
+  color: var(--button-delete);
+}
+
 .infobox-project {
     display: grid;
-    height: 30em;
-    width: auto;
-    max-width: 70em;
-    background-color: var(--info-box-background);
-    padding: 1em;
     grid-template-rows: 10% 10% 10% 30% 30%;
     grid-template-columns: 50% 50%;
     grid-template-areas:"name name"
@@ -17,11 +26,16 @@
                         "products colors"
                         "desc desc";
     grid-gap: 0.5em;
+    height: 30em;
+    width: auto;
+    max-width: 70em;
+    background-color: var(--info-box-background);
+    padding: 1em;
 }
 
 .info-container{
-    background-color:white;
-    padding:0.5em;
+    background-color: white;
+    padding: 0.5em;
     overflow: hidden;
     word-wrap: break-word;
     border: solid 1px #5E5E5E;
@@ -29,11 +43,8 @@
     font-weight: bold;
 }
 
-
-
 #name-info{
     grid-area: name;
-    
 }
 
 #startdate-info{
@@ -42,7 +53,6 @@
 
 #enddate-info{
     grid-area: enddate;
-    
 }
 
 #cover-percentage-info{
@@ -72,8 +82,4 @@
 
 p{
     font-weight: normal;
-}
-
-#project-page-title{
-    margin-left: 50px;
 }
