@@ -23,7 +23,8 @@ $(function(){
 
     materialset = new Object();
 
-    $('body').on('click','#create-material',function(){
+    $('body').one('click','#create-material',function(event){
+        event.preventDefault();
         var materialname = document.getElementById('material-name').value;
         materialset.name = materialname;
         fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.material",{
