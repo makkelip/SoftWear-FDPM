@@ -29,7 +29,7 @@
   margin: 10px;
   border-radius: 20px;
   background-color: var(--customer-box);
-  box-shadow: 1px 1px 3px black;
+  box-shadow: 1px 1px 5px 1px #444444;
 }
 
 .all-boxes > a > div {
@@ -60,4 +60,6 @@
 
 .section-slideshow a:hover {
   color: var(--section-slideshow-link-hover);
+  transform: scale(1.04);
+  transition: all .2s ease-in-out;
 }
