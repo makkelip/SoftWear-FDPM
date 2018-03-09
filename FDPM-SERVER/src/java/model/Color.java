@@ -66,6 +66,22 @@ public class Color implements Serializable {
         }
     }
 
+    public void deleteProject(Project p) {
+        if (p.getColors().contains(this)) {
+            p.deleteColor(this);
+        }
+       projects.remove(p);
+
+    }
+
+    public void deleteProduct(Product p) {
+        if (p.getColors().contains(this)) {
+            p.deleteColor(this);
+        }
+        products.remove(p);
+
+    }
+
     //GETTERS
     //@Transient
     public List<Long> getProjectsID() {

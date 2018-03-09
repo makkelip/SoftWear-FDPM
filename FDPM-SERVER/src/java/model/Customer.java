@@ -64,10 +64,15 @@ public class Customer implements Serializable {
         accounts.add(a);
     }
 
-       public void deleteAccount(Account a) {
+    public void deleteAccount(Account a) {
         accounts.remove(a);
     }
-       
+
+    public void deleteProduct(Product p) {
+        products.remove(p);
+        p.setCustomer(null);
+    }
+
     //GETTERS
     public List<Long> getProductsID() {
         List<Long> ls = new ArrayList<>();

@@ -67,6 +67,9 @@ public class Product implements Serializable {
         materials.add(e);
     }
 
+     public void deleteColor(Color e) {
+        colors.remove(e);
+    }
     //GETTERS
     public String getName() {
         return name;
