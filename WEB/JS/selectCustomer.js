@@ -17,7 +17,7 @@ $(function() {
         }
         for (let customer of customers) {
             //document.getElementById(""+customer.id).onclick = () => {
-            $("body").on("click", "#" + customer.id, function(){
+            $("body").one("click", "#" + customer.id, function(){
                 $("section").load("viewCustomer.html #js--view-customer");
                 customerId = customer.id;
                 $.getScript("JS/viewCustomer.js");
