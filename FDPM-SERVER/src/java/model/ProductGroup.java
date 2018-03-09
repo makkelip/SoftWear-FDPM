@@ -43,11 +43,15 @@ public class ProductGroup implements Serializable {
     @JsonBackReference(value = "wtf")
     private List<Product> products;
 
+    //ADDS
     public void addProduct(Product p) {
-        products.add(p);
-        p.setProductGroup(this);
+        if (!products.contains(p)) {
+            products.add(p);
+            p.setProductGroup(this);
+        }
     }
 
+    //DELETES
     public void deleteProduct(Product p) {
         products.remove(p);
         p.setProductGroup(null);

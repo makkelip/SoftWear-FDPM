@@ -53,18 +53,22 @@ public class Project implements Serializable {
     //@JsonManagedReference(value = "color-project-ref")
     private List<Color> colors;
 
+    //ADDS
     public void addColor(Color color) {
-        this.colors.add(color);
-        if (!color.getProjects().contains(this)) {
+        if (!colors.contains(color)) {
+            this.colors.add(color);
             color.addProject(this);
         }
     }
 
     public void addProduct(Product p) {
-        this.products.add(p);
-        p.setProject(this);
+        if (!products.contains(p)) {
+            this.products.add(p);
+            p.setProject(this);
+        }
     }
 
+    //DELETES
     public void deleteColor(Color color) {
         this.colors.remove(color);
         if (color.getProjects().contains(this)) {

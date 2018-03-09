@@ -55,17 +55,25 @@ public class Customer implements Serializable {
     //@JsonManagedReference(value = "account-customer-ref")
     private List<Account> accounts;
 
+    //ADDS
     public void addProduct(Product p) {
+        if(!products.contains(p)){
         products.add(p);
         p.setCustomer(this);
     }
-
+    }
+    
     public void addAccount(Account a) {
+        if(!accounts.contains(a)){
         accounts.add(a);
+        a.addCustomer(this);
+    }
     }
 
+    //DELETES
     public void deleteAccount(Account a) {
         accounts.remove(a);
+        a.deleteCustomer(this);
     }
 
     public void deleteProduct(Product p) {

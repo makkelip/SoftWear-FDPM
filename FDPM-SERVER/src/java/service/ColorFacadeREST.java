@@ -55,7 +55,6 @@ public class ColorFacadeREST extends AbstractFacade<Color> {
         super.create(entity);
     }
 
-    //this post returns managed entity
     @POST
     @Path("return")
     @Consumes({MediaType.APPLICATION_JSON})

@@ -43,15 +43,20 @@ public class Outfit implements Serializable {
     @JsonBackReference(value = "out-ref")
     private List<Product> products;
 
+    //ADDS
     public void addProduct(Product p) {
-        products.add(p);
-        p.setOutfit(this);
+        if (!products.contains(p)) {
+            products.add(p);
+            p.setOutfit(this);
+        }
     }
 
-     public void deleteProduct(Product p) {
+    //DELETES
+    public void deleteProduct(Product p) {
         products.remove(p);
         p.setOutfit(null);
     }
+
     //GETTERS
     public List<Long> getProductsID() {
         List<Long> ls = new ArrayList<>();

@@ -59,21 +59,29 @@ public class Product implements Serializable {
     //@JsonManagedReference(value = "mat-ref")
     private List<Material> materials;
     private String description;
+
+    //ADDS
     public void addColor(Color e) {
-        colors.add(e);
+        if (!colors.contains(e)) {
+            colors.add(e);
+        }
     }
 
     public void addMaterial(Material e) {
-        materials.add(e);
+        if (!materials.contains(e)) {
+            materials.add(e);
+        }
     }
 
-     public void deleteColor(Color e) {
+    //DELETES
+    public void deleteColor(Color e) {
         colors.remove(e);
     }
-     
+
     public void deleteMaterial(Material e) {
         materials.remove(e);
     }
+
     //GETTERS
     public String getName() {
         return name;

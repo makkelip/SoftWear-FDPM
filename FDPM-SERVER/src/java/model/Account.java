@@ -40,13 +40,15 @@ public class Account implements Serializable {
     @JsonBackReference(value = "account-customer-ref")
     private List<Customer> customers;
 
+    //ADDS
     public void addCustomer(Customer customer) {
-        customers.add(customer);
-        if (!customer.getAccounts().contains(this)) {
+        if (!customers.contains(customer)) {
+            customers.add(customer);
             customer.addAccount(this);
         }
     }
 
+    //DELETES
     public void deleteCustomer(Customer customer) {
         customers.remove(customer);
     }

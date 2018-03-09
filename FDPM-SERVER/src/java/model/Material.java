@@ -45,13 +45,15 @@ public class Material implements Serializable {
     @JsonBackReference(value = "mat-ref")
     private List<Product> products;
 
+    //ADDS
     public void addProducts(Product p) {
-        products.add(p);
-        if (!p.getMaterials().contains(this)) {
+        if (!products.contains(p)) {
+            products.add(p);
             p.addMaterial(this);
         }
     }
-
+    
+    //DELETES
     public void deleteProduct(Product p) {
         if (p.getMaterials().contains(this)) {
             p.deleteMaterial(this);

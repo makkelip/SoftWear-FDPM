@@ -18,6 +18,7 @@ package model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
+import static java.lang.System.out;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
@@ -50,28 +51,27 @@ public class Color implements Serializable {
     @JsonBackReference(value = "color-project-ref")
     private List<Project> projects;
 
-    //@Transient
-    //private List<Long> projectsID;
+    //ADDS
     public void addProject(Project p) {
-        this.projects.add(p);
-        if (!p.getColors().contains(this)) {
+        if (!projects.contains(p)) {
+            this.projects.add(p);
             p.addColor(this);
         }
     }
 
     public void addProduct(Product p) {
-        this.products.add(p);
-        if (!p.getColors().contains(this)) {
+        if (!products.contains(p)) {
+            this.products.add(p);
             p.addColor(this);
         }
     }
-
+    
+    //DELETES
     public void deleteProject(Project p) {
         if (p.getColors().contains(this)) {
             p.deleteColor(this);
         }
-       projects.remove(p);
-
+        projects.remove(p);
     }
 
     public void deleteProduct(Product p) {
@@ -82,7 +82,6 @@ public class Color implements Serializable {
     }
 
     //GETTERS
-    //@Transient
     public List<Long> getProjectsID() {
         List<Long> ls = new ArrayList<>();
         for (Project p : projects) {
