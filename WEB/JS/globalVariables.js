@@ -2,3 +2,4 @@
 var customerId;
 var projectId;
 var productId;
+var materialId;
