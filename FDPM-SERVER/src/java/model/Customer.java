@@ -35,7 +35,7 @@ import javax.persistence.OneToMany;
  * @author Markus
  */
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id", scope = Customer.class)
+//@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id", scope = Customer.class)
 public class Customer implements Serializable {
 
     private static final long serialVersionUID = 1L;

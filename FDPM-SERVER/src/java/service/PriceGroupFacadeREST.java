@@ -87,6 +87,7 @@ public class PriceGroupFacadeREST extends AbstractFacade<PriceGroup> {
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {
         super.remove(super.find(id));
+       
     }
 
     @GET

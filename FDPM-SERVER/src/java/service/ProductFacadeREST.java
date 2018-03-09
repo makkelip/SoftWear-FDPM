@@ -234,7 +234,14 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {
-        super.remove(super.find(id));
+           super.remove(super.find(id));
+              Product product = this.find(id);
+          //Project p = em.find(entityClass, product)
+          
+     //    p.deleteProduct(product);
+    //  em.persist(p);
+    
+     
     }
 
     @GET

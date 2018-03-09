@@ -77,6 +77,7 @@ public class Project implements Serializable {
     }
 
     public void deleteProduct(Product p) {
+        if(!products.contains(p))
         this.products.remove(p);
         p.setProject(null);
     }

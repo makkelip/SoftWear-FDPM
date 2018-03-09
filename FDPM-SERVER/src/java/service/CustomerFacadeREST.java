@@ -65,11 +65,11 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     }
 
     @PUT
+    @Path("{id}")
     @Consumes({MediaType.APPLICATION_JSON})
-    public void edit(Customer entity) {
+    public void edit(@PathParam("id") Long id, Customer entity) {
         super.edit(entity);
     }
-
     //ADDS
     @PUT
     @Path("{cId}/product/{pId}")
@@ -114,10 +114,10 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     }
 
     @PUT
-    @Path("ret")
+    @Path("ret/{id}")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Customer editReturn(Customer entity) {
+    public Customer editReturn(@PathParam("id") Long id, Customer entity) {
         super.edit(entity);
         return entity;
     }
@@ -128,12 +128,21 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         super.remove(super.find(id));
     }
 
+    //SHOWS
     @GET
     @Path("{cId}/products")
     @Produces({MediaType.APPLICATION_JSON})
     public List showProducts(@PathParam("cId") Long customerId) {
         Customer customer = this.find(customerId);
         return customer.getProducts();
+    }
+    
+    @GET
+    @Path("{cId}/accounts")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List showAccounts(@PathParam("cId") Long customerId) {
+        Customer customer = this.find(customerId);
+        return customer.getAccounts();
     }
 
     @GET

@@ -47,14 +47,14 @@ public class PriceGroup implements Serializable {
 
     //ADDS
     public void addProduct(Product p) {
-        if(!products.contains(p)){
-        this.products.add(p);
-        p.setPriceGroup(this);
+        if (!products.contains(p)) {
+            this.products.add(p);
+            p.setPriceGroup(this);
+        }
     }
-    }
-    
+
     //DELETES
-        public void deleteProduct(Product p) {
+    public void deleteProduct(Product p) {
         this.products.remove(p);
         p.setPriceGroup(null);
     }

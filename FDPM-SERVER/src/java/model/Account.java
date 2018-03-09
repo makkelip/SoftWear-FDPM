@@ -70,6 +70,10 @@ public class Account implements Serializable {
         return userName;
     }
 
+    public List<Customer> getCustomers() {
+        return customers;
+    }
+
     //SETTERS
     public void setCustomers(List<Customer> customers) {
         this.customers = customers;

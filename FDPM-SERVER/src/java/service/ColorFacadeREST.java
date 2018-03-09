@@ -126,6 +126,7 @@ public class ColorFacadeREST extends AbstractFacade<Color> {
         return super.find(id);
     }
 
+    //SHOWS
     @GET
     @Path("{cId}/projects")
     @Produces({MediaType.APPLICATION_JSON})
