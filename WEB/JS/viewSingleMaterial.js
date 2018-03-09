@@ -8,12 +8,24 @@ function fetchSingleMaterial(id) {
         .then(json => displaySingleMaterial(json));
 }
 
+
 function displaySingleMaterial(json){
     //name
     $("#material-name-field").text(json.name);
 
     //product related
-    fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.product/" + json.productsID)
-        .then((response) => response.json())
-        .then(response => {$("#products-field").text(response.name)});
+    function displayProductRelated(productJson){
+        console.log(productJson);
+        if(!productJson.id){
+            $("#products-field").text("");
+        } else{
+            $("#products-field").text(productJson.name += `, ${productJson.name}`);
+        }
+    }
+    for (var i = 0; i< json.productsID.length; i ++){
+        console.log(json.productsID[i]);
+        fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.product/" + json.productsID[i])
+            .then((response) => response.json())
+            .then(response => displayProductRelated(response));
+    }
 }
