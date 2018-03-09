@@ -88,7 +88,16 @@ public class OutfitFacadeREST extends AbstractFacade<Outfit> {
     public void remove(@PathParam("id") Long id) {
         super.remove(super.find(id));
     }
-
+    
+    //SHOWS
+    @GET
+    @Path("{oId}/products")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List showProducts(@PathParam("oId") Long outfitId) {
+        Outfit outfit = this.find(outfitId);
+        return outfit.getProducts();
+    }
+    
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})

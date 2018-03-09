@@ -79,7 +79,7 @@ public class ProjectFacadeREST extends AbstractFacade<Project> {
         super.edit(entity);
         return entity;
     }
-    
+
     //ADDS
     @PUT
     @Path("{pId}/color/{cId}")
@@ -100,7 +100,7 @@ public class ProjectFacadeREST extends AbstractFacade<Project> {
         project.addProduct(product);
         em.persist(project);
     }
-    
+
     //DELETES
     @PUT
     @Path("{pId}/dcolor/{cId}")
@@ -111,7 +111,7 @@ public class ProjectFacadeREST extends AbstractFacade<Project> {
         em.persist(project);
         project.deleteColor(color);
     }
-    
+
     @PUT
     @Path("{pId}/dproduct/{cId}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -126,6 +126,23 @@ public class ProjectFacadeREST extends AbstractFacade<Project> {
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {
         super.remove(super.find(id));
+    }
+
+    //SHOWS
+    @GET
+    @Path("{pId}/products")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List showProducts(@PathParam("pId") Long pId) {
+        Project p = this.find(pId);
+        return p.getProducts();
+    }
+
+    @GET
+    @Path("{pId}/projects")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List showColors(@PathParam("pId") Long pId) {
+        Project p = this.find(pId);
+        return p.getColors();
     }
 
     @GET

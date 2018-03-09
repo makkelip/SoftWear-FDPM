@@ -93,7 +93,7 @@ public class AccountFacadeREST extends AbstractFacade<Account> {
     @GET
     @Path("{aId}/customers")
     @Produces({MediaType.APPLICATION_JSON})
-    public List showProducts(@PathParam("aId") String accountName) {
+    public List showCustomers(@PathParam("aId") String accountName) {
         Account account = this.find(accountName);
         return account.getCustomers();
     }

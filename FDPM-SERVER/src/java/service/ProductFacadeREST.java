@@ -234,16 +234,72 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {
-           super.remove(super.find(id));
-              Product product = this.find(id);
-          //Project p = em.find(entityClass, product)
-          
-     //    p.deleteProduct(product);
-    //  em.persist(p);
-    
+        
+        
      
+        Project p = getEntityManager().find(Project.class, super.find(id).getProject());
+        
+        p.deleteProduct(super.find(id));
+        super.remove(super.find(id));
+        
+    }
+    //SHOWS
+    @GET
+    @Path("{pId}/customer")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Customer showCustomer(@PathParam("pId") Long pId) {
+        Product p = this.find(pId);
+        return p.getCustomer();
+    }
+    
+    @GET
+    @Path("{pId}/colors")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List showColors(@PathParam("pId") Long pId) {
+        Product p = this.find(pId);
+        return p.getColors();
+    }
+    
+    @GET
+    @Path("{pId}/materials")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List showMaterials(@PathParam("pId") Long pId) {
+        Product p = this.find(pId);
+        return p.getMaterials();
     }
 
+    @GET
+    @Path("{pId}/outfit")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Outfit showOutfit(@PathParam("pId") Long pId) {
+        Product p = this.find(pId);
+        return p.getOutfit();
+    }
+    
+    @GET
+    @Path("{pId}/pricegroup")
+    @Produces({MediaType.APPLICATION_JSON})
+    public PriceGroup showPriceGroup(@PathParam("pId") Long pId) {
+        Product p = this.find(pId);
+        return p.getPriceGroup();
+    }
+    
+    @GET
+    @Path("{pId}/productgroup")
+    @Produces({MediaType.APPLICATION_JSON})
+    public ProductGroup showProductGroup(@PathParam("pId") Long pId) {
+        Product p = this.find(pId);
+        return p.getProductGroup();
+    }
+    
+    @GET
+    @Path("{pId}/project")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Project showProjects(@PathParam("pId") Long pId) {
+        Product p = this.find(pId);
+        return p.getProject();
+    }
+    
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
