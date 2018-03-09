@@ -61,6 +61,7 @@ public class PriceGroupFacadeREST extends AbstractFacade<PriceGroup> {
         super.edit(entity);
     }
 
+    //ADDS
     @PUT
     @Path("{pgId}/product/{pId}")
     @Produces({MediaType.APPLICATION_JSON})
@@ -68,7 +69,17 @@ public class PriceGroupFacadeREST extends AbstractFacade<PriceGroup> {
         PriceGroup pg = this.find(priceGroupId);
         Product product = getEntityManager().find(Product.class, productId);
         pg.addProduct(product);
-        product.setPriceGroup(pg);
+        em.persist(pg);
+    }
+    
+    //DELETES
+    @PUT
+    @Path("{pgId}/dproduct/{pId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void deleteProduct(@PathParam("pgId") Long priceGroupId, @PathParam("pId") Long productId) {
+        PriceGroup pg = this.find(priceGroupId);
+        Product product = getEntityManager().find(Product.class, productId);
+        pg.deleteProduct(product);
         em.persist(pg);
     }
 

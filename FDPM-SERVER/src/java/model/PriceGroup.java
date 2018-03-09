@@ -49,6 +49,10 @@ public class PriceGroup implements Serializable {
         this.products.add(p);
         p.setPriceGroup(this);
     }
+        public void deleteProduct(Product p) {
+        this.products.remove(p);
+        p.setPriceGroup(null);
+    }
 
     //GETTERS
     public List<Product> getProducts() {

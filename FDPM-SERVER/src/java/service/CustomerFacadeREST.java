@@ -70,6 +70,7 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         super.edit(entity);
     }
 
+    //ADDS
     @PUT
     @Path("{cId}/product/{pId}")
     @Produces({MediaType.APPLICATION_JSON})
@@ -77,16 +78,6 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         Customer customer = this.find(customerId);
         Product product = getEntityManager().find(Product.class, productId);
         customer.addProduct(product);
-        em.persist(product);
-    }
-
-    @PUT
-    @Path("{cId}/dproduct/{pId}")
-    @Produces({MediaType.APPLICATION_JSON})
-    public void deleteProduct(@PathParam("cId") Long customerId, @PathParam("pId") Long productId) {
-        Customer customer = this.find(customerId);
-        Product product = getEntityManager().find(Product.class, productId);
-        customer.deleteProduct(product);
         em.persist(product);
     }
 
@@ -99,6 +90,17 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         customer.addAccount(account);
         account.addCustomer(customer);
         em.persist(account);
+    }
+    
+    //DELETES
+    @PUT
+    @Path("{cId}/dproduct/{pId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void deleteProduct(@PathParam("cId") Long customerId, @PathParam("pId") Long productId) {
+        Customer customer = this.find(customerId);
+        Product product = getEntityManager().find(Product.class, productId);
+        customer.deleteProduct(product);
+        em.persist(product);
     }
 
     @PUT

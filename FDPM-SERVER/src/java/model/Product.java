@@ -70,6 +70,10 @@ public class Product implements Serializable {
      public void deleteColor(Color e) {
         colors.remove(e);
     }
+     
+    public void deleteMaterial(Material e) {
+        materials.remove(e);
+    }
     //GETTERS
     public String getName() {
         return name;

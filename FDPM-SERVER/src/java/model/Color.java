@@ -79,7 +79,6 @@ public class Color implements Serializable {
             p.deleteColor(this);
         }
         products.remove(p);
-
     }
 
     //GETTERS

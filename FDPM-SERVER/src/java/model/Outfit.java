@@ -48,6 +48,10 @@ public class Outfit implements Serializable {
         p.setOutfit(this);
     }
 
+     public void deleteProduct(Product p) {
+        products.remove(p);
+        p.setOutfit(null);
+    }
     //GETTERS
     public List<Long> getProductsID() {
         List<Long> ls = new ArrayList<>();

@@ -79,7 +79,8 @@ public class ProjectFacadeREST extends AbstractFacade<Project> {
         super.edit(entity);
         return entity;
     }
-
+    
+    //ADDS
     @PUT
     @Path("{pId}/color/{cId}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -98,7 +99,27 @@ public class ProjectFacadeREST extends AbstractFacade<Project> {
         Product product = getEntityManager().find(Product.class, productId);
         project.addProduct(product);
         em.persist(project);
-
+    }
+    
+    //DELETES
+    @PUT
+    @Path("{pId}/dcolor/{cId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public void deleteColor(@PathParam("pId") Long projectId, @PathParam("cId") Long colorId) {
+        Project project = this.find(projectId);
+        Color color = getEntityManager().find(Color.class, colorId);
+        em.persist(project);
+        project.deleteColor(color);
+    }
+    
+    @PUT
+    @Path("{pId}/dproduct/{cId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public void deleteProduct(@PathParam("pId") Long projectId, @PathParam("cId") Long productId) {
+        Project project = this.find(projectId);
+        Product product = getEntityManager().find(Product.class, productId);
+        project.deleteProduct(product);
+        em.persist(project);
     }
 
     @DELETE

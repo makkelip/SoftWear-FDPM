@@ -61,6 +61,7 @@ public class AccountFacadeREST extends AbstractFacade<Account> {
         super.edit(entity);
     }
     
+    //ADDS
     @PUT
     @Path("{aId}/customer/{cId}")
     @Produces({MediaType.APPLICATION_JSON})
@@ -71,6 +72,7 @@ public class AccountFacadeREST extends AbstractFacade<Account> {
         em.persist(account);
     }
     
+    //DELETES
     @PUT
     @Path("{aId}/dcustomer/{cId}")
     @Produces({MediaType.APPLICATION_JSON})

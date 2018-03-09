@@ -59,7 +59,8 @@ public class MaterialFacadeREST extends AbstractFacade<Material> {
     public void edit(Material entity) {
         super.edit(entity);
     }
-
+    
+    //ADDS
     @PUT
     @Path("{mId}/product/{pId}")
     @Produces({MediaType.APPLICATION_JSON})
@@ -67,6 +68,17 @@ public class MaterialFacadeREST extends AbstractFacade<Material> {
         Material material = this.find(materialId);
         Product product = getEntityManager().find(Product.class, productId);
         material.addProducts(product);
+        em.persist(material);
+    }
+    
+    //DELETE
+    @PUT
+    @Path("{mId}/dproduct/{pId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void deleteProduct(@PathParam("mId") Long materialId, @PathParam("pId") Long productId) {
+        Material material = this.find(materialId);
+        Product product = getEntityManager().find(Product.class, productId);
+        material.deleteProduct(product);
         em.persist(material);
     }
 

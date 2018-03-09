@@ -52,6 +52,13 @@ public class Material implements Serializable {
         }
     }
 
+    public void deleteProduct(Product p) {
+        if (p.getMaterials().contains(this)) {
+            p.deleteMaterial(this);
+        }
+        products.remove(p);
+    }
+
     //GETTERS
     //@Transient
     public List<Long> getProductsID() {

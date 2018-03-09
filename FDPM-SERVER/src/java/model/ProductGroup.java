@@ -48,6 +48,11 @@ public class ProductGroup implements Serializable {
         p.setProductGroup(this);
     }
 
+    public void deleteProduct(Product p) {
+        products.remove(p);
+        p.setProductGroup(null);
+    }
+
     //GETTERS
     public List<Long> getProductsID() {
         List<Long> ls = new ArrayList<>();

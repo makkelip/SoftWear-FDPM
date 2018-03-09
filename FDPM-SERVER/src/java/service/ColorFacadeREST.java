@@ -72,6 +72,7 @@ public class ColorFacadeREST extends AbstractFacade<Color> {
         super.edit(entity);
     }
 
+    //ADDS
     @PUT
     @Path("{cId}/project/{pId}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -91,7 +92,8 @@ public class ColorFacadeREST extends AbstractFacade<Color> {
         color.addProduct(product);
         em.persist(color);
     }
-
+    
+    //DELETES
     @PUT
     @Path("{cId}/dproduct/{pId}")
     @Produces(MediaType.APPLICATION_JSON)

@@ -74,9 +74,8 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
     @Consumes({MediaType.APPLICATION_JSON})
     public void edit(Product entity) {
         super.edit(entity);
-        
     }
-    
+
     @PUT
     @Path("{id}/ret")
     @Consumes({MediaType.APPLICATION_JSON})
@@ -86,6 +85,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         return entity;
     }
 
+    //ADDS
     @PUT
     @Path("{pId}/color/{cId}")
     @Produces({MediaType.APPLICATION_JSON})
@@ -125,7 +125,6 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
     public void addProductGroup(@PathParam("pId") Long productId, @PathParam("pgId") Long productGroupId) {
         Product product = this.find(productId);
         ProductGroup pg = getEntityManager().find(ProductGroup.class, productGroupId);
-        product.setProductGroup(pg);
         pg.addProduct(product);
         em.persist(product);
     }
@@ -136,7 +135,6 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
     public void addOutfit(@PathParam("pId") Long productId, @PathParam("oId") Long outfitId) {
         Product product = this.find(productId);
         Outfit o = getEntityManager().find(Outfit.class, outfitId);
-        product.setOutfit(o);
         o.addProduct(product);
         em.persist(product);
     }
@@ -147,7 +145,6 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
     public void addCustomer(@PathParam("pId") Long productId, @PathParam("cId") Long customerId) {
         Product product = this.find(productId);
         Customer c = getEntityManager().find(Customer.class, customerId);
-        product.setCustomer(c);
         c.addProduct(product);
         em.persist(product);
     }
@@ -160,6 +157,77 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         Project p = getEntityManager().find(Project.class, projectId);
         product.setProject(p);
         p.addProduct(product);
+        em.persist(product);
+    }
+
+    //DELETES
+    @PUT
+    @Path("{pId}/dcustomer/{cId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void deleteCustomer(@PathParam("pId") Long productId, @PathParam("cId") Long customerId) {
+        Product product = this.find(productId);
+        Customer c = getEntityManager().find(Customer.class, customerId);
+        c.deleteProduct(product);
+        em.persist(product);
+    }
+
+    @PUT
+    @Path("{pId}/dcolor/{cId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void deleteColor(@PathParam("pId") Long productId, @PathParam("cId") Long colorId) {
+        Product product = this.find(productId);
+        Color color = getEntityManager().find(Color.class, colorId);
+        color.deleteProduct(product);
+        em.persist(product);
+    }
+
+    @PUT
+    @Path("{pId}/dmaterial/{mId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void deleteMaterial(@PathParam("pId") Long productId, @PathParam("mId") Long materialId) {
+        Product product = this.find(productId);
+        Material material = getEntityManager().find(Material.class, materialId);
+        material.deleteProduct(product);
+        em.persist(product);
+    }
+
+    @PUT
+    @Path("{pId}/doutfit/{oId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void deleteOutfit(@PathParam("pId") Long productId, @PathParam("oId") Long outfitId) {
+        Product product = this.find(productId);
+        Outfit o = getEntityManager().find(Outfit.class, outfitId);
+        o.deleteProduct(product);
+        em.persist(product);
+    }
+
+    @PUT
+    @Path("{pId}/dpricegroup/{pgId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void deletePriceGroup(@PathParam("pId") Long productId, @PathParam("pgId") Long priceGroupId) {
+        Product product = this.find(productId);
+        PriceGroup pricegroup = getEntityManager().find(PriceGroup.class, priceGroupId);
+        pricegroup.deleteProduct(product);
+        em.persist(product);
+    }
+
+    @PUT
+    @Path("{pId}/dproductgroup/{pgId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void deleteProductGroup(@PathParam("pId") Long productId, @PathParam("pgId") Long productGroupId) {
+        Product product = this.find(productId);
+        ProductGroup pg = getEntityManager().find(ProductGroup.class, productGroupId);
+        pg.deleteProduct(product);
+        em.persist(product);
+    }
+
+    @PUT
+    @Path("{pId}/dproject/{projectId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void deleteProject(@PathParam("pId") Long productId, @PathParam("projectId") Long projectId) {
+        Product product = this.find(productId);
+        Project p = getEntityManager().find(Project.class, projectId);
+        p.deleteProduct(product);
         em.persist(product);
     }
 

@@ -71,6 +71,12 @@ public class Project implements Serializable {
             color.deleteProject(this);
         }
     }
+
+    public void deleteProduct(Product p) {
+        this.products.remove(p);
+        p.setProject(null);
+    }
+
     //GETTERS
     public List<Long> getProductsID() {
         List<Long> ls = new ArrayList<>();
@@ -87,12 +93,12 @@ public class Project implements Serializable {
     public String getName() {
         return name;
     }
-    
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     public Date getStartingDate() {
         return startingDate;
     }
-    
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     public Date getEndingDate() {
         return endingDate;
@@ -146,7 +152,7 @@ public class Project implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
