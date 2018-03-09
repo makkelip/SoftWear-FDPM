@@ -24,7 +24,7 @@
 
 /* Area for one customer only */
 .customers > a {
-  height: 400px;
+  height: 350px;
   width: 250px;
   margin: 10px;
   border-radius: 20px;
@@ -33,7 +33,7 @@
 }
 
 .customers > a > div {
-  padding: 30px;
+  padding: 20px;
 }
 
 .customers > a:hover {
