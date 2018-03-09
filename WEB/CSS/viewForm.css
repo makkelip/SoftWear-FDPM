@@ -22,6 +22,9 @@
     padding:0.5em;
     overflow: hidden;
     word-wrap: break-word;
+    border: solid 1px #5E5E5E;
+    font-size: 0.7em;
+    font-weight: bold;
 }
 
 
@@ -38,5 +41,16 @@
 
 #desc-info{
     grid-area: desc;
+    word-wrap: break-word;
+    overflow-y: scroll;
+    max-height: 126px;
    
+}
+
+p{
+    font-weight: normal;
+}
+
+#customer-page-title{
+    margin-left: 50px;
 }
