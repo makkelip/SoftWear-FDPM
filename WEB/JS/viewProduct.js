@@ -1,8 +1,8 @@
 $(document).ready(function() {
-  fetchCustomer(productId);
+  fetchProduct(productId);
 });
 
-function fetchCustomer(id) {
+function fetchProduct(id) {
   fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.product/" + id)
   .then((response) => response.json())
   .then(json => displayProduct(json))

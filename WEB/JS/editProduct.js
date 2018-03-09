@@ -13,8 +13,15 @@ $(function(){
             var colorsChosen = colorSideBars.getElementsByTagName("a");
             Array.prototype.forEach.call(colorsChosen, function(colorChosen){
                 colorChosen.addEventListener('click', function(){
-                    document.getElementById("product-colors-text-field").textContent += `, ${colorChosen.textContent}`;
-                })});
+                  let id = colorChosen.id;
+                  console.log(id);
+                  fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.product/" + productId + "/color/" + id, {
+                    'method': 'PUT'
+                  })
+                  .then(fetchProduct(productId))
+                  .catch(error => console.log("Error: " + error))
+                });
+            });
         }
             /*
             var colorChosen = document.getElementsByClassName().value;
