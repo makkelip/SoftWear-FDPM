@@ -5,8 +5,9 @@ $(function(){
     } else {*/
     const loadCustomer = function (customer) {
         document.getElementById('form-name').textContent = customer.name;
-        document.getElementById('form-mail').textContent = customer.mail;
+        document.getElementById('form-mail').textContent = customer.email;
         document.getElementById('form-desc').textContent = customer.description;
+        console.log(customer);
     };
 
     fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.customer/" + customerId)
