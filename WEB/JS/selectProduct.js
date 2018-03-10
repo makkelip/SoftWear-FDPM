@@ -21,7 +21,7 @@ $(document).ready(function(){
           $("section").load("viewProduct.html #js--view-product");
           productId = product.id;
           $.getScript("JS/viewProduct.js");
-          $.getScript("JS/editProduct.js");
+          $.getScript("JS/editProduct2.js");
       });
     }
   }
