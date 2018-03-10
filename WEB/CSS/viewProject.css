@@ -13,8 +13,8 @@
     grid-template-rows: 10% 10% 10% 30% 30%;
     grid-template-columns: 50% 50%;
     grid-template-areas:"name name"
-                        "startdate enddate"
-                        "coverpercentage ."
+                        "coverpercentage startdate"
+                        "coverpercentage enddate"
                         "products colors"
                         "desc desc";
     grid-gap: 0.5em;
