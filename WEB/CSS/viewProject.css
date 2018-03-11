@@ -75,3 +75,20 @@
 p{
     font-weight: normal;
 }
+
+.list-box {
+    position: fixed;
+    float: right;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 1px 5px 1px #444444;
+    background-color: aliceblue;
+    display: none;
+    width: auto;
+}
+
+.project-color {
+    margin: 0px;
+    border: 0;
+}
