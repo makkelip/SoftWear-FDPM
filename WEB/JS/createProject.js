@@ -3,10 +3,10 @@ document.getElementById("js--button-submit-project").addEventListener('click', f
         let form = document.getElementById("js--form-id-project");
         let name = $("#name").val();
         let date = new Date();
+        date.setTime(Date.now() + 7200000);
         let startingDate = date.toISOString().slice(0,10);
         let endingDate = $("#endingDate").val();
         let description = $("#description").val();
-        
         postProject(name, startingDate, endingDate, description);
         form.reset();
         console.log(startingDate);
