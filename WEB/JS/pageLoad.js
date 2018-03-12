@@ -128,8 +128,10 @@ $(document).ready(function() {
     if ($('#js--select-product').length == 0) {
       $.get('selectProduct.html', function(data) {
         section.append(data);
-        $.getScript('JS/selectProduct.js');
+        $.getScript('JS/selectProduct.js', () => loadSelectProduct());
       });
+    } else {
+      loadSelectProduct();
     }
     loadSection($('#js--select-product'));
   });

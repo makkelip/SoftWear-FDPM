@@ -5,6 +5,10 @@
                 </div>
                 <div class="product-info-cell" id="product-name">Name:
                     <p class="text-field js--product-name" id="name-text-field">Missing</p>
+                    <form class="js--edit-product-name" style="display: none;">
+                      <input class="js--name-edit-product-name" type="text"/>
+                      <input  class="js--button-edit-product-name"type="button" value="Change"/>
+                    </form>
                 </div>
                 <div class="product-info-cell" id="product-group">Product group:
                     <p class="text-field js--product-group" id="product-group-text-field">Missing</p>
@@ -33,17 +37,18 @@
 
                     <div class="product-info-cell" id="product-desc">Description:
                         <p class="text-field js--product-description" id="product-desc-text-field">Missing</p>
+                        <form class="js--edit-product-description" style="display: none;">
+                          <textarea class="js--description-edit-product-description" type="text" rows="10" cols="39"></textarea>
+                          <input  class="js--button-edit-product-description"type="button" value="Change"/>
+                        </form>
                     </div>
 
                 </div>
             </div>
 
             <div class="section-aside">
-            <h4 class="aside-tab">Settings</h4>
+            <h4 class="aside-tab">Edit:</h4>
                 <div class="aside-content js--aside-product">
-                    <a href="#">Edit customer information</a>
-                    <a href="#">Budget</a>
-                    <a href="#">Color palette</a>
                 </div>
             </div>
         </div>

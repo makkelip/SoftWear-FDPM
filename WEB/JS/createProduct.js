@@ -24,4 +24,5 @@ const postProduct = function(name, description) {
   })
   .then(response => console.log('Success', response))
   .catch(error => console.error(error));
+  loadSelectProduct();
 };

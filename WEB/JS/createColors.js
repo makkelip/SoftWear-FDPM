@@ -72,6 +72,7 @@ $(function(){
          })
         .then(response => console.log('Success', response))
         .catch(error => console.log('error', error));
+        loadViewColors();
     });
     document.getElementById('cancel').addEventListener('click', function() {
         document.getElementById('color-name').value = "";

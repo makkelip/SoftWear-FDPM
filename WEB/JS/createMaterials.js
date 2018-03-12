@@ -31,9 +31,8 @@ $(function(){
             'method': 'POST',
             'body': JSON.stringify(materialset),
             'headers': new Headers({'Content-Type': 'application/json'})
-        }).then(result => result.json())
-        .then(response => console.log('Success', response))
+        }).then(response => console.log('Success', response))
         .catch(error => console.log('error', error));
+        loadMaterials();
     })
 });
-

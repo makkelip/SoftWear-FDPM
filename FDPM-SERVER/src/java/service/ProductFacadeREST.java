@@ -86,6 +86,22 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         return entity;
     }
 
+    @PUT
+    @Path("{id}/name/{name}")
+    public void editName(@PathParam("id") Long id, @PathParam("name") String name) {
+        Product p = find(id);
+        p.setName(name);
+        em.persist(p);
+    }
+    
+    @PUT
+    @Path("{id}/description/{desc}")
+    public void editDescription(@PathParam("id") Long id, @PathParam("desc") String desc) {
+        Product p = find(id);
+        p.setDescription(desc);
+        em.persist(p);
+    }
+    
     //ADDS
     @PUT
     @Path("{pId}/color/{cId}")
@@ -190,6 +206,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         Material material = getEntityManager().find(Material.class, materialId);
         material.deleteProduct(product);
         em.persist(product);
+        em.persist(material);
     }
 
     @PUT

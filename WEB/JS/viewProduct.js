@@ -1,5 +1,4 @@
 const loadProduct = function() {
-  console.log(productId);
   fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.product/' + productId)
   .then(response => response.json())
   .then(function(json) {
@@ -16,7 +15,10 @@ const loadProduct = function() {
       colorsContainer.innerHTML = '';
       for (let color of json.colors) {
         colorsContainer.innerHTML +=
-          `<color id=${color.id} value='${color.hexColorValue}'>${color.name}</color>`;
+          `<color id=${color.id} value='${color.hexColorValue}'>
+          <div class="view-product-color" style="background:${color.hexColorValue}"></div>
+          <div class="view-product-color-name">${color.name}</div>
+          </color>`;
       }
     }
     //materials
@@ -50,6 +52,4 @@ const loadProduct = function() {
     }
   })
   .catch(error => console.log('Error: ' + error));
-  //Create method for displaying all colors!!!
-  //Create method for displaying all materials!!!
 };
