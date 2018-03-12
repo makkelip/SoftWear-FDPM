@@ -71,7 +71,7 @@ $(document).ready(function() {
     if ($('#js--all-colors').length == 0) {
       $.get('viewColors.html', function(data) {
         section.append(data);
-        $.getScript('JS/viewColors.js', () => loadColors());
+        $.getScript('JS/viewColors.js', () => loadViewColors());
       });
     } else {
       loadViewColors();
