@@ -228,21 +228,39 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         Product product = this.find(productId);
         Project p = getEntityManager().find(Project.class, projectId);
         p.deleteProduct(product);
-        em.persist(product);
+
     }
 
     @DELETE
     @Path("{id}")
-    public void remove(@PathParam("id") Long id) {
+    public void remove(@PathParam("id") Long productId) {
+        Product product = this.find(productId);
+        Project p = product.getProject();
+        Customer c = product.getCustomer();
+        PriceGroup pg = product.getPriceGroup();
+        ProductGroup pro = product.getProductGroup();
+        Outfit o = product.getOutfit();
         
+
+        if (product.getProject() != null) {
+            p.deleteProduct(product);
+        }
+        if (product.getCustomer() != null) {
+            c.deleteProduct(product);
+        }
+        if (product.getPriceGroup() != null) {
+            pg.deleteProduct(product);
+        }
+        if (product.getProductGroup() != null) {
+            pro.deleteProduct(product);
+        }
+        if (product.getOutfit() != null) {
+            o.deleteProduct(product);
+        }
         
-     
-        Project p = getEntityManager().find(Project.class, super.find(id).getProject());
-        
-        p.deleteProduct(super.find(id));
-        super.remove(super.find(id));
-        
+        super.remove(super.find(productId));
     }
+
     //SHOWS
     @GET
     @Path("{pId}/customer")
@@ -251,7 +269,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         Product p = this.find(pId);
         return p.getCustomer();
     }
-    
+
     @GET
     @Path("{pId}/colors")
     @Produces({MediaType.APPLICATION_JSON})
@@ -259,7 +277,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         Product p = this.find(pId);
         return p.getColors();
     }
-    
+
     @GET
     @Path("{pId}/materials")
     @Produces({MediaType.APPLICATION_JSON})
@@ -275,7 +293,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         Product p = this.find(pId);
         return p.getOutfit();
     }
-    
+
     @GET
     @Path("{pId}/pricegroup")
     @Produces({MediaType.APPLICATION_JSON})
@@ -283,7 +301,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         Product p = this.find(pId);
         return p.getPriceGroup();
     }
-    
+
     @GET
     @Path("{pId}/productgroup")
     @Produces({MediaType.APPLICATION_JSON})
@@ -291,7 +309,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         Product p = this.find(pId);
         return p.getProductGroup();
     }
-    
+
     @GET
     @Path("{pId}/project")
     @Produces({MediaType.APPLICATION_JSON})
@@ -299,7 +317,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         Product p = this.find(pId);
         return p.getProject();
     }
-    
+
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
