@@ -28,7 +28,7 @@ let listCustomers = function(customers) {
 };
 
 
-const showItems = () => {
+const showCustomerItems = () => {
 
   const items = $('.boxitem');
 
@@ -47,7 +47,7 @@ const showItems = () => {
         activeItems.push(items[lastItem += 1]);
         activeItems.shift();
         firstItem++;
-        showItems();
+        showCustomerItems();
       }
     };
 
@@ -57,7 +57,7 @@ const showItems = () => {
         activeItems.pop();
         activeItems.unshift(items[firstItem -= 1]);
         lastItem--;
-        showItems();
+        showCustomerItems();
       }
     };
 
@@ -81,7 +81,7 @@ const loadSelectCustomer = function() {
     .then(response => response.json())
     .then(json => {
       listCustomers(json);
-      showItems();
+      showCustomerItems();
     })
   .catch(error => console.log(error));
 };

@@ -11,7 +11,7 @@ const loadSingleMaterial = function() {
           .then((response) => response.json())
           .then(function(json) {
             var previousProduct = document.getElementById('products-field');
-            previousProduct.innerHTML += `<p>${productJson.name}</p>`;
+            previousProduct.innerHTML += `<p>${json.name}</p>`;
           });
       }
     });

@@ -49,16 +49,17 @@ $(document).ready(function() {
     if ($('#js--select-project').length == 0) {
       $.get('selectProject.html', function(data) {
         section.append(data);
-        $.getScript('JS/selectProject.js');
+        $.getScript('JS/selectProject.js', () => loadSelectProject());
       });
+    } else {
+      loadSelectProject();
     }
-    //loadSelectProject();
     loadSection($('#js--select-project'));
   });
   //Create project
   body.on('click', '.js--button-create-project', function() {
     if ($('#js--create-project').length == 0) {
-      $.get('createCustomer.html', function(data) {
+      $.get('createProject.html', function(data) {
         section.append(data);
         $.getScript('JS/createProject.js');
       });
