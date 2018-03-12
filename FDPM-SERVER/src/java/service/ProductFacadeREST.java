@@ -16,6 +16,7 @@
  */
 package service;
 
+import java.util.Iterator;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -228,7 +229,6 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         Product product = this.find(productId);
         Project p = getEntityManager().find(Project.class, projectId);
         p.deleteProduct(product);
-
     }
 
     @DELETE
@@ -240,7 +240,8 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         PriceGroup pg = product.getPriceGroup();
         ProductGroup pro = product.getProductGroup();
         Outfit o = product.getOutfit();
-        
+        List<Color> colors = product.getColors();
+        List<Material> materials = product.getMaterials();
 
         if (product.getProject() != null) {
             p.deleteProduct(product);
@@ -257,7 +258,12 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         if (product.getOutfit() != null) {
             o.deleteProduct(product);
         }
-        
+        for (Color col : colors) {
+            col.deleteProduct(product);
+        }
+        for (Material mat : materials) {
+            mat.deleteProduct(product);
+        }
         super.remove(super.find(productId));
     }
 
