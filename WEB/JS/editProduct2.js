@@ -1,48 +1,59 @@
-//TEE KUNNON FUNKTIO TÄSTÄ
-
-//color
-document.getElementById('product-colors').addEventListener('click', function(event) {
-  event.preventDefault();
-  fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.color')
+const loadEditCustomerList = function(editItem) {
+  fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.' + editItem)
   .then(response => response.json())
-  .then(function(colors) {
-    let asideContent = document.querySelector('.aside-content');
+  .then(function(respJson) {
+    let asideContent = document.querySelector('.js--aside-product');
     asideContent.innerHTML = '';
-    for (let color of colors) {
-      asideContent.innerHTML +=
-      `<a class="color-list" id="${color.id}" style="background:${color.hexColorValue}">${color.name}</a>`;
+    for (let item of respJson) {
+      if (editItem == 'color') {
+        asideContent.innerHTML +=
+        `<a class="` + editItem + `-list" id="${item.id}" style="background:${item.hexColorValue}">${item.name}</a>`;
+      } else {
+        asideContent.innerHTML +=
+        `<a class="` + editItem + `-list" id="${item.id}">${item.name}</a>`;
+      }
     }
-    let colorButtons = asideContent.getElementsByTagName('a');
-    Array.prototype.forEach.call(colorButtons, function(button) {
+    let itemButtons = asideContent.getElementsByTagName('a');
+    Array.prototype.forEach.call(itemButtons, function(button) {
       button.addEventListener('click', function(event) {
         event.preventDefault();
-        fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.product/' + productId + '/color/' + button.id,
+        fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.product/' +
+        productId + '/' + editItem + '/' + button.id,
         {'method': 'PUT'})
         .then(function() {
-          fetchProduct(productId);
+          loadProduct();
         })
         .catch(error => console.log('Error: ' + error));
       });
     });
   });
+};
+console.log($('#product-group'));
+//product group
+$('#product-group').on('click', function() {
+  loadEditCustomerList('productgroup');
 });
-//material
-document.getElementById('product-materials').addEventListener('click', function(event) {
-  event.preventDefault();
-  fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.material')
-  .then(response => response.json())
-  .then(function(materials) {
-    let asideContent = document.querySelector('.aside-content');
-    asideContent.innerHTML = '';
-    for (let material of materials) {
-      asideContent.innerHTML +=
-      `< class="color-list" id="${material.id}">${material.name}</a>`;
-    }
-    let materialButtons = asideContent.getElementsByTagName('a');
-    Array.prototype.forEach.call(colorButtons, function(button) {
-      button.addEventListener('click', function(event) {
-
-      });
-    });
-  });
+//colors
+$('#product-colors').on('click', function() {
+  loadEditCustomerList('color');
+});
+//materials
+$('#product-materials').on('click', function() {
+  loadEditCustomerList('material');
+});
+//customer
+$('#product-customer').on('click', function() {
+  loadEditCustomerList('customer');
+});
+//Project
+$('#product-project').on('click', function() {
+  loadEditCustomerList('project');
+});
+//Outfit
+$('#product-outfit').on('click', function() {
+  loadEditCustomerList('outfit');
+});
+//price group
+$('#product-price-group').on('click', function() {
+  loadEditCustomerList('pricegroup');
 });

@@ -5,90 +5,142 @@ Example: class='js--button-view-project' opens project view form viewProject.htm
 And the divs inside sections have to have class='theNameOfTheHTML'
 Example: in viewCustomer.html <div class='viewCustomer'> ... </div>
 */
+const loadSection = function(show) {
+  section.children().hide();
+  show.show();
+};
+
+var section;
+var body;
 
 $(document).ready(function() {
-  const section = $('section');
-  const body = $('body');
+  section = $('section');
+  body = $('body');
+
   //Home
   body.on('click', '.js--button-home', function() {
-    if ($('#js--home').length == 0) {
-      section.append('index.html #js--home');
-    }
+    loadSection($('#js--home'));
   });
   //Select customer
   body.on('click', '.js--button-select-customer', function() {
     if ($('#js--select-customer').length == 0) {
-      console.log('load');
-      section.load('selectCustomer.html #js--select-customer');
-      $.getScript('JS/selectCustomer.js');
+      $.get('selectCustomer.html', function(data) {
+        section.append(data);
+        $.getScript('JS/selectCustomer.js', () => loadSelectCustomer());
+      });
+    } else {
+      loadSelectCustomer();
     }
+    loadSection($('#js--select-customer'));
   });
   //Create customer
   body.on('click', '.js--button-create-customer', function() {
     if ($('#js--create-customer').length == 0) {
-      section.append('createCustomer.html #js--create-customer');
-      $.getScript('JS/createCustomer.js');
+      $.get('createCustomer.html', function(data) {
+        section.append(data);
+        $.getScript('JS/createCustomer.js');
+      });
     }
+    loadSection($('#js--create-customer'));
   });
 
   //Select project
   body.on('click', '.js--button-select-project', function() {
     if ($('#js--select-project').length == 0) {
-      section.load('selectProject.html #js--select-project');
-      $.getScript('JS/selectProject.js');
+      $.get('selectProject.html', function(data) {
+        section.append(data);
+        $.getScript('JS/selectProject.js');
+      });
     }
+    //loadSelectProject();
+    loadSection($('#js--select-project'));
   });
   //Create project
   body.on('click', '.js--button-create-project', function() {
     if ($('#js--create-project').length == 0) {
-      section.load('createProject.html #js--create-project');
-      $.getScript('JS/createProject.js');
+      $.get('createCustomer.html', function(data) {
+        section.append(data);
+        $.getScript('JS/createProject.js');
+      });
     }
+    loadSection($('#js--create-project'));
   });
 
   //View colors
   body.on('click', '.js--button-view-colors', function() {
     if ($('#js--all-colors').length == 0) {
-      section.load('viewColors.html #js--all-colors');
-      $.getScript('JS/viewColors.js');
+      $.get('viewColors.html', function(data) {
+        section.append(data);
+        $.getScript('JS/viewColors.js', () => loadColors());
+      });
+    } else {
+      loadViewColors();
     }
+    loadSection($('#js--all-colors'));
   });
   //Create color
   body.on('click', '.js--button-create-colors', function() {
     if ($('#js--create-colors').length == 0) {
-      section.load('createColors.html #js--create-colors');
-      $.getScript('JS/createColors.js');
+      $.get('createColors.html', function(data) {
+        section.append(data);
+        $.getScript('JS/createColors.js');
+      });
     }
+    loadSection($('#js--create-colors'));
   });
 
   //View materials
   body.on('click', '.js--button-view-materials', function() {
     if ($('#js--all-materials').length == 0) {
-      section.load('viewMaterials.html #js--all-materials');
-      $.getScript('JS/viewMaterials.js');
+      $.get('viewMaterials.html', function(data) {
+        section.append(data);
+        $.getScript('JS/viewMaterials.js', () => loadMaterials());
+      });
+    } else {
+      loadMaterials();
     }
+    loadSection($('#js--all-materials'));
   });
   //Create materials
   body.on('click', '.js--button-create-materials', function() {
     if ($('#js--create-materials').length == 0) {
-      section.load('createMaterials.html #js--create-materials');
-      $.getScript('JS/createMaterials.js');
+      $.get('createMaterials.html', function(data) {
+        section.append(data);
+        $.getScript('JS/createMaterials.js');
+      });
+    }
+    loadSection($('#js--create-materials'));
+  });
+  //view single material
+  body.on('click', '.js--view-material', function() {
+    if ($('#js--view-material').length == 0) {
+      $.get('viewSingleMaterial.html', function(data) {
+        section.append(data);
+        $.getScript('JS/viewSingleMaterial.js');
+      });
+    } else {
+      loadSection($('#js--view-material'));
     }
   });
-
   //Select product
   body.on('click', '.js--button-select-product', function() {
     if ($('#js--select-product').length == 0) {
-      section.load('selectProduct.html #js--select-product');
-      $.getScript('JS/selectProduct.js');
+      $.get('selectProduct.html', function(data) {
+        section.append(data);
+        $.getScript('JS/selectProduct.js');
+      });
     }
+    loadSection($('#js--select-product'));
   });
   //Create product
   body.on('click', '.js--button-create-product', function() {
+    console.log($('#js--create-product').length);
     if ($('#js--create-product').length == 0) {
-      section.load('createProduct.html #js--create-product');
-      $.getScript('JS/createProduct.js');
+      $.get('createProduct.html', function(data) {
+        section.append(data);
+        $.getScript('JS/createProduct.js');
+      });
     }
+    loadSection($('#js--create-product'));
   });
-
 });

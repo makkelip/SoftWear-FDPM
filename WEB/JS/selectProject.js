@@ -1,5 +1,6 @@
-/* eslint-env browser, console */
-/* eslint-disable no-alert, no-console, no-unused-vars*/
+const loadSelectProject = function() {
+  //Use this when button is pressed
+};
 
 $(document).ready(function(){
 
@@ -15,7 +16,7 @@ $(document).ready(function(){
                 <div>Delivery date:<br> ${project.endingDate}</div>
                 <div>Description:<br> ${project.description}</div></a>`;
         }
-        
+
         for (let project of projects) {
             $("body").one("click", "#" + project.id, function(){
                 $("section").load("viewProject.html #js--view-project");

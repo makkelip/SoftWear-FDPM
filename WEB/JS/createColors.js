@@ -69,12 +69,9 @@ $(function(){
             'method': 'POST',
             'body': JSON.stringify(colorset),
             'headers': new Headers({'Content-Type': 'application/json'})
-         }).then(result => result.json())
+         })
         .then(response => console.log('Success', response))
         .catch(error => console.log('error', error));
-
-        $("section").load("viewColors.html #js--all-colors");
-        $.getScript("JS/viewColors.js");
     });
     document.getElementById('cancel').addEventListener('click', function() {
         document.getElementById('color-name').value = "";
