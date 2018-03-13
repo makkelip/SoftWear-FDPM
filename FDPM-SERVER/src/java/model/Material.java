@@ -55,10 +55,10 @@ public class Material implements Serializable {
     
     //DELETES
     public void deleteProduct(Product p) {
-        if (p.getMaterials().contains(this)) {
+        while (p.getMaterials().contains(this)) {
             p.deleteMaterial(this);
+            products.remove(p);
         }
-        products.remove(p);
     }
 
     //GETTERS
