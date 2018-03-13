@@ -1,88 +1,90 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>FDPM</title>
-    <meta charset="utf-8">
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="CSS/basic.css">
-    <link rel="stylesheet" type="text/css" href="CSS/content.css"/>
-    <link rel="stylesheet" type="text/css" href="CSS/createColors.css"/>
-    <link rel="stylesheet" type="text/css" href="CSS/createMaterials.css"/>
-    <link rel="stylesheet" type="text/css" href="CSS/form.css"/>
-    <link rel="stylesheet" type="text/css" href="CSS/slideshow.css"/>
-    <link rel="stylesheet" type="text/css" href="CSS/viewColors.css"/>
-    <link rel="stylesheet" type="text/css" href="CSS/viewCustomer.css"/>
-    <link rel="stylesheet" type="text/css" href="CSS/viewMaterials.css"/>
-    <link rel="stylesheet" type="text/css" href="CSS/viewSingleMaterial.css"/>
-    <link rel="stylesheet" type="text/css" href="CSS/viewProduct.css"/>
-    <link rel="stylesheet" type="text/css" href="CSS/viewProject.css"/>
-    <link rel="stylesheet" type="text/css" href="CSS/selectProduct.css"/>
-    <link rel="stylesheet" type="text/css" href="CSS/index.css"/>
-    <!-- JavaScript -->
-    <script src="libraries/jquery-3.3.1.min.js" type="text/javascript"></script>
-    <script src="JS/pageLoad.js" type="text/javascript"></script>
-    <script src="JS/globalVariables.js" type="text/javascript"></script>
-  </head>
 
-  <body>
-    <header>
-      <div class="header-logo">
-        <a href="#" class="js--button-home">FDPM</a>
-      </div>
-      <nav class="header-navigation">
-        <a href="#" class="js--button-select-customer">Customer</a>
-        <a href="#" class="js--button-select-project">Project</a>
-        <a href="#" class="js--button-select-product">Product</a>
-        <a href="#" class="js--button-view-colors">Color</a>
-        <a href="#" class="js--button-view-materials">Material</a>
-      </nav>
-    </header>
+<head>
+  <title>FDPM</title>
+  <meta charset="utf-8">
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="CSS/basic.css">
+  <link rel="stylesheet" type="text/css" href="CSS/content.css" />
+  <link rel="stylesheet" type="text/css" href="CSS/createColors.css" />
+  <link rel="stylesheet" type="text/css" href="CSS/createMaterials.css" />
+  <link rel="stylesheet" type="text/css" href="CSS/form.css" />
+  <link rel="stylesheet" type="text/css" href="CSS/slideshow.css" />
+  <link rel="stylesheet" type="text/css" href="CSS/viewColors.css" />
+  <link rel="stylesheet" type="text/css" href="CSS/viewCustomer.css" />
+  <link rel="stylesheet" type="text/css" href="CSS/viewMaterials.css" />
+  <link rel="stylesheet" type="text/css" href="CSS/viewSingleMaterial.css" />
+  <link rel="stylesheet" type="text/css" href="CSS/viewProduct.css" />
+  <link rel="stylesheet" type="text/css" href="CSS/viewProject.css" />
+  <link rel="stylesheet" type="text/css" href="CSS/selectProduct.css" />
+  <link rel="stylesheet" type="text/css" href="CSS/index.css" />
+  <!-- JavaScript -->
+  <script src="libraries/jquery-3.3.1.min.js" type="text/javascript"></script>
+  <script src="JS/pageLoad.js" type="text/javascript"></script>
+  <script src="JS/globalVariables.js" type="text/javascript"></script>
+</head>
 
-    <!-- always include a div element + id inside the section element!
+<body>
+  <header>
+    <div class="header-logo">
+      <a href="#" class="js--button-home">FDPM</a>
+    </div>
+    <nav class="header-navigation">
+      <a href="#" class="js--button-select-customer">Customer</a>
+      <a href="#" class="js--button-select-project">Project</a>
+      <a href="#" class="js--button-select-product">Product</a>
+      <a href="#" class="js--button-view-colors">Color</a>
+      <a href="#" class="js--button-view-materials">Material</a>
+    </nav>
+  </header>
+
+  <!-- always include a div element + id inside the section element!
          naming: js--file-name (example: <div id="js--select-customer">,
          in selectCustomer.html document) -->
-    <section>
-      <div class="section section-text-margin" id="js--home">
-        <h1>Welcome!</h1>
-        
-        <div id="slideshow-index">
-           <div>
-             <img src="libraries/image1.jpg">
-           </div>
-           <div>
-             <img src="libraries/image2.jpg">
-           </div>
-           <div>
-             <img src="libraries/image3.jpg">
-           </div>
-           <div>
-             <img src="libraries/image4.jpg">
-           </div>           
-           <div>
-             <img src="libraries/image5.jpg">
-           </div>
-           <div>
-             <img src="libraries/image6.jpg">
-           </div>
+  <section>
+    <div class="section section-text-margin" id="js--home">
+      <h1>Welcome!</h1>
+
+      <div id="slideshow-index">
+        <div>
+          <img src="libraries/image1.jpg">
         </div>
-          
-        <script>
-            $("#slideshow-index > div:gt(0)").hide();
-
-            setInterval(function() {
-                $('#slideshow-index > div:first')
-                    .fadeOut(1000)
-                    .next()
-                    .fadeIn(1000)
-                    .end()
-                    .appendTo('#slideshow-index');
-            }, 3000);
-        </script>
+        <div>
+          <img src="libraries/image2.jpg">
+        </div>
+        <div>
+          <img src="libraries/image3.jpg">
+        </div>
+        <div>
+          <img src="libraries/image4.jpg">
+        </div>
+        <div>
+          <img src="libraries/image5.jpg">
+        </div>
+        <div>
+          <img src="libraries/image6.jpg">
+        </div>
       </div>
-    </section>
 
-    <footer>
-      <p>&copy; 2018 SoftWear</p>
-    </footer>
-  </body>
+      <script>
+        $("#slideshow-index > div:gt(0)").hide();
+
+        setInterval(function() {
+          $('#slideshow-index > div:first')
+            .fadeOut(1000)
+            .next()
+            .fadeIn(1000)
+            .end()
+            .appendTo('#slideshow-index');
+        }, 3000);
+      </script>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2018 SoftWear</p>
+  </footer>
+</body>
+
 </html>

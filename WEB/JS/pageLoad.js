@@ -114,15 +114,17 @@ $(document).ready(function() {
     loadSection($('#js--create-materials'));
   });
   //view single material
-  body.on('click', '.js--view-material', function() {
+  body.on('click', '.js--button-view-material', function() {
     if ($('#js--view-material').length == 0) {
       $.get('viewSingleMaterial.html', function(data) {
         section.append(data);
-        $.getScript('JS/viewSingleMaterial.js');
+        $.getScript('JS/viewSingleMaterial.js', () => loadSingleMaterial());
       });
     } else {
-      loadSection($('#js--view-material'));
+      loadSingleMaterial();
     }
+    materialId = this.id;
+    loadSection($('#js--view-material'));
   });
   //Select product
   body.on('click', '.js--button-select-product', function() {

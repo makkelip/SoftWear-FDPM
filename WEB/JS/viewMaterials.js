@@ -13,26 +13,14 @@ let listMaterials = function(materials) {
   } else {
     for (let material of materials) {
       materialsElement.innerHTML +=
-        `<div class='grow material-card' id='${material.id}'>
+        `<div class='grow material-card js--button-view-material' id='${material.id}'>
         <div class='material-image'>
         <img src='https://img1.etsystatic.com/000/0/5977438/il_570xN.191399199.jpg' alt='Loading...'/>
         </div>
         <div class='material-card-name'>${material.name}</div>
         </div>`;
       let identifier = '.material-card#' + material.id;
-      $('body').on('click', identifier, function(event) {
-        event.preventDefault();
-        materialId = material.id;
-        if ($('#js--view-material').length == 0) {
-          $.get('viewSingleMaterial.html', function(data) {
-            section.append(data);
-            $.getScript('JS/viewSingleMaterial.js', () => loadSingleMaterial());
-          });
-        } else {
-          loadSingleMaterial();
-        }
-        loadSection($('#js--view-material'));
-      });
+      materialId = material.id;
     }
   }
 };
