@@ -118,12 +118,13 @@ $(document).ready(function() {
     if ($('#js--view-material').length == 0) {
       $.get('viewSingleMaterial.html', function(data) {
         section.append(data);
+        materialId = this.id;
         $.getScript('JS/viewSingleMaterial.js', () => loadSingleMaterial());
       });
     } else {
+      materialId = this.id;
       loadSingleMaterial();
     }
-    materialId = this.id;
     loadSection($('#js--view-material'));
   });
   //Select product

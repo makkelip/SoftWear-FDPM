@@ -19,8 +19,6 @@ let listMaterials = function(materials) {
         </div>
         <div class='material-card-name'>${material.name}</div>
         </div>`;
-      let identifier = '.material-card#' + material.id;
-      materialId = material.id;
     }
   }
 };
