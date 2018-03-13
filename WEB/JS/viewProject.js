@@ -9,6 +9,9 @@ const loadProject = () => {
 
 function showProject(project) {
     let colorList = [];
+    $('.list-box').hide();
+    $('#js--button-edit-project').show();
+    $('#js--button-save-project').hide();
     
     //console.log(project.name);
     $('#name-info').html(`Name:<br/><p id="form-name">${project.name}</p>`);
@@ -86,6 +89,9 @@ function showProject(project) {
                     console.log(colors);
                     const colorsElement = $(".color-container-flex");
                     $('.list-box').show();
+                    document.getElementById("js--close-project-color").onclick = function() {
+                        $('.list-box').hide();
+                    };
                     colorsElement.html("");
                     if (colorsElement === null){
                         throw new Error("No Color yet!");
@@ -180,5 +186,6 @@ function putProject(name, startingDate, endingDate, coverPercent, colors, produc
     'headers': new Headers({'Content-Type': 'application/json'})
   })
     .then(response => console.log('Success', response))
+    .then(result => loadProject())
     .catch(error => console.error(error));
 }

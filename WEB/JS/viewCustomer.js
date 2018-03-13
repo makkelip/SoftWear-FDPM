@@ -12,9 +12,9 @@ function showCustomer(customer) {
 //    document.getElementById('form-mail').textContent = customer.email;
 //    document.getElementById('form-desc').textContent = customer.description;
     
-    document.getElementById('name-info').innerHTML = `Name:<br/><p id="form-name">${customer.name}</p>`;
+    document.getElementById('name-info-c').innerHTML = `Name:<br/><p id="form-name-c">${customer.name}</p>`;
     document.getElementById('mail-info').innerHTML = `E-mail:<br/><p id="form-mail">${customer.email}</p>`;
-    document.getElementById('desc-info').innerHTML = `Description:<br/><p id="form-desc">${customer.description}</p>`;
+    document.getElementById('desc-info-c').innerHTML = `Description:<br/><p id="form-desc-c">${customer.description}</p>`;
     
     $('#js--button-edit-customer').show();
     $('#js--button-save-customer').hide();
@@ -36,9 +36,9 @@ function showCustomer(customer) {
     
     // Edit customer
     document.getElementById("js--button-edit-customer").onclick = function() {
-        document.getElementById('name-info').innerHTML = `Name:<br/><input id="form-name" value='${customer.name}' />`;
+        document.getElementById('name-info-c').innerHTML = `Name:<br/><input id="form-name-c" value='${customer.name}' />`;
         document.getElementById('mail-info').innerHTML = `E-mail:<br/><input id="form-mail" value='${customer.email}' />`;
-        document.getElementById('desc-info').innerHTML = `Description:<br/><textarea id="form-desc" rows="6" cols="70">${customer.description}</textarea>`;
+        document.getElementById('desc-info-c').innerHTML = `Description:<br/><textarea id="form-desc-c" rows="6" cols="70">${customer.description}</textarea>`;
 
         $('#js--button-edit-customer').hide();
         $('#js--button-save-customer').show();
@@ -48,16 +48,16 @@ function showCustomer(customer) {
     // Save customer
     document.getElementById("js--button-save-customer").onclick = function() {
 
-        let name = $("#form-name").val();
+        let name = $("#form-name-c").val();
         let email = $("#form-mail").val();
-        let description = $("#form-desc").val();
+        let description = $("#form-desc-c").val();
 
         putCustomer(name, email,description);
         console.log('save');
         
-        document.getElementById('name-info').innerHTML = `Name:<br/><p id="form-name"></p>`;
+        document.getElementById('name-info-c').innerHTML = `Name:<br/><p id="form-name-c"></p>`;
         document.getElementById('mail-info').innerHTML = `E-mail:<br/><p id="form-mail"></p>`;
-        document.getElementById('desc-info').innerHTML = `Description:<br/><p id="form-desc"></p>`;
+        document.getElementById('desc-info-c').innerHTML = `Description:<br/><p id="form-desc-c"></p>`;
 
         $('#js--button-edit-customer').show();
         $('#js--button-save-customer').hide();
