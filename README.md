@@ -10,9 +10,9 @@ FDPM is a web application running in the browser and backend is handled by Java 
 * The WEB folder contains the website needs to be deployed also
 * Enjoy!
 # Team SoftWear memebers
-* Markus Pikkanen https://github.com/makkelip
-* Jenna Kopra https://github.com/JennaMetro
-* Jasmin Lehtinen https://github.com/JazzNomics
-* Sara Imbert https://github.com/imsara
-* Khang Nguyen https://github.com/khang6294
-* Khoa Pham https://github.com/KENJIFAM
+* [Markus Pikkanen](https://github.com/makkelip)
+* [Jenna Kopra](https://github.com/JennaMetro)
+* [Jasmin Lehtinen](https://github.com/JazzNomics)
+* [Sara Imbert](https://github.com/imsara)
+* [Khang Nguyen](https://github.com/khang6294)
+* [Khoa Pham](https://github.com/KENJIFAM)
