@@ -60,7 +60,7 @@ public class OutfitFacadeREST extends AbstractFacade<Outfit> {
     public void edit(@PathParam("id") Long id, Outfit entity) {
         super.edit(entity);
     }
-    
+
     //ADDS
     @PUT
     @Path("{oId}/product/{pId}")
@@ -71,7 +71,7 @@ public class OutfitFacadeREST extends AbstractFacade<Outfit> {
         o.addProduct(product);
         em.persist(o);
     }
-    
+
     //DELETES
     @PUT
     @Path("{oId}/dproduct/{pId}")
@@ -88,7 +88,7 @@ public class OutfitFacadeREST extends AbstractFacade<Outfit> {
     public void remove(@PathParam("id") Long id) {
         super.remove(super.find(id));
     }
-    
+
     //SHOWS
     @GET
     @Path("{oId}/products")
@@ -97,7 +97,7 @@ public class OutfitFacadeREST extends AbstractFacade<Outfit> {
         Outfit outfit = this.find(outfitId);
         return outfit.getProducts();
     }
-    
+
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})

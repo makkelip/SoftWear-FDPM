@@ -33,7 +33,6 @@ import javax.persistence.OneToMany;
  * @author Markus
  */
 @Entity
-//@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id", scope = Customer.class)
 public class Customer implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,22 +49,21 @@ public class Customer implements Serializable {
     private List<Product> products;
 
     @ManyToMany
-    //@JsonManagedReference(value = "account-customer-ref")
     private List<Account> accounts;
 
     //ADDS
     public void addProduct(Product p) {
-        if(!products.contains(p)){
-        products.add(p);
-        p.setCustomer(this);
+        if (!products.contains(p)) {
+            products.add(p);
+            p.setCustomer(this);
+        }
     }
-    }
-    
+
     public void addAccount(Account a) {
-        if(!accounts.contains(a)){
-        accounts.add(a);
-        a.addCustomer(this);
-    }
+        if (!accounts.contains(a)) {
+            accounts.add(a);
+            a.addCustomer(this);
+        }
     }
 
     //DELETES

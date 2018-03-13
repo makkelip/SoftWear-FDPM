@@ -70,6 +70,7 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     public void edit(@PathParam("id") Long id, Customer entity) {
         super.edit(entity);
     }
+
     //ADDS
     @PUT
     @Path("{cId}/product/{pId}")
@@ -91,7 +92,7 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         account.addCustomer(customer);
         em.persist(account);
     }
-    
+
     //DELETES
     @PUT
     @Path("{cId}/dproduct/{pId}")
@@ -136,7 +137,7 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         Customer customer = this.find(customerId);
         return customer.getProducts();
     }
-    
+
     @GET
     @Path("{cId}/accounts")
     @Produces({MediaType.APPLICATION_JSON})

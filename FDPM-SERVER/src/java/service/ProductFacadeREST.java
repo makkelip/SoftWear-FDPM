@@ -16,7 +16,6 @@
  */
 package service;
 
-import java.util.Iterator;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -93,7 +92,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         p.setName(name);
         em.persist(p);
     }
-    
+
     @PUT
     @Path("{id}/description/{desc}")
     public void editDescription(@PathParam("id") Long id, @PathParam("desc") String desc) {
@@ -101,7 +100,7 @@ public class ProductFacadeREST extends AbstractFacade<Product> {
         p.setDescription(desc);
         em.persist(p);
     }
-    
+
     //ADDS
     @PUT
     @Path("{pId}/color/{cId}")

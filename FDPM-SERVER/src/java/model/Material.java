@@ -52,7 +52,7 @@ public class Material implements Serializable {
             p.addMaterial(this);
         }
     }
-    
+
     //DELETES
     public void deleteProduct(Product p) {
         while (p.getMaterials().contains(this)) {

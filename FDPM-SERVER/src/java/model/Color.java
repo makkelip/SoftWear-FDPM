@@ -18,7 +18,6 @@ package model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
-import static java.lang.System.out;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
@@ -65,7 +64,7 @@ public class Color implements Serializable {
             p.addColor(this);
         }
     }
-    
+
     //DELETES
     public void deleteProject(Project p) {
         while (p.getColors().contains(this)) {
@@ -77,9 +76,9 @@ public class Color implements Serializable {
     public void deleteProduct(Product p) {
         while (p.getColors().contains(this)) {
             p.deleteColor(this);
-             products.remove(p);
+            products.remove(p);
         }
-        
+
     }
 
     //GETTERS

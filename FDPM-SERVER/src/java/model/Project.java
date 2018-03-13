@@ -50,7 +50,6 @@ public class Project implements Serializable {
     private List<Product> products;
 
     @ManyToMany
-    //@JsonManagedReference(value = "color-project-ref")
     private List<Color> colors;
 
     //ADDS
@@ -79,7 +78,7 @@ public class Project implements Serializable {
     public void deleteProduct(Product p) {
         this.products.remove(p);
         p.setProject(null);
-           }
+    }
 
     //GETTERS
     public List<Long> getProductsID() {

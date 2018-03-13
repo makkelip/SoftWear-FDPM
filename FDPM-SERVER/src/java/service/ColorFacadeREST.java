@@ -91,7 +91,7 @@ public class ColorFacadeREST extends AbstractFacade<Color> {
         color.addProduct(product);
         em.persist(color);
     }
-    
+
     //DELETES
     @PUT
     @Path("{cId}/dproduct/{pId}")
