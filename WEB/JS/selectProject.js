@@ -17,12 +17,18 @@ const loadSelectProject = () => {
         }
         
         for (let project of projects) {
-            $("body").one("click", "#" + project.id, function(){
-                $("section").load("viewProject.html #js--view-project");
+            document.getElementById("" + project.id).onclick = function() {
                 projectId = project.id;
-                $.getScript("JS/viewProject.js");
-            });
-            if (projectId == project.id) {break;}
+                if ($('#js--view-project').length == 0) {
+                  $.get('viewProject.html', function(data) {
+                    section.append(data);
+                    $.getScript('JS/viewProject.js', () => loadProject());
+                  });
+                } else {
+                  loadProject();
+                }
+                loadSection($('#js--view-project'));
+            };
         }
         console.log(projectsElement);
     };
@@ -36,7 +42,7 @@ const loadSelectProject = () => {
     hide(document.getElementById('prev-project'));
     hide(document.getElementById('next-project'));
 
-    const showItems = () => {
+    function showItems() {
 
         const items = $(".projectItems");
         console.log('show-project');
@@ -76,10 +82,13 @@ const loadSelectProject = () => {
             [].forEach.call(items, hide);
             activeItems.forEach(show);
         }
-    };
+    }
 
     fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.project")
         .then(response => response.json())
-        .then(json => {listProjects(json); showItems()})
+        .then(json => {
+            listProjects(json); 
+            showItems();
+        })
         .catch(error => console.log(error));
 };

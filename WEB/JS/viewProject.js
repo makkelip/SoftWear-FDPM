@@ -1,22 +1,24 @@
-$(document).ready(function() {
+const loadProject = () => {
+
     fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.project/" + projectId)
         .then(response => response.json())
-        .then(json => loadProject(json))
+        .then(json => showProject(json))
         .catch(error => console.log(error));
-});
+    
+};
 
-function loadProject(project) {
+function showProject(project) {
     let colorList = [];
     
     //console.log(project.name);
-    $('#form-name').text(project.name);
-    $('#form-startdate').text(project.startingDate);
-    $('#form-enddate').text(project.endingDate);
-    $('#form-cover-percentage').text(project.coverPercent);
-    $('#form-desc').text(project.description);
+    $('#name-info').html(`Name:<br/><p id="form-name">${project.name}</p>`);
+    $('#startdate-info').html(`Starting date:<br/><p id="form-startdate">${project.startingDate}</p>`);
+    $('#enddate-info').html(`Ending date:<br/><p id="form-enddate">${project.endingDate}</p>`);
+    $('#cover-percentage-info').html(`Cover percentage:<br/><p id="form-cover-percentage">${project.coverPercent}</p>`);
+    $('#desc-info').html(`Description:<br/><p id="form-desc">${project.description}</p>`);
 
     // ProductID doesn't seem to work
-    $('#form-products').text(project.productsID);
+    $('#products-info').html(`Products:<br/><p id="form-products">${project.productsID}</p>`);
 
     // View colors
     let colorsContainer = $("#form-colors");
@@ -35,10 +37,21 @@ function loadProject(project) {
     
     console.log(colorList);
 
-    //Loads the delete project script
-    $.getScript("JS/deleteProject.js");
-
-    $('#js--button-edit-project').click(function() {
+    //Delete project
+    document.getElementById("js--delete-project").onclick = function() {
+        fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.project/" + projectId, {
+            'method': 'DELETE'
+        })
+            .then(response => console.log('Success', response))
+            .then(result => {
+                loadSection($('#js--select-project'));
+                loadSelectProject();
+            })
+            .catch(error => console.error(error));
+    };
+    
+    // Edit project
+    document.getElementById("js--button-edit-project").onclick = function() {
         $('#name-info').html(`Name:</br><input id="form-name" value='${project.name}' />`);
         $('#startdate-info').html(`Starting date:</br><input id="form-startdate" value='${project.startingDate}' />`);
         $('#enddate-info').html(`Ending date:</br><input id="form-enddate" value='${project.endingDate}'/>`);
@@ -49,71 +62,83 @@ function loadProject(project) {
         $('#products-info').html(`Products:</br><input id="form-products" value='${project.productsID}' />`);
         
         // Edit colors
-        colorsContainer.append(
-        `<div id="addColor" style="display:inline-block; margin: 8px; text-align: center;">
-            <div style="background-color: black; height: 40px; width: 40px; margin-bottom: 3px; border-radius: 10px; color: white; font-size: 38px;">
-                +
-            </div>
-            Add
-        </div>
-        <div id="listColors"></div>`);
-        
-        // Add color
-        $('#addColor').click(function() {
-            let listColors = function (colors) {
-                console.log(colors);
-                const colorsElement = $(".color-container-flex");
-                $('.list-box').show();
-                colorsElement.html("");
-                if (colorsElement === null){
-                    throw new Error("No Color yet!");
-                } else {
-                    for (let color of colors) {
-                        colorsElement.append(
-                            `<div id="add${color.id}" class="grow color-card">
-                                <div class="color" style="background:${color.hexColorValue}"></div>
-                                <div class="color-info">
-                                    <p class="color-info-name">${color.name}</p>
-                                    <p class="color-info-pantone">${color.pantone}</p>
-                                    <p class="color-info-hex">${color.hexColorValue}</p>
-                                </div>
-                            </div>`);
-                    }
-                    for (let color of colors) {
-                        $("#add" + color.id).click(function() {
-                            if (!colorList.some(c => c.id == color.id)) {
-                                colorList.push({id: color.id});
-                                $('.list-box').hide();
-                            } else {
-                                alert('This color has already chosen!');
-                            }
-                            console.log(colorList);
-                        });
-                    }
-                }
-            };
-            fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.color")
-                .then(response => response.json())
-                .then(json => listColors(json))
-                .catch(error => console.log(error));
-        });
-        
-        // Remove color
-        for (let color of project.colors) {
-            $("#" + color.id).click(function() {
-                colorList = colorList.filter(c => c.id != color.id);
-                $("#" + color.id).remove();
-                console.log(colorList);
-            });
-        }
+        function editColor() {
+            const addColor = `<div id="addColor" style="display:inline-block; margin: 8px; text-align: center;">
+                <div style="background-color: black; height: 40px; width: 40px; margin-bottom: 3px; border-radius: 10px; color: white; font-size: 38px;">
+                    +
+                </div>
+                Add
+            </div>`;
+            colorsContainer.append(addColor);
+            
+            // Remove color
+            for (let color of colorList) {
+                $("#" + color.id).click(function() {
+                    colorList = colorList.filter(c => c.id != color.id);
+                    $("#" + color.id).remove();
+                    console.log(colorList);
+                });
+            }
 
+            // Add color
+            document.getElementById("addColor").onclick = function() {
+                let listColors = function (colors) {
+                    console.log(colors);
+                    const colorsElement = $(".color-container-flex");
+                    $('.list-box').show();
+                    colorsElement.html("");
+                    if (colorsElement === null){
+                        throw new Error("No Color yet!");
+                    } else {
+                        for (let color of colors) {
+                            colorsElement.append(
+                                `<div id="add${color.id}" class="grow color-card">
+                                    <div class="color" style="background:${color.hexColorValue}"></div>
+                                    <div class="color-info">
+                                        <p class="color-info-name">${color.name}</p>
+                                        <p class="color-info-pantone">${color.pantone}</p>
+                                        <p class="color-info-hex">${color.hexColorValue}</p>
+                                    </div>
+                                </div>`);
+                        }
+                        for (let color of colors) {
+                            document.getElementById("add" + color.id).onclick = function() {
+    //                        $("#add" + color.id).click(function() {
+                                if (!colorList.some(c => c.id == color.id)) {
+                                    colorList.push({id: color.id});
+                                    $('#addColor').remove();
+                                    colorsContainer.append(
+                                        `<div id="${color.id}" style="display:inline-block; margin: 8px; text-align: center;">
+                                            <div style="background-color:${color.hexColorValue}; height: 40px; width: 40px; margin-bottom: 3px; border-radius: 10px">
+                                            </div>
+                                            ${color.name}
+                                        </div>`
+                                    );
+                                    $('.list-box').hide();
+                                    editColor();
+                                } else {
+                                    alert('This color has already chosen!');
+                                }
+                                console.log(colorList);
+                            };
+                        }
+                    }
+                };
+                fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.color")
+                    .then(response => response.json())
+                    .then(json => listColors(json))
+                    .catch(error => console.log(error));
+            };
+        }
+        editColor();
+        
         $('#js--button-edit-project').hide();
         $('#js--button-save-project').show();
         console.log(project);
-        throw new Error('Stop');
-    });
-
-    $('#js--button-save-project').click(function() {
+    };
+    
+    // Save project
+    document.getElementById("js--button-save-project").onclick = function() {
 
         let name = $("#form-name").val();
         let startingDate = $("#form-startdate").val();
@@ -124,12 +149,15 @@ function loadProject(project) {
         let description = $("#form-desc").val();
 
         putProject(name, startingDate, endingDate, coverPercent, colors, productsID, description);
-        console.log(name);
+        console.log('save-p');
 
-        $("section").load("viewProject.html #js--view-project");
-        $.getScript("JS/viewProject.js");
-        throw new Error('Stop');
-    });
+        
+        $('#js--button-edit-project').show();
+        $('#js--button-save-project').hide();
+        
+        loadProject();
+        loadSection($('#js--view-project'));
+    };
 }
 
 function putProject(name, startingDate, endingDate, coverPercent, colors, productsID, description) {

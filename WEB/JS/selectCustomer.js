@@ -84,7 +84,11 @@ const loadSelectCustomer = () => {
     }
  
     fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.customer")
-            .then(response => response.json())
-            .then(json => {listCustomers(json); showItems(); console.log('fetch-cus')})
-            .catch(error => console.log(error));
+        .then(response => response.json())
+        .then(json => {
+            listCustomers(json); 
+            showItems(); 
+            console.log('fetch-cus');
+        })
+        .catch(error => console.log(error));
 };
