@@ -1,5 +1,5 @@
 $('#js--button-submit-customer').on('click', function() {
-    
+
     let form = document.getElementById('js--form-id-customer');
     let name = $('#name').val();
     let email = $('#email').val();
@@ -17,7 +17,9 @@ $('#js--button-submit-customer').on('click', function() {
         'headers': new Headers({'Content-Type': 'application/json'})
     })
         .then(response => console.log('Success', response))
+        .then(loadSelectCustomer())
         .catch(error => console.error(error));
     form.reset();
     console.log('created');
-});
+    loadSection($('#js--select-product'));
+  });
