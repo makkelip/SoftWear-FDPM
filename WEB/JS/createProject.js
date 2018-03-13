@@ -28,5 +28,6 @@ function postProject(name, startingDate, endingDate, description) {
       })
     })
     .then(response => console.log('Success', response))
+    .then(result => loadSelectProject())
     .catch(error => console.error(error));
 };
