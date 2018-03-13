@@ -115,14 +115,13 @@ $(document).ready(function() {
   });
   //view single material
   body.on('click', '.js--button-view-material', function() {
+    materialId = this.id;
     if ($('#js--view-material').length == 0) {
       $.get('viewSingleMaterial.html', function(data) {
         section.append(data);
-        materialId = this.id;
         $.getScript('JS/viewSingleMaterial.js', () => loadSingleMaterial());
       });
     } else {
-      materialId = this.id;
       loadSingleMaterial();
     }
     loadSection($('#js--view-material'));
