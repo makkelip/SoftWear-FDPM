@@ -9,6 +9,7 @@ const loadProduct = function() {
     if (json.productGroup != null) {
       $('.js--product-group').text(json.productGroup.name);
     }
+    $('.js--product-colors').empty();
     //colors
     if (json.colors.length > 0) {
       let colorsContainer = document.querySelector('.js--product-colors');
@@ -29,26 +30,37 @@ const loadProduct = function() {
         materialsContainer.innerHTML +=
           `<material id=${material.id}>${material.name}</material>`;
       }
+    } else {
+      $('.js--product-materials').empty();
     }
-    //customer
     if (json.customer != null) {
       $('.js--product-customer').text(json.customer.name);
+    } else {
+      $('.js--product-customer').text('');
     }
     //project
     if (json.project != null) {
       $('.js--product-project').text(json.project.name);
+    } else {
+      $('.js--product-project').text('');
     }
     //outfit
     if (json.outfit != null) {
       $('.js--product-outfit').text(json.outfit.name);
+    } else {
+      $('.js--product-outfit').text('');
     }
     //priceGroup
     if (json.priceGroup != null) {
       $('.js--product-pricegroup').text(json.priceGroup.name);
+    } else {
+      $('.js--product-pricegroup').text('');
     }
     //description
     if (json.description != null) {
       $('.js--product-description').text(json.description);
+    } else {
+      $('.js--product-description').text('');
     }
   })
   .catch(error => console.log('Error: ' + error));
