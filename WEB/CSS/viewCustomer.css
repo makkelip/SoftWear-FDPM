@@ -13,12 +13,12 @@
 
 .infobox{
     display: grid;
-    height: 30em;
+    height: 20em;
     width: auto;
     max-width: 70em;
     background-color: var(--info-box-background);
     padding: 1em;
-    grid-template-rows: 15% 15% 65%;
+    grid-template-rows: 20% 20% 60%;
     grid-template-columns: 100%;
     grid-template-areas:"name "
                         "email"
@@ -53,4 +53,14 @@
 
 p{
     font-weight: normal;
+}
+
+.button-view-customer {
+  padding: 5px;
+  border: 1px solid #D9E7E0;
+  box-shadow: 1px 1px 2px black;
+  background-color: #D9E7E0;
+  font-size: 0.9em;
+  margin-left: 2em;
+  width: 60px;
 }

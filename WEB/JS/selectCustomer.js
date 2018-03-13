@@ -14,13 +14,20 @@ const loadSelectCustomer = () => {
                  <div>Description:<br> ${customer.description}</div></a>`;
             console.log(customer.id);
         }
+        
         for (let customer of customers) {
-            //document.getElementById(""+customer.id).onclick = () => {
-            $("body").one("click", "#" + customer.id, function(){
-                $("section").load("viewCustomer.html #js--view-customer");
+            document.getElementById("" + customer.id).onclick = function() {
                 customerId = customer.id;
-                $.getScript("JS/viewCustomer.js");
-            });
+                if ($('#js--view-customer').length == 0) {
+                  $.get('viewCustomer.html', function(data) {
+                    section.append(data);
+                    $.getScript('JS/viewCustomer.js', () => loadCustomer());
+                  });
+                } else {
+                  loadCustomer();
+                }
+                loadSection($('#js--view-customer'));
+            };
         }
         console.log(customersElement);
     };
