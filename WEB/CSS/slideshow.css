@@ -1,9 +1,9 @@
 :root {
-  --customer-box: #D9E7E0;
-  --customer-box-hover: #CFF1C1;
+  --customer-box: #F4F1BB;
+  --customer-box-hover: #FF8A5B;
   --section-slideshow-link: #000;
   --section-slideshow-link-hover: #000;
-  --slideshow-button: #D9E7E0;
+  --slideshow-button: #0C1821;
 }
 
 /* Slideshow layout */
@@ -27,29 +27,55 @@
   height: 350px;
   width: 250px;
   margin: 10px;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: var(--customer-box);
-  box-shadow: 1px 1px 5px 1px #444444;
 }
 
+/* Single text area (ex. name) */
 .all-boxes > a > div {
-  padding: 20px;
+  padding: 10px;
+  word-wrap: break-word;
+  max-height: 3em;
+  overflow: hidden;
 }
 
+/* Hover effect for boxes */
 .all-boxes > a:hover {
   background-color: var(--customer-box-hover);
+  box-shadow: 1px 1px 5px #444444;
+  transform: scale(1.04);
+  transition: all .5s ease-in-out;
+}
+
+/* Describes the content */
+.slideshow-describer {
+  text-align: left;
+  font-size: 0.8em;
+}
+
+/* Information text */
+.slideshow-text {
+  text-align: center;
+}
+
+/* Name highlighted */
+.slideshow-name-highlight {
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 /* Slideshow buttons */
 .section-slideshow > button {
   padding: 5px;
   border: 1px solid var(--slideshow-button);
-  box-shadow: 1px 1px 2px black;
+  border-radius: 2px;
+  box-shadow: 1px 1px 2px #C4C4C4;
   background-color: var(--slideshow-button);
-  font-size: 0.9em;
+  color: white;
+  font-size: 0.8em;
 }
 
-/* Customer information link colors */
+/* Information link colors */
 .section-slideshow a:link {
   color: var(--section-slideshow-link);
 }
@@ -60,6 +86,4 @@
 
 .section-slideshow a:hover {
   color: var(--section-slideshow-link-hover);
-  transform: scale(1.04);
-  transition: all .2s ease-in-out;
 }

@@ -1,9 +1,9 @@
 :root {
   --aside: inherit;
-  --aside-button: #414141;
+  --aside-button: #0C1821;
   --aside-content-link: #FFF;
   --aside-content-link-hover: #D6F9DD;
-  --create-new: #414141;
+  --create-new: #0C1821;
   --create-new-hover: #000;
 }
 
@@ -57,7 +57,7 @@
 .aside-content > a {
   background-color: var(--aside-button);
   border: 1px solid var(--aside-button);
-  border-radius: 3px;
+  border-radius: 1px;
   margin: 5px;
   padding: 10px;
 }

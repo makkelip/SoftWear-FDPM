@@ -1,12 +1,12 @@
 :root {
   /* Layout */
-  --header: #414141;
-  --footer: #414141;
+  --header: #0C1821;
+  --footer: #0C1821;
   /* Header */
   --header-link: #FFF;
   --header-link-hover: #D6F9DD;
   /* Section */
-  --main-content-link: #414141;
+  --main-content-link: #131515;
   --main-content-link-hover: #000;
   /* Footer */
   --footer-text: #FFF;

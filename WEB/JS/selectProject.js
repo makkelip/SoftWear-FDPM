@@ -9,13 +9,17 @@ const loadSelectProject = () => {
         for (let project of projects) {
             projectsElement.innerHTML +=
                 `<a href="#" class="boxitem projectItems" id="${project.id}">
-                <div>Project name:<br> ${project.name}</div>
-                <div>Starting date:<br> ${project.startingDate}</div>
-                <div>Delivery date:<br> ${project.endingDate}</div>
-                <div>Description:<br> ${project.description}</div></a>`;
+                <div class="slideshow-describer">Project name:</div>
+                <div class="slideshow-text slideshow-name-highlight"> ${project.name}</div>
+                <div class="slideshow-describer">Starting date:</div>
+                <div class="slideshow-text"> ${project.startingDate}</div>
+                <div class="slideshow-describer">Delivery date:</div>
+                <div class="slideshow-text"> ${project.endingDate}</div>
+                <div class="slideshow-describer">Description:</div>
+                <div class="slideshow-text"> ${project.description}</div></a>`;
             console.log(project.id);
         }
-        
+
         for (let project of projects) {
             document.getElementById("" + project.id).onclick = function() {
                 projectId = project.id;
@@ -87,7 +91,7 @@ const loadSelectProject = () => {
     fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.project")
         .then(response => response.json())
         .then(json => {
-            listProjects(json); 
+            listProjects(json);
             showItems();
         })
         .catch(error => console.log(error));
