@@ -23,7 +23,7 @@ $(function(){
 
     materialset = new Object();
 
-    $('body').one('click','#create-material',function(event){
+    $('body').on('click','#create-material',function(event){
         event.preventDefault();
         var materialname = document.getElementById('material-name').value;
         materialset.name = materialname;
@@ -32,7 +32,8 @@ $(function(){
             'body': JSON.stringify(materialset),
             'headers': new Headers({'Content-Type': 'application/json'})
         }).then(response => console.log('Success', response))
+        .then(loadMaterials())
         .catch(error => console.log('error', error));
-        loadMaterials();
+
     })
 });
