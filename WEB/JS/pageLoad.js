@@ -24,9 +24,10 @@ $(document).ready(function() {
   //Select customer
   body.on('click', '.js--button-select-customer', function() {
     if ($('#js--select-customer').length == 0) {
+        console.log('customer');
       $.get('selectCustomer.html', function(data) {
         section.append(data);
-        $.getScript('JS/selectCustomer.js', () => loadSelectCustomer());
+        $.getScript('JS/selectCustomer.js', () => {loadSelectCustomer(); console.log('cus-js')});
       });
     } else {
       loadSelectCustomer();
