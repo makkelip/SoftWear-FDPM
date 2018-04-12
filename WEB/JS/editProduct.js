@@ -15,7 +15,7 @@ $(function(){
                 colorChosen.addEventListener('click', function(){
                   let id = colorChosen.id;
                   console.log(id);
-                  fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.product/" + productId + "/color/" + id, {
+                  fetch(url + 'model.product/' + productId + "/color/" + id, {
                     'method': 'PUT'
                   })
                   .then(fetchProduct(productId))
@@ -26,14 +26,14 @@ $(function(){
             /*
             var colorChosen = document.getElementsByClassName().value;
             colorsChosen.color =
-            fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.product/1/color/2",{
+            fetch(url + 'model.product/1/color/2',{
                 'method': 'PUT',
                 'headers': new Headers({'Content-Type': 'application/json'})
             }).then(result => result.json())
             .then(response => console.log('Success', response))
             .catch(error => console.log('error', error));
             */
-        fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.color")
+        fetch(url + 'model.color')
             .then(response => response.json())
         .then(json => colorDisplay(json))
         .catch(error => console.log(error));
@@ -54,7 +54,7 @@ $(function(){
                     document.getElementById("product-materials-text-field").textContent += `, ${materialChosen.textContent}`;
                 })});
     }
-        fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.material")
+        fetch(url + 'model.material')
             .then(response => response.json())
         .then(json => materialDisplay(json))
         .catch(error => console.log(error));
@@ -75,7 +75,7 @@ $(function(){
                     document.getElementById("customer-text-field").textContent += `, ${customerChosen.textContent}`;
                 })});
         }
-        fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.customer")
+        fetch(url + 'model.customer')
             .then(response => response.json())
         .then(json => customerDisplay(json))
         .catch(error => console.log(error));
@@ -96,7 +96,7 @@ $(function(){
                     document.getElementById("project-text-field").textContent += `, ${projectChosen.textContent}`;
                 })});
         }
-        fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.project")
+        fetch(url + 'model.project')
             .then(response => response.json())
         .then(json => projectDisplay(json))
         .catch(error => console.log(error));
@@ -117,7 +117,7 @@ $(function(){
                     document.getElementById("outfit-text-field").textContent += `, ${outfitChosen.textContent}`;
                 })});
         }
-        fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.outfit")
+        fetch(url + 'model.outfit')
             .then(response => response.json())
         .then(json => outfitDisplay(json))
         .catch(error => console.log(error));
@@ -138,7 +138,7 @@ $(function(){
                     document.getElementById("product-price-group-text-field").textContent += `, ${productPriceGroupChosen.textContent}`;
                 })});
         }
-        fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.pricegroup")
+        fetch(url + 'model.pricegroup')
             .then(response => response.json())
         .then(json => productPriceGroupDisplay(json))
         .catch(error => console.log(error));
@@ -159,7 +159,7 @@ $(function(){
                     document.getElementById("product-group-text-field").textContent += `, ${productGroupChosen.textContent}`;
                 })});
         }
-        fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.product")
+        fetch(url + 'model.product')
             .then(response => response.json())
         .then(json => productGroupDisplay(json))
         .catch(error => console.log(error));

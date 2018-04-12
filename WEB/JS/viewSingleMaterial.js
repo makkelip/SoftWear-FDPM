@@ -1,5 +1,5 @@
 const loadSingleMaterial = function() {
-  fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.material/' + materialId)
+  fetch(url + 'model.material/' + materialId)
     .then((response) => response.json())
     .then(function(json) {
       //name
@@ -9,7 +9,7 @@ const loadSingleMaterial = function() {
       previousProduct.innerHTML = '';
       for (let i = 0; i < json.productsID.length; i++) {
         console.log(json.productsID[i]);
-        fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.product/' + json.productsID[i])
+        fetch(url + 'model.product/' + json.productsID[i])
           .then((response) => response.json())
           .then(function(json) {
             previousProduct.innerHTML += `<p>${json.name}</p>`;

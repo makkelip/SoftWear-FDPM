@@ -27,7 +27,7 @@ $(function(){
         event.preventDefault();
         var materialname = document.getElementById('material-name').value;
         materialset.name = materialname;
-        fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.material",{
+        fetch(url + 'model.material',{
             'method': 'POST',
             'body': JSON.stringify(materialset),
             'headers': new Headers({'Content-Type': 'application/json'})

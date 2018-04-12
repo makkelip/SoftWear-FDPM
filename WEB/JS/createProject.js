@@ -20,7 +20,7 @@ function postProject(name, startingDate, endingDate, description) {
     'description': description
   };
 
-  fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.project', {
+  fetch(url + 'model.project', {
       'method': 'POST',
       'body': JSON.stringify(data),
       'headers': new Headers({

@@ -1,5 +1,5 @@
 const loadEditCustomerList = function(editItem) {
-  fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.' + editItem)
+  fetch(url + 'model.' + editItem)
   .then(response => response.json())
   .then(function(respJson) {
     let asideContent = document.querySelector('.js--aside-product');
@@ -20,7 +20,7 @@ const loadEditCustomerList = function(editItem) {
         //update relation!!!
         if (editItem == 'material' || editItem == 'color') {
           //update of many to many relation
-          fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.product/' +
+          fetch(url + 'model.product/' +
           productId + '/' + editItem + 's')
           .then(response => response.json())
           .then(function(respJson) {
@@ -42,7 +42,7 @@ const loadEditCustomerList = function(editItem) {
 
 const changeRelation = function(editItem, itemId) {
   console.log(editItem + ' ' +  itemId);
-  fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.product/' +
+  fetch(url + 'model.product/' +
   productId + '/' + editItem + '/' + itemId,
   {'method': 'PUT'})
   .then(function() {
@@ -53,7 +53,7 @@ const changeRelation = function(editItem, itemId) {
 
 const delRelationToManyEntity = function(editItem, itemId) {
   console.log(editItem + ' ' +  itemId);
-  fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.product/' +
+  fetch(url + 'model.product/' +
   productId + '/d' + editItem + '/' + itemId,
   {'method': 'PUT'})
   .then(function() {
@@ -64,7 +64,7 @@ const delRelationToManyEntity = function(editItem, itemId) {
 
 //name
 $('.js--button-edit-product-name').on('click', function() {
-  fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.product/' +
+  fetch(url + 'model.product/' +
   productId + '/name/' + $('.js--name-edit-product-name').val(), {
     'method': 'PUT'
   })
@@ -113,7 +113,7 @@ $('#product-price-group').on('click', function() {
 });
 //description
 $('.js--button-edit-product-description').on('click', function() {
-  fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.product/' +
+  fetch(url + 'model.product/' +
   productId + '/description/' + $('.js--description-edit-product-description').val(), {
     'method': 'PUT'
   })

@@ -1,5 +1,5 @@
 const loadMaterials = function() {
-  fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.material')
+  fetch(url + 'model.material')
     .then(response => response.json())
     .then(json => listMaterials(json))
     .catch(error => console.log(error));

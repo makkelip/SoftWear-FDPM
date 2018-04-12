@@ -1,10 +1,10 @@
 const loadProject = () => {
 
-    fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.project/" + projectId)
+    fetch(url + 'model.project/' + projectId)
         .then(response => response.json())
         .then(json => showProject(json))
         .catch(error => console.log(error));
-    
+
 };
 
 function showProject(project) {
@@ -12,7 +12,7 @@ function showProject(project) {
     $('.list-box').hide();
     $('#js--button-edit-project').show();
     $('#js--button-save-project').hide();
-    
+
     //console.log(project.name);
     $('#name-info').html(`Name:<br/><p id="form-name">${project.name}</p>`);
     $('#startdate-info').html(`Starting date:<br/><p id="form-startdate">${project.startingDate}</p>`);
@@ -37,12 +37,12 @@ function showProject(project) {
           colorList.push({id: color.id});
         }
     }
-    
+
     console.log(colorList);
 
     //Delete project
     document.getElementById("js--delete-project").onclick = function() {
-        fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.project/" + projectId, {
+        fetch(url + 'model.project/' + projectId, {
             'method': 'DELETE'
         })
             .then(response => console.log('Success', response))
@@ -52,7 +52,7 @@ function showProject(project) {
             })
             .catch(error => console.error(error));
     };
-    
+
     // Edit project
     document.getElementById("js--button-edit-project").onclick = function() {
         $('#name-info').html(`Name:</br><input id="form-name" value='${project.name}' />`);
@@ -60,10 +60,10 @@ function showProject(project) {
         $('#enddate-info').html(`Ending date:</br><input id="form-enddate" value='${project.endingDate}'/>`);
         $('#cover-percentage-info').html(`Cover percentage:</br><input id="form-cover-percentage" value='${project.coverPercent}' />`);
         $('#desc-info').html(`Description:</br><textarea id="form-desc" rows="6" cols="70">${project.description}</textarea>`);
-        
+
         // Edit product doesn't work yet
         $('#products-info').html(`Products:</br><input id="form-products" value='${project.productsID}' />`);
-        
+
         // Edit colors
         function editColor() {
             const addColor = `<div id="addColor" style="display:inline-block; margin: 8px; text-align: center;">
@@ -73,7 +73,7 @@ function showProject(project) {
                 Add
             </div>`;
             colorsContainer.append(addColor);
-            
+
             // Remove color
             for (let color of colorList) {
                 $("#" + color.id).click(function() {
@@ -130,19 +130,19 @@ function showProject(project) {
                         }
                     }
                 };
-                fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.color")
+                fetch(url + 'model.color')
                     .then(response => response.json())
                     .then(json => listColors(json))
                     .catch(error => console.log(error));
             };
         }
         editColor();
-        
+
         $('#js--button-edit-project').hide();
         $('#js--button-save-project').show();
         console.log(project);
     };
-    
+
     // Save project
     document.getElementById("js--button-save-project").onclick = function() {
 
@@ -157,10 +157,10 @@ function showProject(project) {
         putProject(name, startingDate, endingDate, coverPercent, colors, productsID, description);
         console.log('save-p');
 
-        
+
         $('#js--button-edit-project').show();
         $('#js--button-save-project').hide();
-        
+
         loadProject();
         loadSection($('#js--view-project'));
     };
@@ -180,7 +180,7 @@ function putProject(name, startingDate, endingDate, coverPercent, colors, produc
   }
   console.log(data);
 
-  fetch("http://10.114.32.58:8080/FDPM-SERVER/sources/model.project/" + projectId, {
+  fetch(url + 'model.project/' + projectId, {
     'method': 'PUT',
     'body': JSON.stringify(data),
     'headers': new Headers({'Content-Type': 'application/json'})

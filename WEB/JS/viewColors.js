@@ -1,5 +1,5 @@
 const loadViewColors = function() {
-  fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.color')
+  fetch(url + 'model.color')
     .then(response => response.json())
     .then(function(colors) {
       console.log(colors);

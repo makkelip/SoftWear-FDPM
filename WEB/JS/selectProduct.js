@@ -1,5 +1,5 @@
 const loadSelectProduct = function() {
-  fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.product')
+  fetch(url + 'model.product')
     .then(response => response.json())
     .then(json => addAllProducts(json))
     .catch(error => console.log(error));

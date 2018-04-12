@@ -11,7 +11,7 @@ $('#js--button-submit-customer').on('click', function() {
         'description': description
     };
 
-    fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.customer', {
+    fetch(url + 'model.customer', {
         'method': 'POST',
         'body': JSON.stringify(data),
         'headers': new Headers({'Content-Type': 'application/json'})

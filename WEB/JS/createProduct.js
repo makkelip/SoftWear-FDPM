@@ -17,7 +17,7 @@ const postProduct = function(name, description) {
     'description': description
   };
 
-  fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.product', {
+  fetch(url + 'model.product', {
     'method': 'POST',
     'body': JSON.stringify(data),
     'headers': new Headers({'Content-Type': 'application/json'})

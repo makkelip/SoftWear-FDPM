@@ -1,5 +1,5 @@
 const loadProduct = function() {
-  fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.product/' + productId)
+  fetch(url + 'model.product/' + productId)
   .then(response => response.json())
   .then(function(json) {
     //IMAGE MISSING

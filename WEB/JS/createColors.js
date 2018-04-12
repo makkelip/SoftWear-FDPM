@@ -70,7 +70,7 @@ $(function() {
         colorset.hexColorValue = colorCode;
         colorset.name = colorName;
         colorset.pantone = colorPantone;
-        fetch('http://10.114.32.58:8080/FDPM-SERVER/sources/model.color', {
+        fetch(url + 'model.color', {
           'method': 'POST',
           'body': JSON.stringify(colorset),
           'headers': new Headers({
